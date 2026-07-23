@@ -1,0 +1,66 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+
+# MATLAB
+*.asv
+*.m~
+slprj/
+codegen/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# CST and large simulation binaries
+*.cst
+*.mod
+*.par
+*.bak
+*.tmp
+*.cache
+*.lock
+
+# General generated output
+build/
+dist/
+output/
+outputs/
+results/raw/
+
+# Keep intentionally curated public reports and figures
+!projects/**/report/*.pdf
+!projects/**/figures/*.png
+!projects/**/figures/*.jpg
+!projects/**/figures/*.jpeg
+!projects/**/figures/*.svg
