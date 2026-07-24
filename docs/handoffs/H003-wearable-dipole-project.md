@@ -3,8 +3,10 @@
 - **Handoff ID:** H003
 - **Date:** 2026-07-24
 - **Branch:** `feature/wearable-dipole-project`
-- **Pull request:** Pending
-- **Status:** Ready for review
+- **Pull request:** [#4](https://github.com/hmolhem/antenna-engineering-projects/pull/4)
+- **Status:** Merged
+- **Head commit:** `336eeace5dee5f7acbd2b367be812f8669489faa`
+- **Merge commit:** `5ca32e11dc181622997b4a4346aa3c1a88a98e4d`
 
 ## Purpose
 
@@ -66,6 +68,7 @@ Publish the second complete engineering project package in the antenna portfolio
 - Source and package searches found no student ID, course, instructor, grading, D2L, KSU-logo, or Persian maintenance comments.
 - Selected values were synchronized across the report, project README, result summaries, and handoff.
 - No `.cst` file or oversized file is included.
+- PR #4 was merged and the remote feature branch was deleted.
 
 ## Limitations and Follow-Up
 
@@ -76,4 +79,4 @@ Publish the second complete engineering project package in the antenna portfolio
 
 ## Rollback
 
-Revert the merged H003 pull-request commit. This removes the wearable project package and restores the previous project index and repository landing page without rewriting repository history.
+Revert merge commit `5ca32e11dc181622997b4a4346aa3c1a88a98e4d` to remove the wearable project package without rewriting repository history.
