@@ -1,0 +1,132 @@
+\section{Microstrip Patch Antenna Theory}
+\label{sec:microstrip-patch-theory}
+
+A rectangular microstrip patch antenna consists of a conducting patch printed on a thin dielectric
+substrate backed by a ground plane. In the dominant half-wave rectangular-patch mode, the patch is
+approximately resonant when its effective length is close to one half of the guided wavelength in the
+substrate. The physical length is slightly shorter than this half-wavelength value because fringing
+fields extend beyond the open patch edges. This transmission-line interpretation is consistent with the standard half-wavelength rectangular
+microstrip-antenna model, in which the patch behaves as a resonant, low-profile radiator with a
+broadside beam and typically narrow impedance bandwidth~\cite{stutzman2013antenna}.
+
+For the dominant \(\mathrm{TM}_{10}\)-like mode, the length dimension controls the resonant
+frequency most strongly, while the width affects radiation conductance, input resistance, bandwidth,
+and efficiency. The transmission-line design model gives the initial patch width as
+\begin{equation}
+W=
+\frac{c}{2f_0}
+\sqrt{\frac{2}{\varepsilon_r+1}},
+\label{eq:patch-width}
+\end{equation}
+where \(c\) is the speed of light, \(f_0\) is the target resonant frequency, and \(\varepsilon_r\) is
+the substrate relative permittivity.
+
+The effective dielectric constant is approximated by
+\begin{equation}
+\varepsilon_{\mathrm{eff}}
+=
+\frac{\varepsilon_r+1}{2}
++
+\frac{\varepsilon_r-1}{2}
+\left(1+12\frac{h}{W}\right)^{-1/2},
+\label{eq:patch-eeff}
+\end{equation}
+where \(h\) is the substrate thickness. The normalized fringing length extension is
+\begin{equation}
+\frac{\Delta L}{h}
+=
+0.412
+\frac{(\varepsilon_{\mathrm{eff}}+0.3)(W/h+0.264)}
+{(\varepsilon_{\mathrm{eff}}-0.258)(W/h+0.8)}.
+\label{eq:patch-delta-l}
+\end{equation}
+
+The effective resonant length is
+\begin{equation}
+L_{\mathrm{eff}}=
+\frac{c}{2f_0\sqrt{\varepsilon_{\mathrm{eff}}}},
+\label{eq:patch-leff}
+\end{equation}
+and the physical patch length is
+\begin{equation}
+L=L_{\mathrm{eff}}-2\Delta L.
+\label{eq:patch-length}
+\end{equation}
+
+\subsection{Ground Plane and Substrate Size}
+\label{subsec:ground-plane-theory}
+
+A finite ground plane is required in CST, even though the simple analytical model assumes a large
+ground plane. A common first-pass engineering rule is to extend the ground plane and substrate by
+approximately \(3h\) beyond the patch on each side, giving
+\begin{equation}
+W_g \approx W+6h, \qquad L_{g,\min}\approx L+6h.
+\label{eq:ground-rule}
+\end{equation}
+For an inset-fed model, the feed line also requires physical board length. Therefore, the CST model
+uses a practical feed-line extension \(L_f\) and the corresponding substrate length estimate
+\begin{equation}
+L_g \approx L+L_f+6h.
+\label{eq:ground-rule-with-feed}
+\end{equation}
+This value is a simulation starting point. The ground size can be increased later if edge diffraction or
+back radiation becomes excessive in the CST pattern.
+
+\subsection{Inset-Fed Microstrip-Line Matching Model}
+\label{subsec:inset-feed-theory}
+
+The selected feed topology for the initial single-patch CST model is an inset-fed microstrip line. This
+choice keeps the feed printed on the same substrate as the patch, is easy to document with top-view
+and cross-sectional CST screenshots, and provides a tunable impedance transformation by moving
+the feed point away from the radiating edge.
+
+The \(50~\Omega\) microstrip-feed width is obtained from the standard quasi-static microstrip-line
+relations. With
+\[
+    u=\frac{W_f}{h},
+\]
+the effective dielectric constant of the feed line is approximated by
+\begin{equation}
+\varepsilon_{\mathrm{eff},f}
+=
+\frac{\varepsilon_r+1}{2}
++
+\frac{\varepsilon_r-1}{2}
+\left(1+\frac{12}{u}\right)^{-1/2}.
+\label{eq:feed-eeff}
+\end{equation}
+For \(u\le1\),
+\begin{equation}
+Z_0=\frac{60}{\sqrt{\varepsilon_{\mathrm{eff},f}}}
+\ln\left(\frac{8}{u}+\frac{u}{4}\right),
+\label{eq:microstrip-z0-narrow}
+\end{equation}
+and for \(u>1\),
+\begin{equation}
+Z_0=\frac{120\pi}{\sqrt{\varepsilon_{\mathrm{eff},f}}
+\left[u+1.393+0.667\ln(u+1.444)\right]}.
+\label{eq:microstrip-z0-wide}
+\end{equation}
+The feed width \(W_f\) is then found by solving \(Z_0=50~\Omega\).
+
+The inset depth is estimated using the approximate input-resistance variation along the patch length,
+\begin{equation}
+R_{\mathrm{in}}(y_0)\approx R_{\mathrm{edge}}\cos^2\left(\frac{\pi y_0}{L}\right),
+\label{eq:inset-resistance}
+\end{equation}
+where \(y_0\) is measured inward from the radiating edge along the patch length. Solving for a target
+input resistance \(R_0=50~\Omega\) gives
+\begin{equation}
+y_0\approx \frac{L}{\pi}
+\cos^{-1}\left(\sqrt{\frac{R_0}{R_{\mathrm{edge}}}}\right).
+\label{eq:inset-depth}
+\end{equation}
+Because the edge resistance depends on the actual patch width, substrate, feed discontinuity, finite
+ground plane, and fringing fields, \(R_{\mathrm{edge}}\) is treated as a first-pass engineering estimate.
+The initial script uses \(R_{\mathrm{edge}}=300~\Omega\), then CST tuning will adjust the inset depth
+and inset gap to minimize \(S_{11}\) at \(f_0\).
+
+For traceability, the numerical implementation of the patch, feed-line, ground-plane, and inset-depth
+calculations is included in Appendix~\ref{app:patch-design-verification}. The Python source is given
+in Listing~\ref{lst:patch-design-python}, and the corresponding console output is reported in
+Listing~\ref{lst:patch-design-console}. This connects the theoretical model directly to the initial parameter set used in the CST model.

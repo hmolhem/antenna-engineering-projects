@@ -1,0 +1,180 @@
+\section{Two-Element Array Simulation Results}
+\label{sec:array-results}
+
+The tuned single-patch element was duplicated to form the \(2\times1\) array.  After duplication, the
+array did not retain the exact same resonance as the isolated single element because the two elements
+were electromagnetically coupled.  Therefore, the array was tuned separately.  The final array tuning
+used \(\texttt{patchL}=36.70~\mathrm{mm}\) and \(\texttt{insetY}=13.35~\mathrm{mm}\), while preserving
+\(\texttt{patchW}=47.382~\mathrm{mm}\), \(\texttt{feedW}=4.735~\mathrm{mm}\), and the element spacing
+\(d=59.935~\mathrm{mm}\).
+
+\subsection{Array Geometry}
+\label{subsec:array-geometry-results}
+
+Figures~\ref{fig:array-top-view-dimensions} and~\ref{fig:array-cross-section-dimensions}
+document the final two-element geometry and layer stack. The two elements were arranged along the
+CST $x$-axis with center-to-center spacing $d=59.935~\mathrm{mm}$, while both feed lines were aligned
+with the $y$-axis. The complete tuned dimensional set is reported in
+Table~\ref{tab:cst-array-final-parameters}; therefore, the figures can remain visually clear without a
+crowded parameter-list overlay.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=1\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_top_view_with_dimensions.png}
+    \caption[Top view of the final tuned $2\times1$ array.]{Top view of the final tuned $2\times1$ inset-fed patch array. The final elements used $W=47.382~\mathrm{mm}$, $L=36.70~\mathrm{mm}$, $y_{\mathrm{inset}}=13.35~\mathrm{mm}$, $g_{\mathrm{inset}}=1.000~\mathrm{mm}$, and center-to-center spacing $d=59.935~\mathrm{mm}$.}
+    \label{fig:array-top-view-dimensions}
+    \label{fig:array-top-view}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_cross_section_with_dimensions.png}
+    \caption[Layered cross-sectional view of the final $2\times1$ array.]{Layered cross-sectional perspective of the final $2\times1$ array. Both elements use the same $0.035~\mathrm{mm}$ bottom metallization, $1.524~\mathrm{mm}$ DiClad 880-IM substrate, and $0.035~\mathrm{mm}$ top metallization stack.}
+    \label{fig:array-cross-section-dimensions}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Layer stack used in the final $2\times1$ array model.}
+\label{tab:array-layer-stack}
+\small
+\renewcommand{\arraystretch}{1.16}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Layer} & \textbf{$z_{\min}$ (mm)} & \textbf{$z_{\max}$ (mm)} & \textbf{Thickness (mm)} \\
+\midrule
+Ground metallization & 0.000 & 0.035 & 0.035 \\
+DiClad 880-IM substrate & 0.035 & 1.559 & 1.524 \\
+Top metallization & 1.559 & 1.594 & 0.035 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.80\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_port_view.png}
+    \caption{Two-port CST model of the $2\times1$ array. Each patch element is fed by a separate waveguide port, enabling both two-port $S$-parameter extraction and independent phase excitation for beam steering.}
+    \label{fig:array-port-view}
+\end{figure}
+
+\subsection{Array Input Match and Mutual Coupling}
+
+The first array simulation using the single-patch tuned length showed a downward resonant-frequency
+shift.  This is a direct consequence of mutual coupling and the changed boundary environment when a
+second element is introduced.  Table~\ref{tab:array-tuning-log} summarizes the array tuning steps.  The
+final Run~05 represents the best compromise between input matching, resonance near the target
+frequency, and mutual coupling.
+
+\begin{table}[H]
+\centering
+\caption{Two-element array tuning log.}
+\label{tab:array-tuning-log}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.16\textwidth}
+>{\raggedright\arraybackslash}p{0.18\textwidth}
+>{\raggedright\arraybackslash}p{0.27\textwidth}
+>{\centering\arraybackslash}p{0.11\textwidth}
+>{\raggedright\arraybackslash}X
+@{}}
+\toprule
+\textbf{Run} &
+\textbf{Geometry} &
+\textbf{\(S\)-parameter behavior near target} &
+\textbf{Coupling} &
+\textbf{Observation} \\
+\midrule
+
+Array Run 01 &
+\(L=38.40~\mathrm{mm}\), \(y_{\mathrm{inset}}=14.11~\mathrm{mm}\) &
+Resonance near \(2.399~\mathrm{GHz}\). &
+\(\approx -13.7~\mathrm{dB}\) &
+The resonance shifted downward after forming the two-element array. \\
+
+Array Run 02 &
+\(L=36.85~\mathrm{mm}\), \(y_{\mathrm{inset}}=13.54~\mathrm{mm}\) &
+\(S_{11}\approx -16.9~\mathrm{dB}\), \(S_{22}\approx -17.8~\mathrm{dB}\). &
+\(\approx -14.7~\mathrm{dB}\) &
+The matching improved, but the resonance remained slightly below the target frequency. \\
+
+Array Run 03/04 &
+\(L=36.65~\mathrm{mm}\), \(y_{\mathrm{inset}}=13.54/13.20~\mathrm{mm}\) &
+Improved frequency alignment; port balance varied. &
+\(\approx -15~\mathrm{dB}\) &
+These runs were used to study the sensitivity of the array response to the feed inset position. \\
+
+Final Run 05 &
+\(L=36.70~\mathrm{mm}\), \(y_{\mathrm{inset}}=13.35~\mathrm{mm}\) &
+\(S_{11}\approx -11.9~\mathrm{dB}\), \(S_{22}\approx -15.2~\mathrm{dB}\). &
+\(\approx -15~\mathrm{dB}\) &
+This was selected as the final tuned array for the beam-steering simulations. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Figures~\ref{fig:array-s11-s12} and~\ref{fig:array-s21-s22} show the final two-port
+\(S\)-parameters for Run~05.  Near the operating frequency, the array satisfies the common
+\(-10~\mathrm{dB}\) input-match criterion for both ports.  The mutual coupling is approximately
+\(-15~\mathrm{dB}\), which is an important array-level result because it explains why the array had to
+be retuned separately from the isolated element.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_sparameters_tuned_run05_s11_s12.png}
+    \caption{Final Run~05 \(S_{11}\) and \(S_{12}\) for the tuned \(2\times1\) array.  The final array achieved \(S_{11}\approx -11.93~\mathrm{dB}\) near \(2.498~\mathrm{GHz}\) and mutual coupling \(S_{12}\approx -15.19~\mathrm{dB}\) near \(2.494~\mathrm{GHz}\).}
+    \label{fig:array-s11-s12}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_sparameters_tuned_run05_s21_s22.png}
+    \caption{Final Run~05 \(S_{21}\) and \(S_{22}\) for the tuned \(2\times1\) array.  The second port achieved \(S_{22}\approx -15.20~\mathrm{dB}\) near \(2.497~\mathrm{GHz}\), and the coupling from Port~1 to Port~2 was approximately \(S_{21}\approx -14.57~\mathrm{dB}\) near \(2.499~\mathrm{GHz}\).}
+    \label{fig:array-s21-s22}
+\end{figure}
+
+\subsection{Individual Element Farfield Responses}
+
+Before combining the port excitations for beam steering, CST produced farfield responses for each
+individual port excitation.  These responses were used to verify that each port excited a radiating patch
+element and to provide the element-level data used by the post-processing combination step.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.78\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_3d_farfield_excitation1.png}
+    \caption{Array farfield response for excitation of Port~1 only.  This result is used as one of the two element responses in the combined beam-steering post-processing.}
+    \label{fig:array-ff-excitation1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.78\textwidth]{figures/5g_patch_array/array_2x1/array_2x1_3d_farfield_excitation2.png}
+    \caption{Array farfield response for excitation of Port~2 only.  The two individual excitation results are later combined using amplitude and phase weights.}
+    \label{fig:array-ff-excitation2}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Two-element array final simulation summary.}
+\label{tab:array-final-summary}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Metric} & \textbf{Final CST Value} \\
+\midrule
+Target frequency & \(2.501~\mathrm{GHz}\) \\
+Final array \texttt{patchL} & \(36.70~\mathrm{mm}\) \\
+Final array \texttt{insetY} & \(13.35~\mathrm{mm}\) \\
+Element spacing, \(d\) & \(59.935~\mathrm{mm}\) \\
+\(S_{11}\) near target & \(\approx -11.93~\mathrm{dB}\) near \(2.498~\mathrm{GHz}\) \\
+\(S_{22}\) near target & \(\approx -15.20~\mathrm{dB}\) near \(2.497~\mathrm{GHz}\) \\
+Mutual coupling, \(S_{12}\) & \(\approx -15.19~\mathrm{dB}\) near \(2.494~\mathrm{GHz}\) \\
+Mutual coupling, \(S_{21}\) & \(\approx -14.57~\mathrm{dB}\) near \(2.499~\mathrm{GHz}\) \\
+Combined broadside peak directivity & \(\approx 9.655~\mathrm{dBi}\) (CST displayed value) \\
+Metal model for tuned run & PEC approximation \\
+Dielectric loss & Retained through \(\tan\delta=0.0009\) \\
+\bottomrule
+\end{tabular}
+\end{table}

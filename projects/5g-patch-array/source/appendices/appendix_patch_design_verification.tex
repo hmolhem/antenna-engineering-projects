@@ -1,0 +1,22 @@
+\chapter{Python Patch Design Verification}
+\label{app:patch-design-verification}
+
+This appendix contains the Python script used to verify the initial rectangular microstrip patch design
+calculations. The purpose of this appendix is not only to include source code, but also to document the
+exact console output used to audit the numerical values reported in the theory and analytical-design
+sections.
+
+\lstinputlisting[
+    style=Python,
+    caption={Python script for verifying the initial rectangular patch design dimensions.},
+    label={lst:patch-design-python}
+]{codes/patch_design_calculations.py}
+
+\section{Console Output}
+\label{appsec:patch-design-console-output}
+
+\lstinputlisting[
+    style=ConsoleOutput,
+    caption={Console output from the patch design verification script.},
+    label={lst:patch-design-console}
+]{appendices/console_outputs/patch_design_console.txt}

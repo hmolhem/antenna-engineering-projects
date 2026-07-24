@@ -1,0 +1,42 @@
+% =========================================================
+% frontmatter/abstract.tex
+% =========================================================
+
+\chapter*{Abstract}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Abstract}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+This report presents the analytical design and CST full-wave simulation of a 5G microstrip patch
+antenna and a two-element phased patch array operating near 2.501~GHz. The design uses a
+DiClad~880-IM substrate with $\varepsilon_r=2.20$, $\tan\delta=0.0009$, and
+$h=1.524$~mm. Initial patch, feed-line, and inset dimensions were obtained from the
+rectangular-patch transmission-line model and implemented as a parameterized CST model.
+
+The final tuned single patch used a patch length of $38.40$~mm and an inset depth of $14.11$~mm.
+Its simulated resonance occurred at $2.50507$~GHz with $S_{11,\min}\approx-39.87$~dB. The
+PEC baseline produced peak directivity of approximately $7.226$~dBi, radiation efficiency of
+$96.3\%$, and total efficiency of $96.2\%$. A supplementary fixed-mesh copper model preserved
+the resonance, input match, directivity, and normalized pattern while reducing the radiation and
+total efficiencies to $92.46\%$ and $92.38\%$, respectively. This comparison quantified the
+conductor-loss effect omitted by the PEC baseline.
+
+The element was extended to a two-port $2\times1$ array with center-to-center spacing
+$d=59.935$~mm. Because mutual coupling changed the isolated-element resonant behavior, the array
+required independent retuning. The final array used a patch length of $36.70$~mm and an inset
+depth of $13.35$~mm. Near the operating frequency, the simulated results were approximately
+$S_{11}=-11.93$~dB, $S_{22}=-15.20$~dB, and mutual coupling of about $-15$~dB.
+
+Beam steering was demonstrated by combining the two CST port farfields with equal amplitudes and
+relative phases of $0^\circ$, $-90^\circ$, and $+90^\circ$. The in-phase case produced a broadside
+pattern with displayed peak directivity of approximately $9.655$~dBi. The phase-shifted cases
+produced simulated beam displacements of approximately $20^\circ$ in opposite half-planes,
+compared with the ideal two-element array-factor prediction of $30^\circ$ magnitude.
+
+The study links closed-form synthesis, full-wave modeling, element tuning, conductor-loss
+sensitivity, two-port characterization, mutual-coupling interpretation, and phase-controlled beam
+steering. The results are analytical or simulated; no fabricated prototype or measured data are
+claimed. Formal mesh- and boundary-convergence studies were not completed because of the CST
+Learning Edition resource limit.
+\par\endgroup

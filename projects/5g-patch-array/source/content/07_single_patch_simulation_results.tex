@@ -1,0 +1,343 @@
+\section{Single Patch Simulation Results}
+\label{sec:single-patch-results}
+
+The single inset-fed patch was simulated first because it is the radiating element used later in the
+\(2\times1\) array.  The analytical dimensions in Section~\ref{sec:single-patch-analytical-design} were used as
+the CST starting point, and the model was then tuned using the patch length and inset depth.  The
+single-patch CST simulations were performed over the frequency range \(2.0\) to
+\(3.0~\mathrm{GHz}\).  The final tuned single-patch model used PEC metallization to satisfy the CST
+Learning Edition mesh-cell limitation, while the dielectric substrate loss of DiClad 880-IM was
+retained through the specified loss tangent.
+
+
+\subsection{Final Single-Patch Geometry Documentation}
+\label{subsec:single-patch-geometry-documentation}
+
+The final tuned geometry is documented by the top-view CST export in
+Figure~\ref{fig:single-patch-top-view-dimensions} and the layered cross-sectional perspective in
+Figure~\ref{fig:single-patch-cross-section-dimensions}. Because the complete CST parameter list was
+longer than a single readable screen capture, the principal final dimensions are reported explicitly in
+Table~\ref{tab:single-patch-final-geometry}. This combination preserves a clear CAD view while providing
+an auditable dimensional record.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=1\textwidth]{figures/5g_patch_array/single_patch/single_patch_top_view_with_dimensions.png}
+    \caption[Top view of the final tuned single patch.]{Top view of the final tuned inset-fed single-patch antenna. The patch width is aligned with the CST $x$-axis, and the patch length and feed line are aligned with the $y$-axis. The final dimensions are summarized in Table~\ref{tab:single-patch-final-geometry}.}
+    \label{fig:single-patch-top-view-dimensions}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Principal final CST geometry and material parameters of the tuned single-patch antenna.}
+\label{tab:single-patch-final-geometry}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.16}
+\begin{tabularx}{0.94\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.25\textwidth}
+>{\centering\arraybackslash}p{0.20\textwidth}
+>{\centering\arraybackslash}p{0.20\textwidth}
+>{\raggedright\arraybackslash}X
+@{}}
+\toprule
+\textbf{Quantity} & \textbf{CST parameter} & \textbf{Final value} & \textbf{Function} \\
+\midrule
+Target frequency & \texttt{f0} & $2.501~\mathrm{GHz}$ & Selected operating frequency \\
+Relative permittivity & \texttt{epsr} & $2.20$ & DiClad 880-IM design value \\
+Loss tangent & \texttt{lossTan} & $0.0009$ & Dielectric loss retained in CST \\
+Substrate thickness & \texttt{h} & $1.524~\mathrm{mm}$ & Dielectric-layer thickness \\
+Metal thickness & \texttt{copperT} & $0.035~\mathrm{mm}$ & Geometric thickness of each metal layer \\
+Patch width & \texttt{patchW} & $47.382~\mathrm{mm}$ & Dimension along the $x$-axis \\
+Patch length & \texttt{patchL} & $38.40~\mathrm{mm}$ & Final resonant dimension along the $y$-axis \\
+Feed-line width & \texttt{feedW} & $4.735~\mathrm{mm}$ & Approximate $50~\Omega$ microstrip width \\
+Feed-line length & \texttt{feedL} & $15.000~\mathrm{mm}$ & Feed extension from board edge to patch \\
+Inset depth & \texttt{insetY} & $14.11~\mathrm{mm}$ & Final tuned feed position \\
+Inset gap & \texttt{insetGap} & $1.000~\mathrm{mm}$ & Gap between feed and inset arms \\
+Ground/substrate width & \texttt{gndW} & $56.526~\mathrm{mm}$ & Finite board width \\
+Ground/substrate length & \texttt{gndL} & $63.801~\mathrm{mm}$ & Finite board length including feed extension \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.92\textwidth]{figures/5g_patch_array/single_patch/single_patch_cross_section_with_dimensions.png}
+    \caption[Layered cross-sectional view of the final single-patch model.]{Layered cross-sectional perspective of the final single-patch CST model. The view shows the bottom ground metallization, DiClad 880-IM substrate, and top patch/feed metallization. The exact layer coordinates and thicknesses are listed in Table~\ref{tab:single-patch-layer-stack}.}
+    \label{fig:single-patch-cross-section-dimensions}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Layer stack used in the final single-patch CST model.}
+\label{tab:single-patch-layer-stack}
+\small
+\renewcommand{\arraystretch}{1.16}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Layer} & \textbf{$z_{\min}$ (mm)} & \textbf{$z_{\max}$ (mm)} & \textbf{Thickness (mm)} \\
+\midrule
+Ground metallization & 0.000 & 0.035 & 0.035 \\
+DiClad 880-IM substrate & 0.035 & 1.559 & 1.524 \\
+Top metallization & 1.559 & 1.594 & 0.035 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Single Patch Tuning Log}
+\label{subsec:single-patch-run-plan}
+
+The patch length controls the resonant frequency, while the inset depth controls the input impedance
+match.  The first simulation resonated below the target frequency, indicating that the patch was
+electrically too long.  Therefore, the patch length was reduced and the inset depth was scaled to
+preserve a similar feed position.  A final fine-tuning step moved the resonance very close to the
+selected design frequency.
+
+\begin{table}[H]
+\centering
+\caption{Single-patch CST tuning log.}
+\label{tab:single-patch-tuning-log}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.23\textwidth}
+>{\raggedright\arraybackslash}p{0.30\textwidth}
+>{\raggedright\arraybackslash}p{0.18\textwidth}
+>{\raggedright\arraybackslash}X
+@{}}
+\toprule
+\textbf{Run} &
+\textbf{Geometry} &
+\textbf{\(S_{11}\) minimum} &
+\textbf{Observation} \\
+\midrule
+
+Initial analytical model &
+\(L=39.657~\mathrm{mm}\),
+\(y_{\mathrm{inset}}=14.520~\mathrm{mm}\),
+\(g_{\mathrm{inset}}=1.000~\mathrm{mm}\) &
+\(-20.39~\mathrm{dB}\) at \(2.431~\mathrm{GHz}\) &
+The resonance was below the target frequency, indicating that the patch was electrically too long. \\
+
+Retuned run &
+\(L=38.55~\mathrm{mm}\),
+\(y_{\mathrm{inset}}=14.11~\mathrm{mm}\),
+\(g_{\mathrm{inset}}=1.000~\mathrm{mm}\) &
+\(-30.70~\mathrm{dB}\) at \(2.491~\mathrm{GHz}\) &
+The resonance moved close to the target frequency \(f_0=2.501~\mathrm{GHz}\). \\
+
+Final single patch &
+\(L=38.40~\mathrm{mm}\),
+\(y_{\mathrm{inset}}=14.11~\mathrm{mm}\),
+\(g_{\mathrm{inset}}=1.000~\mathrm{mm}\) &
+\(-39.87~\mathrm{dB}\) at \(2.505~\mathrm{GHz}\) &
+This final tuned result was selected for the single-patch radiation-pattern and efficiency analysis. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Figure~\ref{fig:single-patch-s11-tuning} shows the three tuning curves, and
+Figure~\ref{fig:single-patch-s11-final} isolates the final tuned result.  The final resonant frequency is
+\(2.50507~\mathrm{GHz}\), which is only about \(4.07~\mathrm{MHz}\) above the selected
+\(2.501~\mathrm{GHz}\) design target.  This corresponds to a frequency error of approximately
+\(0.16\%\), which is acceptable for the tuned CST model.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/single_patch/single_patch_s11_tuning_comparison.png}
+    \caption{Single-patch \(S_{11}\) tuning history.  The initial analytical design resonated at approximately \(2.431~\mathrm{GHz}\).  After reducing the patch length, the resonance moved toward the target frequency, and the final tuned run resonated near \(2.505~\mathrm{GHz}\).}
+    \label{fig:single-patch-s11-tuning}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/single_patch/single_patch_s11_tuned_final.png}
+    \caption{Final tuned reflection coefficient of the single inset-fed patch antenna.  The final model resonated at approximately \(2.50507~\mathrm{GHz}\) with \(S_{11,\min}\approx -39.87~\mathrm{dB}\), very close to the selected design frequency of \(2.501~\mathrm{GHz}\).}
+    \label{fig:single-patch-s11-final}
+\end{figure}
+
+\subsection{Single Patch Radiation Patterns and Efficiency}
+
+The final single-patch farfield result is shown in Figure~\ref{fig:single-patch-3d-farfield}.  CST
+reported a maximum directivity of approximately \(7.226~\mathrm{dBi}\) at
+\(2.501~\mathrm{GHz}\).  The radiation efficiency and total efficiency were reported as
+\(-0.1634~\mathrm{dB}\) and \(-0.1700~\mathrm{dB}\), respectively, corresponding to approximately
+\(96.3\%\) and \(96.2\%\).  Because PEC metallization was used for the tuned run, the radiation efficiency includes
+the modeled dielectric loss but excludes conductor loss and input-mismatch loss. The total
+efficiency additionally includes input-mismatch loss. Neither value includes finite-copper ohmic
+loss.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.88\textwidth]{figures/5g_patch_array/single_patch/single_patch_3d_farfield_tuned.png}
+    \caption{Three-dimensional CST farfield pattern of the final tuned single patch at \(2.501~\mathrm{GHz}\).  The reported maximum directivity is approximately \(7.226~\mathrm{dBi}\), with radiation and total efficiencies of approximately \(96.3\%\) and \(96.2\%\), respectively.}
+    \label{fig:single-patch-3d-farfield}
+\end{figure}
+
+Figures~\ref{fig:single-patch-phi0} and~\ref{fig:single-patch-phi90} show the two principal 2D
+farfield cuts.  The \(\phi=0^\circ\) cut gives a main-lobe magnitude of approximately
+\(7.23~\mathrm{dBi}\), a broadside main-lobe direction of \(0^\circ\), and a 3-dB angular width of
+approximately \(86.8^\circ\).  These values are consistent with the expected broadside radiation of a
+rectangular microstrip patch.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.86\textwidth]{figures/5g_patch_array/single_patch/single_patch_2d_pattern_phi0_tuned.png}
+    \caption{Single-patch farfield directivity cut for \(\phi=0^\circ\).  The main lobe is broadside with a magnitude of about \(7.23~\mathrm{dBi}\) and an angular width of about \(86.8^\circ\).}
+    \label{fig:single-patch-phi0}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.86\textwidth]{figures/5g_patch_array/single_patch/single_patch_2d_pattern_phi90_tuned.png}
+    \caption{Single-patch farfield directivity cut for \(\phi=90^\circ\).  This cut provides the orthogonal principal-plane response of the tuned patch element.}
+    \label{fig:single-patch-phi90}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.92\textwidth]{figures/5g_patch_array/single_patch/single_patch_efficiencies_tuned.png}
+    \caption[Efficiency of the final tuned single-patch PEC model.]{CST efficiency result for the final tuned single-patch PEC model at \(2.501~\mathrm{GHz}\). The simulated radiation efficiency is approximately \(-0.1634~\mathrm{dB}\) \(\approx96.3\%\), and the simulated total efficiency is approximately \(-0.1700~\mathrm{dB}\) \(\approx96.2\%\).}
+    \label{fig:single-patch-efficiency}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Single patch final simulation summary.}
+\label{tab:single-patch-final-summary}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Metric} & \textbf{Final CST Value} \\
+\midrule
+Target frequency & \(2.501~\mathrm{GHz}\) \\
+Final resonant frequency & \(2.50507~\mathrm{GHz}\) \\
+Frequency error & \(0.16\%\) \\
+Minimum \(S_{11}\) & \(-39.87~\mathrm{dB}\) \\
+Radiation efficiency & \(-0.1634~\mathrm{dB}\) \(\approx 96.3\%\) \\
+Total efficiency & \(-0.1700~\mathrm{dB}\) \(\approx 96.2\%\) \\
+Directivity & \(7.226~\mathrm{dBi}\) \\
+Main-beam direction, \(\phi=0^\circ\) cut & \(0^\circ\) \\
+3-dB angular width, \(\phi=0^\circ\) cut & \(86.8^\circ\) \\
+Final tuned \texttt{patchL} & \(38.40~\mathrm{mm}\) \\
+Final tuned \texttt{insetY} & \(14.11~\mathrm{mm}\) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Finite-Conductivity Copper Validation}
+\label{subsec:single-patch-copper-validation}
+
+A supplementary conductor-loss validation was performed on the final single-patch geometry after the
+PEC baseline had been completed. The geometry, substrate, port, boundaries, solver type, frequency
+range, and tuned dimensions were held fixed. The only physical change was replacement of the PEC
+metallization by the CST \emph{Lossy metal} model with
+\[
+\sigma_{\mathrm{Cu}}=5.87\times10^7~\mathrm{S/m}.
+\]
+This produced a controlled comparison of the PEC approximation against a finite-conductivity copper
+model.
+
+An initial lossy-metal run with adaptive tetrahedral mesh refinement was attempted. The adaptive
+sequence reached the fourth refinement pass, but the mesh then exceeded the
+\(20{,}000\)-cell limit of the CST Learning Edition before a converged solution was obtained. The
+incomplete adaptive result was discarded. The simulation was then repeated using the same geometry and fixed initial-mesh settings, with mesh adaptation disabled. This fixed-mesh run completed successfully after eight
+frequency samples and produced valid \(S\)-parameters, impedance matrices, VSWR data, efficiencies,
+and farfield results. Consequently, the study is treated as a fixed-mesh conductor-model sensitivity
+check rather than a formal mesh-convergence study.
+
+Figure~\ref{fig:single-patch-copper-s11} shows that finite copper conductivity had very little effect on
+the tuned resonance and impedance match. The lossy-metal model resonated near
+\(2.504~\mathrm{GHz}\) with
+\(S_{11,\min}\approx-39.72~\mathrm{dB}\), compared with
+\(2.50507~\mathrm{GHz}\) and \(-39.87~\mathrm{dB}\) for the PEC baseline.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.94\textwidth]{figures/5g_patch_array/single_patch/single_patch_copper_lossymetal_s11.png}
+    \caption[Finite-conductivity single-patch reflection coefficient.]{Reflection coefficient of the fixed-mesh finite-conductivity copper model. The resonance occurs near \(2.504~\mathrm{GHz}\) with \(S_{11,\min}\approx-39.72~\mathrm{dB}\), closely matching the PEC baseline.}
+    \label{fig:single-patch-copper-s11}
+\end{figure}
+
+The finite-conductivity model produced a radiation efficiency of
+\(-0.340329~\mathrm{dB}\), corresponding to approximately \(92.46\%\), and a total efficiency of
+\(-0.344040~\mathrm{dB}\), corresponding to approximately \(92.38\%\). The small difference between
+the two efficiencies is consistent with the very strong impedance match near the operating frequency.
+The efficiency reduction relative to PEC quantifies the conductor-loss contribution that was omitted
+from the baseline model.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \maybeincludegraphics[width=\textwidth]{figures/5g_patch_array/single_patch/single_patch_copper_lossymetal_radiation_efficiency.png}
+        \caption{Radiation efficiency.}
+        \label{fig:single-patch-copper-rad-eff}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \maybeincludegraphics[width=\textwidth]{figures/5g_patch_array/single_patch/single_patch_copper_lossymetal_total_efficiency.png}
+        \caption{Total efficiency.}
+        \label{fig:single-patch-copper-tot-eff}
+    \end{subfigure}
+    \caption[Finite-conductivity single-patch efficiencies.]{Efficiencies of the fixed-mesh finite-conductivity copper model at \(2.501~\mathrm{GHz}\). The radiation efficiency is approximately \(92.46\%\), and the total efficiency is approximately \(92.38\%\).}
+    \label{fig:single-patch-copper-efficiencies}
+\end{figure}
+
+The peak directivity remained approximately \(7.23~\mathrm{dBi}\), essentially unchanged from the
+PEC value of \(7.226~\mathrm{dBi}\). The \(\phi=90^\circ\) principal-plane cut retained a broadside
+main lobe near \(2^\circ\), a 3-dB beamwidth of approximately \(80.8^\circ\), and a sidelobe level of
+approximately \(-21.2~\mathrm{dB}\). The farfield comparison therefore indicates that conductor loss
+reduced efficiency without materially changing the normalized radiation-pattern shape or directivity.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.47\textwidth}
+        \centering
+        \maybeincludegraphics[width=\textwidth]{figures/5g_patch_array/single_patch/single_patch_copper_lossymetal_3d_farfield.png}
+        \caption{Three-dimensional directivity pattern.}
+        \label{fig:single-patch-copper-3d}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.51\textwidth}
+        \centering
+        \maybeincludegraphics[width=\textwidth]{figures/5g_patch_array/single_patch/single_patch_copper_lossymetal_phi90_pattern.png}
+        \caption{Principal-plane cut for \(\phi=90^\circ\).}
+        \label{fig:single-patch-copper-phi90}
+    \end{subfigure}
+    \caption[Finite-conductivity single-patch radiation patterns.]{Radiation patterns of the fixed-mesh finite-conductivity copper model at \(2.501~\mathrm{GHz}\). The peak directivity remains approximately \(7.23~\mathrm{dBi}\), and the principal-plane pattern remains consistent with the PEC result.}
+    \label{fig:single-patch-copper-patterns}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{PEC and finite-conductivity copper comparison for the final single-patch geometry.}
+\label{tab:single-patch-conductor-comparison}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}X
+>{\centering\arraybackslash}p{0.22\textwidth}
+>{\centering\arraybackslash}p{0.25\textwidth}
+>{\raggedright\arraybackslash}p{0.28\textwidth}
+@{}}
+\toprule
+\textbf{Metric} & \textbf{PEC baseline} & \textbf{Copper lossy metal} & \textbf{Engineering interpretation} \\
+\midrule
+Resonant frequency & \(2.50507~\mathrm{GHz}\) & \(2.504~\mathrm{GHz}\) & Change of approximately \(-1.07~\mathrm{MHz}\) \\
+Minimum \(S_{11}\) & \(-39.87~\mathrm{dB}\) & \(-39.72~\mathrm{dB}\) & Matching essentially unchanged \\
+Peak directivity & \(7.226~\mathrm{dBi}\) & \(\approx7.23~\mathrm{dBi}\) & Directivity essentially unchanged \\
+Radiation efficiency & \(96.3\%\) & \(92.46\%\) & Reduction of approximately \(3.84\) percentage points \\
+Total efficiency & \(96.2\%\) & \(92.38\%\) & Reduction of approximately \(3.78\) percentage points \\
+\(\phi=90^\circ\) 3-dB beamwidth & \(80.8^\circ\) & \(80.8^\circ\) & Normalized pattern remained stable \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The comparison confirms that the PEC approximation was accurate for resonant frequency, impedance
+matching, directivity, and radiation-pattern shape in this project. Its principal limitation was an
+overestimate of radiation and total efficiency because finite copper ohmic loss was excluded.

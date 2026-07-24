@@ -8,29 +8,31 @@ This repository presents project-level engineering work rather than chapter-by-c
 
 ## Featured Project
 
-### 5G Microstrip Patch Array with Beam Steering
+### [5G Microstrip Patch Array Design and Beam Steering](projects/5g-patch-array/)
 
-**Status:** Public project package in preparation
+**Status:** Public project package available
 
-The first featured project develops a single inset-fed microstrip patch and extends it to a two-element array for a nominal **2.50 GHz** operating frequency.
+The featured project develops an inset-fed microstrip patch at **2.501 GHz**, extends it to a two-port **2 x 1** array, quantifies mutual coupling, and demonstrates phase-controlled beam steering.
 
-Current verified simulation highlights include:
+Verified simulation highlights include:
 
-- Tuned single-patch resonance near **2.491 GHz**
-- Minimum simulated reflection coefficient of approximately **-30.7 dB**
-- Two-port **2 x 1** array implementation
-- S-parameter and mutual-coupling evaluation
+- Final single-patch resonance at **2.50507 GHz**
+- Minimum simulated reflection coefficient of approximately **-39.87 dB**
+- Single-patch peak directivity of approximately **7.226 dBi**
+- PEC-baseline radiation and total efficiencies of approximately **96.3%** and **96.2%**
+- Fixed-mesh copper sensitivity result with efficiencies of approximately **92.46%** and **92.38%**
+- Two-port **2 x 1** array with approximately **-15 dB** mutual coupling
 - Broadside excitation and relative phase cases of **+90 degrees** and **-90 degrees**
-- Far-field, directivity, gain, and efficiency analysis
-- Explicit documentation of solver, mesh-cell, material-model, and array-detuning limitations
+- Approximately **20-degree** simulated steering displacement in opposite half-planes
+- Explicit documentation of mesh-cell, material-model, solver, and convergence limitations
 
-See [`projects/5g-patch-array/`](projects/5g-patch-array/) for the current project record.
+The project package includes the public engineering report, LaTeX source, analytical Python scripts, selected CST figures, key-result tables, reproducibility material, and model-access notes.
 
 ## Project Portfolio
 
 | Project | Engineering focus | Status |
 |---|---|---|
-| [5G Microstrip Patch Array](projects/5g-patch-array/) | Patch tuning, two-port array modeling, coupling, far field, beam steering | In preparation |
+| [5G Microstrip Patch Array](projects/5g-patch-array/) | Patch synthesis and tuning, two-port array modeling, coupling, conductor-loss sensitivity, beam steering | Public package available |
 | Wearable Half-Wave Dipole | Multilayer body loading, detuning, efficiency, gain, retuning | Planned |
 | Wire Dipole | Analytical design, resonance tuning, radiation pattern, HPBW | Planned |
 | Hollow Rectangular Waveguide | Dominant-mode propagation and antenna-feed modeling | Planned |
@@ -60,9 +62,7 @@ antenna-engineering-projects/
 ├── CHANGELOG.md
 ├── .gitignore
 ├── .github/
-│   └── pull_request_template.md
 ├── assets/
-│   └── README.md
 ├── docs/
 │   ├── WORKFLOW.md
 │   ├── PROJECT_STANDARD.md
@@ -71,10 +71,16 @@ antenna-engineering-projects/
 └── projects/
     ├── README.md
     └── 5g-patch-array/
-        └── README.md
+        ├── README.md
+        ├── report/
+        ├── source/
+        ├── figures/
+        ├── code/
+        ├── results/
+        └── simulation-notes/
 ```
 
-Each mature project is expected to include a project README, selected figures, quantitative results, a public report, reproducibility notes, and an explicit limitations section. Large proprietary or tool-specific binary models may be distributed separately rather than stored directly in Git history.
+Each mature project includes a project README, selected figures, quantitative results, a public report, reproducibility notes, and an explicit limitations section. Large proprietary or tool-specific binary models may be distributed separately rather than stored directly in Git history.
 
 ## Tools and Technical Areas
 
@@ -86,8 +92,8 @@ Each mature project is expected to include a project README, selected figures, q
 
 ## Related Repositories
 
-- [Engineering LaTeX Templates](https://github.com/hmolhem/engineering-latex-templates) — reusable report, presentation, IEEE-paper, and technical-carousel documentation system
-- [Antenna Theory, Radar, and DSP Portfolio](https://github.com/hmolhem/antenna-theory-radar-dsp-portfolio) — educational notes, derivations, and numerical studies
+- [Engineering LaTeX Templates](https://github.com/hmolhem/engineering-latex-templates) - reusable report, presentation, IEEE-paper, and technical-carousel documentation system
+- [Antenna Theory, Radar, and DSP Portfolio](https://github.com/hmolhem/antenna-theory-radar-dsp-portfolio) - educational notes, derivations, and numerical studies
 
 ## Collaboration
 

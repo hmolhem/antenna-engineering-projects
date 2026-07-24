@@ -1,0 +1,54 @@
+\section{Engineering Scope and Deliverables}
+\label{sec:engineering-scope}
+
+This project develops a complete antenna-engineering workflow consisting of three connected
+technical stages: design and tuning of a single microstrip patch antenna, extension of the tuned
+element into a two-port \(2\times1\) patch array, and demonstration of phase-controlled beam
+steering.
+
+The analytical and simulation workflow includes the following tasks:
+\begin{itemize}
+    \item determine the operating frequency and substrate parameters;
+    \item calculate the initial rectangular-patch and inset-feed dimensions;
+    \item construct a parameterized single-patch CST model;
+    \item tune the resonant frequency and input impedance;
+    \item evaluate reflection coefficient, radiation pattern, directivity, radiation efficiency,
+    and total efficiency;
+    \item compare PEC and finite-conductivity metallization models;
+    \item construct and independently retune a two-port patch array;
+    \item quantify input matching and mutual coupling;
+    \item combine the individual port farfields using controlled amplitude-phase excitation; and
+    \item evaluate broadside and steered radiation patterns.
+\end{itemize}
+
+The report emphasizes traceability between analytical calculations, CST model parameters,
+simulation results, and engineering interpretation. Key dimensions, material assumptions, solver
+settings, numerical limitations, and validation evidence are documented explicitly so that the
+design process can be independently reviewed and reproduced.
+
+Table~\ref{tab:project-deliverables} summarizes the principal technical deliverables and their
+locations in this report.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Principal engineering deliverables and their report locations.}
+    \label{tab:project-deliverables}
+    \small
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabularx}{0.94\textwidth}{@{}>{\raggedright\arraybackslash}X
+        >{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
+        \toprule
+        \textbf{Engineering Deliverable} & \textbf{Report Location} \\
+        \midrule
+        Operating frequency, substrate, and material parameters & Section~1.3 \\
+        Rectangular-patch analytical design & Sections~1.4--1.5 \\
+        Single-patch CST construction and tuning & Sections~1.6--1.7 \\
+        Finite-conductivity sensitivity analysis & Section~1.7.4 \\
+        Two-element array theory and CST construction & Sections~1.8--1.9 \\
+        Array matching and mutual-coupling analysis & Section~1.10 \\
+        Beam-steering theory and CST implementation & Section~1.11 \\
+        Numerical reliability and modeling limitations & Section~1.12.5 \\
+        Engineering evidence matrix & Section~1.13 \\
+        \bottomrule
+    \end{tabularx}
+\end{table}

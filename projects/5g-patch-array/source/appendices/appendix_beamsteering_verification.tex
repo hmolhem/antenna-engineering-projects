@@ -1,0 +1,21 @@
+\chapter{Python Beam-Steering Verification}
+\label{app:beamsteering-verification}
+
+This appendix contains the Python script used to calculate beam-steering phase shifts for the
+\(2\times1\) array. The console output is included to make the CST excitation phases traceable to the
+analytical array-factor equation used in the main report.
+
+\lstinputlisting[
+    style=Python,
+    caption={Python script for calculating two-element array beam-steering phase shifts.},
+    label={lst:beamsteering-python}
+]{codes/beamsteering_calculations.py}
+
+\section{Console Output}
+\label{appsec:beamsteering-console-output}
+
+\lstinputlisting[
+    style=ConsoleOutput,
+    caption={Console output from the beam-steering phase-shift verification script.},
+    label={lst:beamsteering-console}
+]{appendices/console_outputs/beamsteering_console.txt}

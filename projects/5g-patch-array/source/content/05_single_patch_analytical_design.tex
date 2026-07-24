@@ -1,0 +1,110 @@
+\section{Single Patch Analytical Design}
+\label{sec:single-patch-analytical-design}
+
+Using the selected design frequency
+\[
+    f_0=2.501~\mathrm{GHz},
+\]
+the selected substrate thickness
+\[
+    h=1.524~\mathrm{mm},
+\]
+and the Rogers DiClad 880 design dielectric constant
+\[
+    \varepsilon_r=2.20,
+\]
+the free-space wavelength is
+\begin{equation}
+\lambda_0=\frac{c}{f_0}=119.869~\mathrm{mm}.
+\end{equation}
+
+Substituting these values into Eqs.~\eqref{eq:patch-width}--\eqref{eq:patch-length} gives the
+analytical single-patch starting dimensions summarized in Table~\ref{tab:initial-patch-dimensions}.
+The same calculation is verified independently by the Python utility in
+Appendix~\ref{app:patch-design-verification}; the printed console output in
+Listing~\ref{lst:patch-design-console} is used as the numerical audit trail for the values reported in
+this section.
+
+\begin{table}[H]
+\centering
+\caption{Initial rectangular patch dimensions before CST tuning.}
+\label{tab:initial-patch-dimensions}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Quantity} & \textbf{Initial Value} \\
+\midrule
+Target frequency, \(f_0\) & \(2.501~\mathrm{GHz}\) \\
+Free-space wavelength, \(\lambda_0\) & \(119.869~\mathrm{mm}\) \\
+Substrate thickness, \(h\) & \(1.524~\mathrm{mm}\) \\
+Relative permittivity, \(\varepsilon_r\) & \(2.20\) \\
+Patch width, \(W\) & \(47.382~\mathrm{mm}\) \\
+Effective permittivity, \(\varepsilon_{\mathrm{eff}}\) & \(2.1097\) \\
+Length extension, \(\Delta L\) & \(0.803~\mathrm{mm}\) \\
+Effective length, \(L_{\mathrm{eff}}\) & \(41.264~\mathrm{mm}\) \\
+Patch length, \(L\) & \(39.657~\mathrm{mm}\) \\
+Minimum ground width, \(W_g\approx W+6h\) & \(56.526~\mathrm{mm}\) \\
+Minimum ground length, \(L_{g,\min}\approx L+6h\) & \(48.801~\mathrm{mm}\) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Initial Inset-Fed CST Parameters}
+\label{subsec:initial-inset-fed-cst-parameters}
+
+For the first CST model, an inset-fed microstrip line is selected. The feed-line width is calculated
+from the \(50~\Omega\) microstrip-line model in Eqs.~\eqref{eq:feed-eeff}--\eqref{eq:microstrip-z0-wide}.
+For \(\varepsilon_r=2.20\) and \(h=1.524~\mathrm{mm}\), the calculated feed width is
+\[
+    W_f=4.735~\mathrm{mm}.
+\]
+This value gives an approximate \(50~\Omega\) printed feed line before the feed is connected to the
+patch.
+
+The inset-depth estimate uses Eq.~\eqref{eq:inset-depth} with
+\[
+    R_{\mathrm{edge}}=300~\Omega,
+    \qquad R_0=50~\Omega.
+\]
+This gives
+\[
+    y_0=14.520~\mathrm{mm}
+\]
+measured inward from the radiating edge. Because the edge resistance is only an analytical estimate,
+\(y_0\) should be treated as a CST tuning variable rather than a final manufactured dimension. The
+initial inset gap is selected as
+\[
+    g_i=1.000~\mathrm{mm},
+\]
+which provides a clear CST geometry gap on both sides of the inset feed while leaving room for later
+matching adjustment.
+
+\begin{table}[H]
+\centering
+\caption{Initial CST parameter set for the inset-fed single patch.}
+\label{tab:initial-cst-single-patch-parameters}
+\begin{tabularx}{\textwidth}{@{}lllX@{}}
+\toprule
+\textbf{CST Parameter} & \textbf{Value} & \textbf{Unit} & \textbf{Purpose} \\
+\midrule
+\(f_0\) & 2.501 & GHz & Far-field monitor and target resonance \\
+\(\varepsilon_r\) & 2.20 & -- & DiClad 880 dielectric constant \\
+\(\tan\delta\) & 0.0009 & -- & Dielectric loss tangent \\
+\(h\) & 1.524 & mm & Substrate thickness \\
+\(W\) & 47.382 & mm & Patch width \\
+\(L\) & 39.657 & mm & Patch length; main tuning variable \\
+\(W_f\) & 4.735 & mm & Initial \(50~\Omega\) microstrip feed width \\
+\(y_0\) & 14.520 & mm & Initial inset depth from patch edge \\
+\(g_i\) & 1.000 & mm & Initial inset gap on each side of feed \\
+\(L_f\) & 15.000 & mm & Feed-line extension for port setup \\
+\(W_g\) & 56.526 & mm & Initial substrate/ground width \\
+\(L_g\) & 63.801 & mm & Initial substrate/ground length including feed extension \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The first CST simulation should use the values in Table~\ref{tab:initial-cst-single-patch-parameters}.
+After the first \(S_{11}\) sweep, the patch length \(L\), inset depth \(y_0\), and inset gap \(g_i\)
+will be tuned. The primary resonance-control variable is \(L\); increasing \(L\) generally shifts the
+resonance downward, while decreasing \(L\) shifts it upward. The primary impedance-control
+variables are \(y_0\) and \(g_i\). This separation of tuning variables will make the CST tuning process
+more systematic and easier to explain in the final engineering discussion.

@@ -1,0 +1,54 @@
+\section{CST Model Construction for the \texorpdfstring{\(2\times1\)}{2x1} Patch Array}
+\label{sec:cst-array-model}
+
+The \(2\times1\) array model was constructed from the tuned single-patch element.  The final
+single-patch geometry was duplicated in the \(x\)-direction, and the center-to-center spacing was set
+to
+\[
+ d = 59.935~\mathrm{mm}\approx \frac{\lambda_0}{2}.
+\]
+The substrate and ground plane were extended so that both elements and both feed lines were fully
+supported.  Each element was fed by its own waveguide port so that the two ports could be excited
+independently for matching, coupling, and beam-steering analysis.
+
+The same mesh-control simplification used for the final single-patch run was retained: the metal
+regions were modeled as PEC, while the DiClad 880-IM dielectric loss was retained.  This approach
+kept the CST model below the mesh-cell limitation while preserving the dominant resonant and
+radiation behavior needed for the antenna and array analysis.
+
+\subsection{Final Array Geometry Parameters}
+
+\begin{table}[H]
+\centering
+\caption{Final tuned CST dimensions for the \(2\times1\) array model.}
+\label{tab:cst-array-final-parameters}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Parameter} & \textbf{Final Value} \\
+\midrule
+Target frequency, \(f_0\) & \(2.501~\mathrm{GHz}\) \\
+Substrate & DiClad 880-IM \\
+Substrate thickness, \(h\) & \(1.524~\mathrm{mm}\) \\
+Patch width, \texttt{patchW} & \(47.382~\mathrm{mm}\) \\
+Final array patch length, \texttt{patchL} & \(36.70~\mathrm{mm}\) \\
+Feed width, \texttt{feedW} & \(4.735~\mathrm{mm}\) \\
+Feed length, \texttt{feedL} & \(15.000~\mathrm{mm}\) \\
+Inset depth, \texttt{insetY} & \(13.35~\mathrm{mm}\) \\
+Inset gap, \texttt{insetGap} & \(1.000~\mathrm{mm}\) \\
+Element spacing, \texttt{arrayD} & \(59.935~\mathrm{mm}\) \\
+Metallization model for tuned run & PEC approximation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{CST Array Construction Notes}
+
+The first array run used the final tuned single-patch dimensions directly.  The array resonance then
+shifted downward because the second element changed the electromagnetic environment of the first
+element.  This behavior is expected in a closely spaced array because the input impedance of each
+radiating element is affected by mutual coupling.  Therefore, the array required a separate tuning
+sequence after the single-patch tuning was completed.
+
+The final CST array model used two waveguide ports.  Port~1 excited the first element and Port~2
+excited the duplicated element.  The two-port model allowed CST to compute \(S_{11}\), \(S_{22}\),
+\(S_{12}\), and \(S_{21}\), which were used to document input matching and mutual coupling.

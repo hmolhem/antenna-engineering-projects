@@ -1,0 +1,193 @@
+\section{Beam Steering Theory and CST Implementation}
+\label{sec:beamsteering}
+
+Beam steering is achieved by applying a relative phase difference between the two patch elements. For
+a uniform two-element array with spacing \(d\), the approximate array-factor steering relation is
+\[
+\Delta\phi=-k_0d\sin\theta_0.
+\]
+For the selected spacing \(d\approx \lambda_0/2\), this becomes
+\[
+\Delta\phi\approx -180^\circ\sin\theta_0.
+\]
+Therefore, a \(-90^\circ\) phase shift corresponds to an ideal scan-angle magnitude of approximately
+\(30^\circ\), while reversing the phase shift should steer the beam into the opposite half-plane. The
+sign displayed in CST depends on the port numbering and the selected \(\phi=0^\circ/180^\circ\)
+principal-plane convention.
+
+The Python verification in Appendix~\ref{app:beamsteering-verification} evaluates the phase-shift
+relation and prints the theoretical scan angles for the three CST excitation cases. The console output
+in Listing~\ref{lst:beamsteering-console} provides the numerical audit trail for the beam-steering
+cases used in the CST post-processing.
+
+\subsection{CST Combined-Excitation Method}
+
+The two-port array was solved in CST with Port~1 and Port~2 as separate excitations. CST then
+produced individual farfield responses for each port. To demonstrate beamforming, these farfields
+were combined using the CST template-based post-processing option \emph{Combine Results using
+am-ph Parameters}~\cite{cst_studio_suite}. This created combined farfield results of the form
+\[
+\mathrm{Port~1}=1\angle 0^\circ,\qquad \mathrm{Port~2}=1\angle \Delta\phi.
+\]
+The three combined cases documented in this report are listed in
+Table~\ref{tab:cst-beamsteering-cases}.
+
+\begin{table}[H]
+\centering
+\caption[Beam-steering cases used in CST.]{Beam-steering cases implemented with CST amplitude-phase post-processing.}
+\label{tab:cst-beamsteering-cases}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.22\textwidth}
+>{\raggedright\arraybackslash}p{0.36\textwidth}
+>{\raggedright\arraybackslash}X
+@{}}
+\toprule
+\textbf{Case} &
+\textbf{CST excitation} &
+\textbf{Expected behavior} \\
+\midrule
+Broadside &
+\(P_1=1\angle0^\circ,\quad P_2=1\angle0^\circ\) &
+The main beam should remain near broadside. \\
+Negative phase test &
+\(P_1=1\angle0^\circ,\quad P_2=1\angle-90^\circ\) &
+The main beam should steer away from broadside into one half-plane; the ideal array-factor angle magnitude is approximately \(30^\circ\). \\
+Positive phase test &
+\(P_1=1\angle0^\circ,\quad P_2=1\angle+90^\circ\) &
+The main beam should steer into the opposite half-plane with approximately the same ideal angle magnitude. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+CST issued a warning that unnormalized balance was unavailable for the combined farfield results.
+The warning identified the combined-result radiation efficiency and gain as inaccurate. Therefore,
+those two quantities are not used as validated numerical results. The displayed directivity and the
+principal-plane pattern cuts are used to document beam shape, beam direction, and relative steering.
+The direct two-port \(S\)-parameters and single-patch efficiencies remain the quantitative reference
+results reported in Sections~\ref{sec:single-patch-results} and~\ref{sec:array-results}.
+
+\subsection{Combined Three-Dimensional Farfield Results}
+
+Figure~\ref{fig:array-broadside} shows the equal-amplitude, in-phase combined farfield result. This is
+the reference broadside excitation. Figures~\ref{fig:array-minus90} and~\ref{fig:array-plus90} show
+the two phase-shifted cases with the CST numerical information boxes retained. The movement of the
+main radiation lobe confirms that the \(2\times1\) antenna operates as a phased array when the relative
+port phase is changed.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_3d_farfield_broadside_info.png}
+    \caption[Combined broadside 3D farfield.]{Combined 3D farfield of the tuned \(2\times1\) array for equal-amplitude, in-phase excitation \((1\angle0^\circ,\,1\angle0^\circ)\). CST displayed a peak directivity of approximately \(9.655~\mathrm{dBi}\). The combined-result efficiency values shown in the information box are not used quantitatively because CST reported that unnormalized balance was unavailable.}
+    \label{fig:array-broadside}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_3d_farfield_phase_minus90_info.png}
+    \caption[Combined 3D farfield for a \(-90^\circ\) phase shift.]{Combined 3D farfield for \((1\angle0^\circ,\,1\angle-90^\circ)\). CST displayed a peak directivity of approximately \(9.489~\mathrm{dBi}\), and the main lobe moved away from the broadside reference.}
+    \label{fig:array-minus90}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.96\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_3d_farfield_phase_plus90_info.png}
+    \caption[Combined 3D farfield for a \(+90^\circ\) phase shift.]{Combined 3D farfield for \((1\angle0^\circ,\,1\angle+90^\circ)\). CST displayed a peak directivity of approximately \(9.531~\mathrm{dBi}\), and reversing the phase shift moved the main lobe into the opposite half-plane.}
+    \label{fig:array-plus90}
+\end{figure}
+
+\subsection{Combined Two-Dimensional Principal-Plane Patterns}
+
+The combined broadside pattern was also evaluated in the two principal planes. The
+\(\phi=0^\circ\) cut in Figure~\ref{fig:array-broadside-phi0} has a main-lobe direction of
+\(0.0^\circ\), a peak directivity of approximately \(9.66~\mathrm{dBi}\), a 3-dB beamwidth of
+\(47.0^\circ\), and a side-lobe level of approximately \(-18.8~\mathrm{dB}\). The
+\(\phi=90^\circ\) cut in Figure~\ref{fig:array-broadside-phi90} has a main-lobe direction of
+\(1.0^\circ\), a 3-dB beamwidth of \(80.4^\circ\), and a side-lobe level of approximately
+\(-17.8~\mathrm{dB}\). These two cuts verify the broadside reference and quantify the unequal
+beamwidths in the two principal planes.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.94\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_farfield_cut_phi0_broadside.png}
+    \caption[Combined broadside pattern for \(\phi=0^\circ\).]{Combined broadside directivity pattern in the \(\phi=0^\circ\) plane. The main beam is at \(0.0^\circ\), with peak directivity \(9.66~\mathrm{dBi}\), 3-dB beamwidth \(47.0^\circ\), and side-lobe level \(-18.8~\mathrm{dB}\).}
+    \label{fig:array-broadside-phi0}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.94\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_farfield_cut_phi90_broadside.png}
+    \caption[Combined broadside pattern for \(\phi=90^\circ\).]{Combined broadside directivity pattern in the \(\phi=90^\circ\) plane. The main beam is at approximately \(1.0^\circ\), with peak directivity \(9.66~\mathrm{dBi}\), 3-dB beamwidth \(80.4^\circ\), and side-lobe level \(-17.8~\mathrm{dB}\).}
+    \label{fig:array-broadside-phi90}
+\end{figure}
+
+Figures~\ref{fig:array-minus90-phi0} and~\ref{fig:array-plus90-phi0} provide the direct
+quantitative beam-steering evidence. CST reports an angular magnitude of approximately \(20^\circ\)
+for both phase-shifted cases. The \(-90^\circ\) case steers toward the \(\phi=0^\circ\) half-plane,
+whereas the \(+90^\circ\) case steers toward the \(\phi=180^\circ\) half-plane. Thus, reversing the
+relative phase reverses the scan direction. The simulated \(20^\circ\) scan magnitude is smaller than
+the ideal \(30^\circ\) array-factor prediction because the CST result includes the finite patch element
+pattern, mutual coupling, substrate loading, finite ground plane, and practical feed geometry.
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.94\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_farfield_cut_phi0_phase_minus90.png}
+    \caption[Steered pattern for a \(-90^\circ\) phase shift.]{Combined \(\phi=0^\circ/180^\circ\) plane pattern for \((1\angle0^\circ,\,1\angle-90^\circ)\). The main lobe is displaced by approximately \(20.0^\circ\) toward the \(\phi=0^\circ\) half-plane, with displayed peak directivity \(9.49~\mathrm{dBi}\) and 3-dB beamwidth \(46.6^\circ\).}
+    \label{fig:array-minus90-phi0}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.94\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_farfield_cut_phi0_phase_plus90.png}
+    \caption[Steered pattern for a \(+90^\circ\) phase shift.]{Combined \(\phi=0^\circ/180^\circ\) plane pattern for \((1\angle0^\circ,\,1\angle+90^\circ)\). The main lobe is displaced by approximately \(20.0^\circ\) toward the \(\phi=180^\circ\) half-plane, with displayed peak directivity \(9.53~\mathrm{dBi}\) and 3-dB beamwidth \(46.7^\circ\).}
+    \label{fig:array-plus90-phi0}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \maybeincludegraphics[width=0.92\textwidth]{figures/5g_patch_array/beamsteering/array_2x1_combined_broadside_sparameter.png}
+    \caption{CST combined-result \(S\)-parameter output for the in-phase broadside excitation case. This post-processing result verifies that the amplitude-phase combination step was created in CST.}
+    \label{fig:array-combined-sparam}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Beam-steering result summary.}
+\label{tab:beamsteering-results-summary}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}
+>{\raggedright\arraybackslash}p{0.17\textwidth}
+>{\centering\arraybackslash}p{0.12\textwidth}
+>{\centering\arraybackslash}p{0.14\textwidth}
+>{\centering\arraybackslash}p{0.16\textwidth}
+>{\raggedright\arraybackslash}X
+@{}}
+\toprule
+\textbf{Case} &
+\textbf{Applied \(\Delta\phi\)} &
+\textbf{Ideal scan} &
+\textbf{CST simulated scan} &
+\textbf{CST observation} \\
+\midrule
+Broadside &
+\(0^\circ\) &
+\(0^\circ\) &
+\(0^\circ\)--\(1^\circ\) &
+Broadside reference; displayed peak directivity \(9.655~\mathrm{dBi}\). \\
+Negative phase test &
+\(-90^\circ\) &
+\(30^\circ\) magnitude &
+\(20.0^\circ\) toward \(\phi=0^\circ\) &
+The main lobe steered into one half-plane; displayed peak directivity \(9.489~\mathrm{dBi}\). \\
+Positive phase test &
+\(+90^\circ\) &
+\(30^\circ\) magnitude &
+\(20.0^\circ\) toward \(\phi=180^\circ\) &
+The beam steered into the opposite half-plane; displayed peak directivity \(9.531~\mathrm{dBi}\). \\
+\bottomrule
+\end{tabularx}
+\end{table}
