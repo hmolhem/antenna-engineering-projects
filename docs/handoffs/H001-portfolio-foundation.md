@@ -5,7 +5,6 @@
 - **Branch:** `feature/portfolio-foundation`
 - **Pull request:** [#1](https://github.com/hmolhem/antenna-engineering-projects/pull/1)
 - **Status:** Merged
-- **Head commit:** `65fd3b354bb6a53595275777d033e9640ce696d4`
 - **Merge commit:** `65fd3b354bb6a53595275777d033e9640ce696d4`
 
 ## Scope
