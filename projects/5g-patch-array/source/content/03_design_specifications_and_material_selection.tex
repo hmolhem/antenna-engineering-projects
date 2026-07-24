@@ -1,0 +1,78 @@
+% =========================================================
+% Design Specifications and Material Selection
+% =========================================================
+
+\section{Design Specifications and Material Selection}
+\label{sec:design-specifications}
+
+The public portfolio edition treats the operating frequency, substrate, and laminate thickness as
+fixed engineering design inputs. These parameters define the analytical patch synthesis, CST
+material model, frequency-domain simulation range, farfield-monitor frequency, and array-spacing
+calculations used throughout the project.
+
+\subsection{Operating Frequency}
+
+The selected design frequency is
+\[
+f_0 = 2.501~\text{GHz}.
+\]
+This value is used consistently as the reference frequency for the analytical calculations, CST
+tuning process, farfield evaluation, and beam-steering analysis.
+
+The corresponding free-space wavelength is
+\[
+\lambda_0
+=
+\frac{c}{f_0}
+=
+119.869~\text{mm},
+\]
+where \(c\) is the speed of light in free space.
+
+\subsection{Substrate and Laminate Thickness}
+
+The antenna is designed using DiClad~880-IM, a low-loss microwave laminate suitable for printed
+RF and antenna structures. The nominal dielectric properties adopted for the analytical calculations
+and CST material model are based on the manufacturer's published laminate data
+\cite{rogers_diclad870_880}:
+\[
+\varepsilon_r = 2.20,
+\qquad
+\tan\delta = 0.0009.
+\]
+The selected laminate thickness is
+\[
+h = 1.524~\text{mm} = 0.060~\text{in}.
+\]
+
+The relative permittivity and loss tangent are treated as nominal design values. In a fabricated
+implementation, manufacturing tolerance, material-lot variation, copper roughness, and frequency
+dependence of the laminate properties could introduce additional resonance and efficiency variation.
+
+Table~\ref{tab:design-specifications} summarizes the principal design inputs used throughout the
+report.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Principal antenna design specifications and material parameters.}
+    \label{tab:design-specifications}
+    \small
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabularx}{0.90\textwidth}{@{}>{\raggedright\arraybackslash}X
+        >{\raggedright\arraybackslash}p{0.40\textwidth}@{}}
+        \toprule
+        \textbf{Design Parameter} & \textbf{Selected Value} \\
+        \midrule
+        Design frequency, \(f_0\) & \(2.501~\text{GHz}\) \\
+        Free-space wavelength, \(\lambda_0\) & \(119.869~\text{mm}\) \\
+        Substrate & DiClad~880-IM \\
+        Substrate thickness, \(h\) & \(1.524~\text{mm}\) \((0.060~\text{in})\) \\
+        Relative permittivity, \(\varepsilon_r\) & \(2.20\) \\
+        Loss tangent, \(\tan\delta\) & \(0.0009\) \\
+        Single-element feed topology & Inset-fed microstrip line \\
+        Nominal feed impedance & \(50~\Omega\) \\
+        Array topology & Two-port \(2\times1\) linear patch array \\
+        Initial array spacing & \(d \approx \lambda_0/2 = 59.935~\text{mm}\) \\
+        \bottomrule
+    \end{tabularx}
+\end{table}

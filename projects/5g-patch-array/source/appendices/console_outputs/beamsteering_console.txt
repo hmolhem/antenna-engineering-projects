@@ -1,0 +1,20 @@
+Two-Element Array Beam-Steering Phase Shifts
+========================================================================
+f0 = 2.501000 GHz
+lambda0 = 119.869 mm
+d = lambda0/2 = 59.935 mm
+------------------------------------------------------------------------
+Desired steering angle -> required phase shift
+theta0_deg, Delta_phi_deg
+       0.0,         -0.000
+      10.0,        -31.257
+      15.0,        -46.587
+      20.0,        -61.564
+      30.0,        -90.000
+      45.0,       -127.279
+------------------------------------------------------------------------
+Applied CST phase shift -> ideal array-factor beam angle
+Delta_phi_deg, theta0_deg
+          0.0,     -0.000
+        -90.0,     30.000
+         90.0,    -30.000

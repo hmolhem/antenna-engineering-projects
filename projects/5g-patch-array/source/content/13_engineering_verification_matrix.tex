@@ -1,0 +1,80 @@
+\section{Engineering Evidence Matrix}
+\label{sec:engineering-evidence}
+
+Table~\ref{tab:engineering-evidence} maps the principal technical claims in this report to the
+supporting analytical or simulated evidence. The matrix is intended as a traceability aid; it does
+not represent experimental certification. Unless explicitly identified as analytical or documentary
+evidence, antenna-performance results are obtained from CST full-wave simulation.
+
+\begin{longtable}{@{}
+>{\raggedright\arraybackslash}p{0.29\textwidth}
+>{\raggedright\arraybackslash}p{0.47\textwidth}
+>{\raggedright\arraybackslash}p{0.16\textwidth}
+@{}}
+\caption{Traceability matrix for the principal engineering claims and evidence.}
+\label{tab:engineering-evidence}\\
+\toprule
+\textbf{Verification Item} & \textbf{Evidence in Report} & \textbf{Evidence Class} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Verification Item} & \textbf{Evidence in Report} & \textbf{Evidence Class} \\
+\midrule
+\endhead
+
+Design inputs and material properties &
+Section~\ref{sec:design-specifications} and the Rogers laminate reference &
+Design input \\
+
+Initial patch synthesis &
+Equations and dimensions in Sections~\ref{sec:microstrip-patch-theory}
+and~\ref{sec:single-patch-analytical-design} &
+Analytical \\
+
+Parameterized single-patch geometry &
+Figures~\ref{fig:single-patch-top-view-dimensions} and
+\ref{fig:single-patch-cross-section-dimensions}; Tables~\ref{tab:single-patch-final-geometry}
+and~\ref{tab:single-patch-layer-stack} &
+Simulation model \\
+
+Single-patch resonance and matching &
+Figures~\ref{fig:single-patch-s11-tuning} and~\ref{fig:single-patch-s11-final};
+Table~\ref{tab:single-patch-final-summary} &
+Simulated \\
+
+Single-patch directivity, patterns, and efficiencies &
+Figures~\ref{fig:single-patch-3d-farfield}--\ref{fig:single-patch-efficiency};
+Table~\ref{tab:single-patch-final-summary} &
+Simulated \\
+
+Finite-conductivity sensitivity &
+Figures~\ref{fig:single-patch-copper-s11}--\ref{fig:single-patch-copper-patterns};
+Table~\ref{tab:single-patch-conductor-comparison} &
+Simulated sensitivity \\
+
+Two-element array geometry &
+Figures~\ref{fig:array-top-view-dimensions} and~\ref{fig:array-cross-section-dimensions};
+Tables~\ref{tab:cst-array-final-parameters} and~\ref{tab:array-layer-stack} &
+Simulation model \\
+
+Two-port matching and mutual coupling &
+Figures~\ref{fig:array-s11-s12} and~\ref{fig:array-s21-s22};
+Table~\ref{tab:array-final-summary} &
+Simulated \\
+
+Broadside and steered farfields &
+Figures~\ref{fig:array-broadside}--\ref{fig:array-plus90-phi0};
+Table~\ref{tab:beamsteering-results-summary} &
+Simulated post-processing \\
+
+Numerical reliability and limitations &
+Section~\ref{subsec:numerical-reliability} &
+Documented limitation \\
+
+Reproducibility calculations &
+Appendices~\ref{app:patch-design-verification} and
+\ref{app:beamsteering-verification} &
+Analytical code \\
+
+\bottomrule
+\end{longtable}

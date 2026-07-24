@@ -1,0 +1,32 @@
+parameter,value,unit,comment
+f0,2.501,GHz,target resonance and farfield monitor
+fmin,2.0,GHz,frequency sweep lower limit
+fmax,3.0,GHz,frequency sweep upper limit
+epsr,2.20,,DiClad 880-IM relative permittivity
+lossTan,0.0009,,DiClad 880-IM dielectric loss tangent
+h,1.524,mm,substrate thickness
+copperT,0.035,mm,physical metal thickness
+copperSigma,5.87e7,S/m,copper conductivity used in initial lossy-metal trial
+patchW,47.382,mm,patch width along x
+patchL,39.657,mm,initial patch length along y; resonance tuning variable
+feedW,4.735,mm,approximately 50-ohm microstrip width
+feedL,15.000,mm,feed distance from board edge to patch edge
+insetY,14.520,mm,initial inset depth along y
+insetGap,1.000,mm,gap on each side of inset feed
+gndW,56.526,mm,substrate and ground width along x
+gndL,63.801,mm,substrate and ground length along y
+arrayD,59.935,mm,center-to-center array spacing
+halfGndW,gndW/2,mm,derived coordinate
+halfGndL,gndL/2,mm,derived coordinate
+halfPatchW,patchW/2,mm,derived coordinate
+halfFeedW,feedW/2,mm,derived coordinate
+slotHalfW,halfFeedW+insetGap,mm,derived inset-slot half width
+portW,3*feedW,mm,waveguide-port width
+portH,5*h,mm,waveguide-port height
+zTopSub,copperT+h,mm,top surface of substrate
+zTopMetal,copperT+h+copperT,mm,top surface of metallization
+feedYmin,-halfGndL,mm,feed and port boundary
+patchYmin,-halfGndL+feedL,mm,negative-y patch edge
+patchYmax,patchYmin+patchL,mm,positive-y patch edge
+insetYend,patchYmin+insetY,mm,end of inset/feed junction
+feedYmax,insetYend,mm,end of feed line

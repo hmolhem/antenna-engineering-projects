@@ -1,0 +1,34 @@
+Initial Microstrip Patch Design Verification
+========================================================================
+Selected f0: 2.501000 GHz
+Selected substrate: DiClad 880-IM
+Working eps_r: 2.2000
+Working tan_delta: 0.00090
+Substrate thickness h: 1.524 mm
+------------------------------------------------------------------------
+Rectangular patch starting dimensions
+lambda0: 119.869 mm
+Patch width W: 47.382 mm
+Effective permittivity eps_eff: 2.1097
+Length extension DeltaL: 0.803 mm
+Effective length L_eff: 41.264 mm
+Patch length L: 39.657 mm
+------------------------------------------------------------------------
+Finite ground/substrate starting dimensions
+Minimum ground width Wg = W + 6h: 56.526 mm
+Minimum ground length Lg_min = L + 6h: 48.801 mm
+Feed extension Lf: 15.000 mm
+Inset-fed model ground length Lg = L + Lf + 6h: 63.801 mm
+------------------------------------------------------------------------
+Inset-fed microstrip matching starting values
+Target feed-line impedance Z0: 50.0 ohm
+Feed width ratio Wf/h: 3.1069
+Feed-line effective permittivity eps_eff_feed: 1.8721
+Feed-line width Wf: 4.735 mm
+Feed-line Z0 verification: 50.000 ohm
+Assumed patch edge resistance: 300.0 ohm
+Initial inset depth y0: 14.520 mm
+Initial inset gap gi: 1.000 mm
+------------------------------------------------------------------------
+Array starting value
+Initial array spacing d=lambda0/2: 59.935 mm

@@ -1,0 +1,62 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+This project designed and simulated a 5G microstrip patch antenna and a \(2\times1\) phased patch
+array. The selected design frequency was \(f_0=2.501~\mathrm{GHz}\), the substrate was
+DiClad~880-IM, and the substrate thickness was \(h=1.524~\mathrm{mm}\). The analytical
+transmission-line model provided the initial patch dimensions, and CST Studio Suite was then used
+to tune and evaluate the final geometry.
+
+The final tuned single patch used \(\texttt{patchL}=38.40~\mathrm{mm}\) and
+\(\texttt{insetY}=14.11~\mathrm{mm}\). The PEC baseline resonance occurred at approximately
+\(2.50507~\mathrm{GHz}\), with \(S_{11,\min}\approx-39.87~\mathrm{dB}\). The peak
+directivity was approximately \(7.226~\mathrm{dBi}\), and the radiation and total efficiencies
+were approximately \(96.3\%\) and \(96.2\%\), respectively. A supplementary fixed-mesh
+finite-conductivity copper run produced \(f_r\approx2.504~\mathrm{GHz}\),
+\(S_{11,\min}\approx-39.72~\mathrm{dB}\), and directivity near \(7.23~\mathrm{dBi}\), while
+the radiation and total efficiencies decreased to approximately \(92.46\%\) and \(92.38\%\).
+This comparison confirmed that the PEC approximation preserved the principal resonance and
+radiation behavior but overestimated efficiency by omitting finite-conductor loss.
+
+The design was then extended to a \(2\times1\) array with an element spacing of
+\(d=59.935~\mathrm{mm}\). Because mutual coupling shifted the resonance relative to the isolated
+single patch, the array was retuned to \(\texttt{patchL}=36.70~\mathrm{mm}\) and
+\(\texttt{insetY}=13.35~\mathrm{mm}\). The final array achieved acceptable two-port matching
+near the operating frequency, with \(S_{11}\approx-11.93~\mathrm{dB}\),
+\(S_{22}\approx-15.20~\mathrm{dB}\), and mutual coupling of approximately
+\(S_{12}\approx S_{21}\approx-15~\mathrm{dB}\). The coupling result explains why the array
+required independent tuning after the isolated element was optimized.
+
+Beam steering was demonstrated using CST amplitude-phase post-processing. The two port farfields
+were combined for equal-amplitude excitations with relative phases of \(0^\circ\), \(-90^\circ\),
+and \(+90^\circ\). The \(0^\circ\) case produced the broadside reference pattern, with the
+principal-plane main-beam direction remaining within approximately \(0^\circ\)--\(1^\circ\).
+The \(-90^\circ\) and \(+90^\circ\) cases produced simulated beam displacements of
+approximately \(20^\circ\) toward the \(\phi=0^\circ\) and \(\phi=180^\circ\) half-planes,
+respectively. For an element spacing of approximately \(\lambda_0/2\), the ideal array-factor
+model predicts a scan-angle magnitude near \(30^\circ\). The difference is consistent with the
+finite element pattern, mutual coupling, substrate loading, finite ground plane, and practical feed
+geometry included in the full-wave model.
+
+The numerical results must be interpreted within the limitations of the CST Learning Edition
+environment. The principal tuning and array simulations used PEC metallization, while the
+supplementary single-patch validation used finite-conductivity lossy-metal copper. An attempted
+adaptive-mesh copper run exceeded the \(20{,}000\)-cell limit before convergence and was discarded;
+the successful copper comparison therefore used a fixed mesh. Formal mesh-convergence and
+boundary-convergence studies were not completed. Nevertheless, the observed trends were physically
+consistent: reducing the isolated-patch length shifted the resonance upward, forming the array
+produced a downward resonance shift accompanied by quantifiable mutual coupling, and including
+copper loss reduced efficiency without materially changing resonance, matching, directivity, or
+normalized pattern shape.
+
+A higher-fidelity validation study should repeat the final single-patch and array simulations using
+progressively refined local meshes and increased open-boundary spacing. The resulting resonant
+frequency, \(S\)-parameters, directivity, efficiency, and beam-steering angle should then be compared
+to confirm numerical convergence. A higher-capacity solver license would also permit adaptive
+finite-conductivity validation of the complete two-element array.
+
+The public project package connects the selected design inputs, analytical patch synthesis, CST
+tuning, mutual-coupling analysis, numerical-modeling limitations, and phase-controlled beam
+steering into a traceable antenna-engineering workflow. Selected simulation figures, analytical
+scripts, parameter tables, and reproducibility notes accompany the report. Native CST project files
+are not included in the ordinary source archive because of file-size and distribution considerations.

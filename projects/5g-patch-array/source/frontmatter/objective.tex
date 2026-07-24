@@ -1,0 +1,55 @@
+% =========================================================
+% frontmatter/objective.tex
+% =========================================================
+
+\chapter*{Project Objective}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Project Objective}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+The objective of this project is to develop and evaluate a complete
+antenna-engineering workflow for a 5G microstrip patch antenna and a
+two-element phased patch array operating near 2.501~GHz.
+
+The work integrates closed-form antenna design, parameterized
+full-wave electromagnetic simulation, impedance matching, radiation
+analysis, mutual-coupling characterization, and phase-controlled beam
+steering.
+
+The project has four principal technical objectives:
+
+\begin{enumerate}
+    \item Design an inset-fed rectangular microstrip patch antenna using
+    analytical transmission-line relations for the patch dimensions,
+    effective dielectric constant, fringing-field extension,
+    microstrip-feed width, and initial inset position.
+
+    \item Implement and tune the single-patch model in CST Studio Suite,
+    and evaluate its resonant frequency, reflection coefficient,
+    directivity, radiation pattern, radiation efficiency, and total
+    efficiency.
+
+    \item Extend the tuned element into a two-port $2\times1$ patch array,
+    quantify the effect of mutual coupling, and determine the separate
+    tuning required to maintain acceptable input matching near the
+    operating frequency.
+
+    \item Demonstrate beam steering by applying controlled relative phase
+    shifts between the two array elements and comparing the simulated
+    scan angles with ideal two-element array-factor predictions.
+\end{enumerate}
+
+A secondary objective is to evaluate the numerical reliability and
+physical limitations of the simulation model. Particular attention is
+given to the CST Learning Edition mesh-cell restriction, the use of PEC
+metallization in the baseline models, the supplementary
+finite-conductivity copper sensitivity study, and the absence of formal
+mesh- and boundary-convergence studies.
+
+The final outcome is intended to provide a technically traceable
+portfolio record that connects analytical antenna theory, full-wave
+simulation, numerical interpretation, and phased-array behavior.
+All reported performance results are analytical or simulated; no
+fabricated prototype or measured antenna data are claimed.
+\endgroup

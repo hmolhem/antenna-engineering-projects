@@ -1,0 +1,8 @@
+object,xmin,xmax,ymin,ymax,zmin,zmax,material_or_note
+Ground,-halfGndW,halfGndW,-halfGndL,halfGndL,0,copperT,PEC in final tuned run
+Substrate,-halfGndW,halfGndW,-halfGndL,halfGndL,copperT,zTopSub,DiClad 880-IM
+Feed line,-halfFeedW,halfFeedW,feedYmin,insetYend,zTopSub,zTopMetal,PEC in final tuned run
+Patch main,-halfPatchW,halfPatchW,insetYend,patchYmax,zTopSub,zTopMetal,PEC in final tuned run
+Patch left arm,-halfPatchW,-slotHalfW,patchYmin,insetYend,zTopSub,zTopMetal,PEC in final tuned run
+Patch right arm,slotHalfW,halfPatchW,patchYmin,insetYend,zTopSub,zTopMetal,PEC in final tuned run
+Waveguide Port 1,-portW/2,portW/2,feedYmin,feedYmin,0,portH,normal to positive y; one mode

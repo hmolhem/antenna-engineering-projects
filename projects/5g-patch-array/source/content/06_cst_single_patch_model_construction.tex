@@ -1,0 +1,180 @@
+\section{CST Model Construction for the Single Patch}
+\label{sec:cst-single-patch-model}
+
+The single-patch CST model was constructed as a parameterized inset-fed microstrip antenna using the
+analytical dimensions developed in Section~\ref{sec:single-patch-analytical-design}. The implemented
+model contained a finite ground plane, a DiClad 880-IM substrate, finite-thickness top and bottom
+metallization, an inset microstrip feed, and a waveguide port located at the feed-line boundary. The
+parameterized construction allowed the patch length and inset depth to be varied without rebuilding the
+geometry.
+
+\subsection{Implemented CST Parameter Set}
+\label{subsec:cst-single-patch-parameter-set}
+
+Table~\ref{tab:cst-single-patch-parameters} lists the principal parameter names used in the CST model.
+The names \texttt{lossTan} and \texttt{h} match the implemented CST project. The initial values were
+used for the analytical starting model; \texttt{patchL} and \texttt{insetY} were subsequently changed
+during tuning.
+
+\begin{table}[H]
+\centering
+\caption{Principal CST parameters used for the single-patch model.}
+\label{tab:cst-single-patch-parameters}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}lllX@{}}
+\toprule
+\textbf{Parameter} & \textbf{Initial Value} & \textbf{Unit} & \textbf{Function} \\
+\midrule
+\texttt{f0} & 2.501 & GHz & Target frequency and farfield-monitor frequency \\
+\texttt{fmin}, \texttt{fmax} & 2.0, 3.0 & GHz & Frequency-domain simulation range \\
+\texttt{epsr} & 2.20 & -- & Relative permittivity of DiClad 880-IM \\
+\texttt{lossTan} & 0.0009 & -- & Dielectric loss tangent \\
+\texttt{h} & 1.524 & mm & Substrate thickness \\
+\texttt{copperT} & 0.035 & mm & Physical metallization thickness used in the geometry \\
+\texttt{copperSigma} & $5.87\times10^7$ & S/m & Copper conductivity used in the initial lossy-metal trial \\
+\texttt{patchW} & 47.382 & mm & Patch width in the CST $x$-direction \\
+\texttt{patchL} & 39.657 & mm & Initial patch length; principal resonance-tuning variable \\
+\texttt{feedW} & 4.735 & mm & Approximate $50~\Omega$ microstrip-feed width \\
+\texttt{feedL} & 15.000 & mm & Distance from the board edge to the patch edge \\
+\texttt{insetY} & 14.520 & mm & Initial inset depth measured along the patch length \\
+\texttt{insetGap} & 1.000 & mm & Gap on each side of the inset feed \\
+\texttt{gndW} & 56.526 & mm & Ground-plane and substrate width \\
+\texttt{gndL} & 63.801 & mm & Ground-plane and substrate length \\
+\texttt{arrayD} & 59.935 & mm & Element spacing reserved for the later $2\times1$ array \\
+\texttt{portW} & $3\,\texttt{feedW}$ & mm & Waveguide-port width \\
+\texttt{portH} & $5h$ & mm & Waveguide-port height \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Additional derived parameters were used to keep the brick coordinates readable, including
+\texttt{halfGndW}, \texttt{halfGndL}, \texttt{halfPatchW}, \texttt{halfFeedW},
+\texttt{slotHalfW}, \texttt{zTopSub}, \texttt{zTopMetal}, \texttt{patchYmin},
+\texttt{patchYmax}, \texttt{insetYend}, \texttt{feedYmin}, and \texttt{feedYmax}.
+
+\subsection{Implemented Coordinate Convention and Layer Stack}
+\label{subsec:cst-single-patch-geometry-logic}
+
+The coordinate convention used in the actual CST model was
+\begin{itemize}
+    \item the patch width and later array axis were aligned with the CST $x$-axis;
+    \item the patch length and feed-line direction were aligned with the CST $y$-axis;
+    \item the substrate thickness was aligned with the CST $z$-axis;
+    \item the feed entered the patch from the negative-$y$ side; and
+    \item the waveguide port was placed on the negative-$y$ board boundary and oriented in the positive-$y$ direction.
+\end{itemize}
+
+The finite-thickness layer stack was implemented as
+\[
+0\le z\le \texttt{copperT}
+\]
+for the ground metallization,
+\[
+\texttt{copperT}\le z\le \texttt{copperT}+h
+\]
+for the DiClad 880-IM substrate, and
+\[
+\texttt{copperT}+h\le z\le 2\,\texttt{copperT}+h
+\]
+for the patch and feed metallization. Numerically, the top of the substrate and top of the metal were
+\[
+\texttt{zTopSub}=1.559~\mathrm{mm},
+\qquad
+\texttt{zTopMetal}=1.594~\mathrm{mm}.
+\]
+
+\subsection{Parameterized Brick Construction}
+\label{subsec:single-patch-coordinate-plan}
+
+The inset-fed top conductor was built using four connected rectangular bricks. This avoided a Boolean
+subtraction and made the inset geometry easier to tune. Table~\ref{tab:single-patch-coordinate-plan}
+records the coordinate logic used in the CST model.
+
+\begin{table}[H]
+\centering
+\caption{Coordinate logic used to construct the parameterized single-patch CST model.}
+\label{tab:single-patch-coordinate-plan}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{@{}l
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Object} & \textbf{$x$ range} & \textbf{$y$ range} & \textbf{$z$ range} & \textbf{Material or role} \\
+\midrule
+Ground & $-\texttt{halfGndW}$ to $+\texttt{halfGndW}$ & $-\texttt{halfGndL}$ to $+\texttt{halfGndL}$ & $0$ to \texttt{copperT} & Copper trial; PEC in final tuned run \\
+Substrate & $-\texttt{halfGndW}$ to $+\texttt{halfGndW}$ & $-\texttt{halfGndL}$ to $+\texttt{halfGndL}$ & \texttt{copperT} to \texttt{zTopSub} & DiClad 880-IM \\
+Feed line & $-\texttt{halfFeedW}$ to $+\texttt{halfFeedW}$ & \texttt{feedYmin} to \texttt{insetYend} & \texttt{zTopSub} to \texttt{zTopMetal} & Top metallization \\
+Patch main & $-\texttt{halfPatchW}$ to $+\texttt{halfPatchW}$ & \texttt{insetYend} to \texttt{patchYmax} & \texttt{zTopSub} to \texttt{zTopMetal} & Main patch region \\
+Left inset arm & $-\texttt{halfPatchW}$ to $-\texttt{slotHalfW}$ & \texttt{patchYmin} to \texttt{insetYend} & \texttt{zTopSub} to \texttt{zTopMetal} & Left side of inset \\
+Right inset arm & \texttt{slotHalfW} to \texttt{halfPatchW} & \texttt{patchYmin} to \texttt{insetYend} & \texttt{zTopSub} to \texttt{zTopMetal} & Right side of inset \\
+Waveguide Port~1 & $-\texttt{portW}/2$ to $+\texttt{portW}/2$ & $y=\texttt{feedYmin}$ & $0$ to \texttt{portH} & Normal to $+y$, one mode \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The principal derived coordinates were
+\[
+\texttt{feedYmin}=-\frac{\texttt{gndL}}{2},
+\qquad
+\texttt{patchYmin}=\texttt{feedYmin}+\texttt{feedL},
+\]
+\[
+\texttt{patchYmax}=\texttt{patchYmin}+\texttt{patchL},
+\qquad
+\texttt{insetYend}=\texttt{patchYmin}+\texttt{insetY},
+\]
+and
+\[
+\texttt{slotHalfW}=\frac{\texttt{feedW}}{2}+\texttt{insetGap}.
+\]
+For the initial analytical model, these relations gave
+\[
+\texttt{feedYmin}=-31.9005~\mathrm{mm},
+\quad
+\texttt{patchYmin}=-16.9005~\mathrm{mm},
+\]
+\[
+\texttt{patchYmax}=22.7565~\mathrm{mm},
+\quad
+\texttt{insetYend}=-2.3805~\mathrm{mm}.
+\]
+The final tuned single patch retained the same board, feed width, and inset gap but used
+\texttt{patchL}$=38.40~\mathrm{mm}$ and \texttt{insetY}$=14.11~\mathrm{mm}$.
+
+The parameter and coordinate records are also stored in the following project files:
+\begin{itemize}
+    \item \nolinkurl{cst_setup/single_patch_parameters.csv};
+    \item \nolinkurl{cst_setup/single_patch_coordinate_table.csv}; and
+    \item \nolinkurl{cst_setup/single_patch_build_sheet.md}.
+\end{itemize}
+
+\subsection{Implemented Boundary, Port, and Solver Setup}
+\label{subsec:cst-single-patch-solver-setup}
+
+The model was solved from $2.0$ to $3.0~\mathrm{GHz}$ using the frequency-domain general-purpose
+solver with a tetrahedral mesh. Port~1 was defined at $y=\texttt{feedYmin}$ with one mode, positive-$y$
+orientation, width \texttt{portW}$=3\,\texttt{feedW}$, and height \texttt{portH}$=5h$. The
+$S$-parameters were normalized to $50~\Omega$. Open boundaries with added space were applied on all
+six sides, and a farfield monitor was placed at $f_0=2.501~\mathrm{GHz}$.
+
+The initial finite-conductivity copper trial exceeded the CST Learning Edition mesh-cell limit. The
+successful tuned runs therefore used PEC for the ground, patch, and feed while retaining the dielectric
+loss tangent of the substrate. The solver accuracy was set to $10^{-3}$ for the tuning workflow, and
+adaptive tetrahedral mesh refinement was disabled to remain within the available mesh limit. These
+modeling decisions and their implications are discussed in Section~\ref{subsec:numerical-reliability}.
+
+\subsection{Required Geometry Documentation}
+\label{subsec:required-screenshots-part-i}
+
+The implemented geometry is documented in Section~\ref{sec:single-patch-results} using a clean CST
+top-view export, a layered cross-sectional perspective, a final dimensional table, and an explicit layer-stack
+table. This format avoids an unreadable full parameter-list overlay while preserving all dimensions required
+to reproduce the model. The cross-sectional documentation identifies the $0.035~\mathrm{mm}$ bottom
+metallization, the $1.524~\mathrm{mm}$ DiClad 880-IM substrate, and the $0.035~\mathrm{mm}$ top
+metallization.

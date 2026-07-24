@@ -1,0 +1,77 @@
+\section{Two-Element Array Theory and Design}
+\label{sec:array-theory-design}
+
+A \(2\times1\) patch array increases directivity by combining the fields from two patch elements.
+If mutual coupling and element-pattern distortion are neglected, the total pattern can be approximated
+by pattern multiplication:
+\[
+F_{\mathrm{total}}(\theta,\phi)
+\approx
+F_{\mathrm{element}}(\theta,\phi)AF(\theta,\phi),
+\]
+where \(F_{\mathrm{element}}\) is the single-patch element pattern and \(AF\) is the array factor.
+
+For two identical elements along the \(x\)-axis with spacing \(d\), equal amplitudes, and progressive
+phase shift \(\Delta\phi\), the normalized array factor in the array plane can be written as
+\[
+AF(\theta)
+=
+2\cos\left[\frac{1}{2}\left(k_0 d\sin\theta+\Delta\phi\right)\right],
+\]
+where \(k_0=2\pi/\lambda_0\). A broadside beam occurs for \(\Delta\phi=0\). Beam steering to
+an angle \(\theta_0\) is obtained approximately from
+\[
+\boxed{\Delta\phi=-k_0 d\sin\theta_0.}
+\]
+
+The recommended starting center-to-center element spacing is
+\[
+d\approx\frac{\lambda_0}{2}\approx59.94~\mathrm{mm}
+\]
+for \(f_0=2.501~\mathrm{GHz}\). In practice, the spacing may need adjustment to reduce coupling,
+avoid grating lobes, and fit the physical patch and feed geometry. The phase-shift values used as
+beam-steering starting points are verified using the Python calculation in
+Appendix~\ref{app:beamsteering-verification}, with the console output documented in
+Listing~\ref{lst:beamsteering-console}.
+
+
+For a two-element array with \(d=\lambda_0/2\), the ideal progressive phase shift required to steer the main beam toward \(\theta_0\) is
+\[
+\Delta\phi = -k_0 d \sin\theta_0 = -180^\circ \sin\theta_0 .
+\]
+The resulting initial phase-shift values are summarized in Table~\ref{tab:beamsteering-phase-starting-values}.
+
+\begin{table}[H]
+\centering
+\caption{Initial progressive phase shifts for beam steering with \(d=\lambda_0/2\).}
+\label{tab:beamsteering-phase-starting-values}
+\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.20}
+
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{Target angle, \(\theta_0\)} &
+\textbf{Phase-shift formula} &
+\textbf{Progressive phase, \(\Delta\phi\)} \\
+\midrule
+
+\(0^\circ\) &
+\(-180^\circ\sin(0^\circ)\) &
+\(0^\circ\) \\
+
+\(15^\circ\) &
+\(-180^\circ\sin(15^\circ)\) &
+\(-46.6^\circ\) \\
+
+\(30^\circ\) &
+\(-180^\circ\sin(30^\circ)\) &
+\(-90.0^\circ\) \\
+
+\(45^\circ\) &
+\(-180^\circ\sin(45^\circ)\) &
+\(-127.3^\circ\) \\
+
+\bottomrule
+\end{tabular}
+\end{table}

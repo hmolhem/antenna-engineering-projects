@@ -1,0 +1,223 @@
+\section{Engineering Discussion}
+\label{sec:engineering-discussion}
+
+The main engineering value of this project is the connection between analytical antenna theory,
+full-wave CST simulation, and phased-array interpretation. The initial rectangular-patch dimensions
+were estimated using the transmission-line model, whereas CST Studio Suite was required to account
+for the finite substrate and ground-plane dimensions, practical feed geometry, fringing fields,
+dielectric loss, port discontinuities, and mutual coupling between the array elements.
+
+\subsection{Mesh-Limited CST Modeling Decision}
+
+The CST model was initially prepared using finite-conductivity copper with
+\[
+\sigma_{\mathrm{Cu}}=5.87\times10^7~\mathrm{S/m}.
+\]
+However, the finite copper thickness of \(0.035~\mathrm{mm}\) introduced model dimensions that were
+very small compared with the overall antenna size. A conventional volumetric conductor representation
+produced a severe edge-length ratio and exceeded the CST Learning Edition mesh-cell limit during
+refinement. The final baseline single-patch and array tuning runs therefore used perfect electric
+conductor (PEC) metallization while retaining the DiClad 880-IM dielectric loss through
+\[
+\tan\delta=0.0009.
+\]
+This choice allowed the required resonance, matching, pattern, coupling, and beam-steering studies to
+be completed within the available computational restriction.
+
+After the baseline design was finalized, a supplementary finite-conductivity validation was performed
+for the single patch using CST's \emph{Lossy metal} model. An adaptive-mesh attempt again exceeded the
+\(20{,}000\)-cell limit before convergence and was discarded. A fixed-mesh run with the same geometry
+completed successfully and produced a resonance near \(2.504~\mathrm{GHz}\),
+\(S_{11,\min}\approx-39.72~\mathrm{dB}\), and directivity near \(7.23~\mathrm{dBi}\). These values
+were nearly identical to the PEC baseline. The radiation and total efficiencies decreased to
+approximately \(92.46\%\) and \(92.38\%\), respectively, compared with \(96.3\%\) and \(96.2\%\)
+for PEC. The detailed comparison is provided in Section~\ref{subsec:single-patch-copper-validation}.
+
+The validation demonstrates that PEC was an effective approximation for resonance, input matching,
+directivity, and normalized pattern shape in the present design. Its principal limitation was an
+overestimate of efficiency because finite copper ohmic loss was omitted. The fixed-mesh copper result
+should not be interpreted as a formal mesh-converged solution, but it provides a useful conductor-model
+sensitivity check within the Learning Edition limit.
+
+\subsection{Single-Patch Tuning Behavior}
+
+The single-patch tuning process demonstrated a physically consistent relationship between patch length
+and resonant frequency. The initial analytical patch length of \(39.657~\mathrm{mm}\) produced a
+resonance near \(2.431~\mathrm{GHz}\), below the selected design frequency of
+\(2.501~\mathrm{GHz}\). Because the patch was electrically too long, the patch length was reduced in
+successive tuning runs.
+
+The final single-patch design used
+\[
+L=38.40~\mathrm{mm},
+\qquad
+y_{\mathrm{inset}}=14.11~\mathrm{mm},
+\]
+and produced
+\[
+S_{11,\min}\approx -39.87~\mathrm{dB}
+\]
+at approximately
+\[
+f_{\mathrm{r}}=2.50507~\mathrm{GHz}.
+\]
+The resonant-frequency error relative to the selected design target was therefore approximately \(0.16\%\).
+
+The simulated single-patch farfield exhibited the expected broadside radiation behavior of a
+rectangular microstrip patch. The PEC baseline peak directivity was approximately
+\(7.226~\mathrm{dBi}\), with radiation and total efficiencies of approximately \(96.3\%\)
+and \(96.2\%\), respectively. The supplementary finite-conductivity run preserved essentially the
+same resonance, matching, directivity, and normalized pattern while reducing the radiation and total
+efficiencies to approximately \(92.46\%\) and \(92.38\%\). This behavior is physically consistent
+with the addition of copper ohmic loss.
+
+\subsection{Single Patch Versus Array Tuning}
+
+When the tuned single patch was duplicated to form the \(2\times1\) array, the resonance shifted
+substantially downward. The initial array configuration, which retained the final isolated-patch
+dimensions, produced resonance near \(2.399~\mathrm{GHz}\).
+
+This shift occurred because the individual elements no longer radiated in isolation. Mutual coupling
+altered the current distribution, input impedance, and effective electrical length of each patch.
+In addition, the enlarged common substrate and ground-plane environment modified the electromagnetic
+loading of the elements. Consequently, the optimized dimensions of the isolated patch could not be
+used directly as the final dimensions of the array.
+
+The array was therefore retuned independently. The final array geometry used
+\[
+L=36.70~\mathrm{mm},
+\qquad
+y_{\mathrm{inset}}=13.35~\mathrm{mm},
+\qquad
+d=59.935~\mathrm{mm}.
+\]
+The selected spacing corresponds approximately to
+\[
+d\approx\frac{\lambda_0}{2}
+\]
+at the selected operating frequency.
+
+Near the target frequency, the final tuned array produced approximately
+\[
+S_{11}\approx -11.9~\mathrm{dB},
+\qquad
+S_{22}\approx -15.2~\mathrm{dB}.
+\]
+The mutual coupling was approximately
+\[
+S_{12}\approx S_{21}\approx -15~\mathrm{dB}.
+\]
+
+The final array was selected as an engineering compromise among resonant-frequency proximity,
+acceptable matching at both input ports, and manageable mutual coupling. The coupling result confirms
+that the two patches are not electromagnetically independent. Excitation of one element produces
+fields and induced currents on the neighboring element, thereby affecting the input match, radiation
+behavior, and phased-array response.
+
+\subsection{Beam-Steering Interpretation}
+
+Beam steering was implemented using CST amplitude-phase post-processing. The independently simulated
+farfields associated with the two ports were combined using equal amplitudes and different relative
+phases.
+
+The three evaluated excitation cases were
+\[
+\left(1\angle0^\circ,\;1\angle0^\circ\right),
+\]
+\[
+\left(1\angle0^\circ,\;1\angle-90^\circ\right),
+\]
+and
+\[
+\left(1\angle0^\circ,\;1\angle+90^\circ\right).
+\]
+
+The \(0^\circ\) relative-phase case produced the broadside reference pattern, with the two principal
+cuts locating the main beam at approximately \(0^\circ\) and \(1^\circ\). Applying a relative phase
+shift of \(-90^\circ\) displaced the main lobe by approximately \(20^\circ\) toward the
+\(\phi=0^\circ\) half-plane, whereas reversing the relative phase to \(+90^\circ\) produced an
+approximately \(20^\circ\) displacement toward the \(\phi=180^\circ\) half-plane.
+
+For a two-element array with approximately half-wavelength spacing, the ideal array-factor relationship is
+\[
+\Delta\phi=-k_0d\sin\theta_0.
+\]
+With
+\[
+d\approx\frac{\lambda_0}{2},
+\]
+this becomes
+\[
+\Delta\phi\approx-180^\circ\sin\theta_0.
+\]
+Therefore, relative phase shifts of \(-90^\circ\) and \(+90^\circ\) ideally correspond to equal scan-angle
+magnitudes of approximately \(30^\circ\) in opposite directions. The CST-observed magnitude of
+approximately \(20^\circ\) is smaller than the ideal prediction.
+
+Exact agreement between the ideal array-factor prediction and the CST farfield is not necessarily
+expected. The analytical array factor assumes idealized point sources, whereas the CST model includes
+the finite patch element pattern, substrate loading, feed geometry, port definition, finite ground
+plane, and mutual coupling. In addition, the displayed sign of the steering direction depends on the
+CST coordinate system and the ordering of Ports 1 and 2.
+
+The CST post-processing results nevertheless demonstrated the essential phased-array mechanism:
+the direction of the combined main beam was controlled by the relative excitation phase while the
+excitation amplitudes remained equal.
+
+CST reported that unnormalized balance information was unavailable for the combined post-processed
+farfield results. Consequently, the combined-result gain and efficiency values were not treated as
+validated quantitative metrics. CST displayed peak directivities of approximately
+\(9.655~\mathrm{dBi}\), \(9.489~\mathrm{dBi}\), and \(9.531~\mathrm{dBi}\) for the broadside,
+\(-90^\circ\), and \(+90^\circ\) cases, respectively. The combined farfields and principal-plane cuts
+were used primarily to evaluate directivity-pattern shape, beamwidth, and the direction of beam
+steering.
+
+\subsection{Numerical Reliability and Convergence Considerations}
+\label{subsec:numerical-reliability}
+
+The interpretation of the CST results must account for the numerical limitations of the available
+simulation environment. The PEC baseline tuning runs and the successful finite-conductivity validation
+used a fixed tetrahedral mesh so that the models remained within the CST Learning Edition cell limit.
+A formal mesh-convergence study was therefore not completed.
+
+A separate adaptive-mesh finite-conductivity run was attempted as a numerical reliability check. The
+solver completed several adaptive passes, but the mesh exceeded the \(20{,}000\)-cell license limit
+before convergence was reached. No quantitative result from that incomplete run was used in the
+report. The successful lossy-metal result was obtained only after mesh adaptation was disabled and is
+therefore identified explicitly as a fixed-mesh conductor-model sensitivity study.
+
+A formal boundary-convergence study was also not performed. The final simulations used open
+boundaries with added space, but the boundary distance was not systematically increased and compared
+across multiple runs. Accordingly, the reported results should be interpreted as engineering-level
+simulation results rather than fully converged production-level predictions.
+
+Despite these limitations, the principal physical trends were internally consistent. For the isolated
+single patch, reducing the patch length shifted the resonance upward toward the target frequency. For
+the array, adding the second element caused a downward resonance shift accompanied by quantifiable
+mutual coupling. The separate PEC and finite-conductivity single-patch models produced nearly
+identical resonance, matching, directivity, and normalized pattern shape, while the finite-conductivity
+model produced the expected reduction in efficiency. No unexplained non-monotonic trend was used as
+the basis for the final design.
+
+A more rigorous numerical validation procedure would repeat the final single-patch and array models
+using several progressively refined local meshes. For each mesh level, the following quantities should
+be compared:
+\begin{itemize}
+    \item resonant frequency;
+    \item minimum \(S_{11}\) and \(S_{22}\);
+    \item mutual coupling \(S_{12}\) and \(S_{21}\);
+    \item peak directivity;
+    \item radiation and total efficiencies; and
+    \item beam-steering angle.
+\end{itemize}
+
+Boundary convergence could be evaluated by repeating the simulations with progressively increased
+open-boundary spacing and confirming that the changes in resonant frequency, \(S\)-parameters, and
+farfield quantities become negligible. A higher-capacity solver license would also permit adaptive
+finite-conductivity validation of the complete \(2\times1\) array.
+
+Within the computational limitations of the CST Learning Edition, the analytical calculations,
+single-element tuning, conductor-model sensitivity check, two-port array characterization,
+mutual-coupling results, and phased farfield combinations were mutually consistent. The final model
+therefore provides a credible demonstration of the complete engineering workflow from analytical patch
+design to phase-controlled array beam steering.
