@@ -1,0 +1,140 @@
+\section{Design Specifications}
+
+
+The design operating frequency was selected as
+
+\[
+f_0 = 1.120~\mathrm{GHz}.
+\]
+
+This value defines the wavelength scale, the initial half-wave estimate, the simulation sweep, and the far-field monitor frequency used throughout the study.
+
+The corresponding free-space wavelength is
+
+\[
+\lambda_0 = \frac{c}{f_0},
+\]
+
+where \(c \approx 3.0 \times 10^8~\mathrm{m/s}\) is the speed of light in free space. Therefore,
+
+\[
+\lambda_0 =
+\frac{3.0 \times 10^8}{1.120 \times 10^9}
+=
+0.26786~\mathrm{m}
+=
+267.86~\mathrm{mm}.
+\]
+
+The theoretical free-space half-wavelength dipole length is obtained from the standard half-wave dipole approximation~\cite{stutzman2012antenna},
+
+\[
+L_{\lambda/2} = \frac{\lambda_0}{2}
+=
+133.93~\mathrm{mm}.
+\]
+
+This value was used as the initial physical length of the dipole antenna before CST tuning.
+
+The corresponding Python verification is provided in Appendix~\ref{app:python-utility-calculations}, Listing~\ref{lst:wearable-verification}.
+
+
+The cylindrical dipole wire diameter was specified as
+
+\[
+d = 1.81~\mathrm{mm}.
+\]
+
+The corresponding wire radius used in the CST cylindrical dipole model is
+
+\[
+a = \frac{d}{2}
+=
+0.905~\mathrm{mm}.
+\]
+
+The antenna was modeled as a center-fed cylindrical PEC dipole aligned along the \(x\)-axis. A \(2~\mathrm{mm}\) feed gap was used at the center of the dipole, and a discrete port with \(50~\Omega\) reference impedance was placed across the gap. This geometry provides a practical full-wave model of the specified wire-dipole antenna configuration.
+
+\begin{table}[htbp]
+\centering
+\caption{Initial dipole design parameters.}
+\label{tab:initial-dipole-parameters}
+\begin{tabular}{lc}
+\hline
+\textbf{Parameter} & \textbf{Value} \\
+\hline
+Target operating frequency, \(f_0\) & \(1.120~\mathrm{GHz}\) \\
+Free-space wavelength, \(\lambda_0\) & \(267.86~\mathrm{mm}\) \\
+Initial half-wave dipole length, \(L_{\lambda/2}\) & \(133.93~\mathrm{mm}\) \\
+Wire diameter, \(d\) & \(1.81~\mathrm{mm}\) \\
+Wire radius, \(a\) & \(0.905~\mathrm{mm}\) \\
+Feed gap & \(2.00~\mathrm{mm}\) \\
+Port reference impedance & \(50~\Omega\) \\
+Dipole orientation & \(x\)-axis \\
+\hline
+\end{tabular}
+\end{table}
+
+The approximate human body model was constructed using three stacked lossy dielectric layers representing skin, fat, and muscle. The tissue material properties were selected to represent the lossy dielectric behavior of biological tissues at microwave frequencies~\cite{gabriel1996tissue}. The layer thicknesses were kept unchanged in all body-separation simulations.
+
+\begin{table}[htbp]
+\centering
+\caption{Multilayer human body material model used in CST.}
+\label{tab:body-materials}
+\begin{tabular}{lccc}
+\hline
+\textbf{Layer} & \textbf{Relative Permittivity} & \textbf{Conductivity (S/m)} & \textbf{Thickness (mm)} \\
+\hline
+Skin & 41.32 & 0.855 & 1.5 \\
+Fat & 5.46 & 0.050 & 20.0 \\
+Muscle & 54.97 & 0.934 & 30.0 \\
+\hline
+\end{tabular}
+\end{table}
+
+Due to the mesh-cell limitation of the CST Studio Suite Learning Edition, the body was modeled as a finite rectangular tissue patch rather than a full anatomical body model. The final body patch dimensions used in the simulations were
+
+\[
+150~\mathrm{mm} \times 60~\mathrm{mm},
+\]
+
+with the three tissue layers stacked in the \(z\)-direction. The tissue thicknesses, material properties, antenna geometry, and antenna-body separation distances were held fixed across the comparative simulations.
+
+\begin{table}[htbp]
+\centering
+\caption{Geometrical dimensions of the finite multilayer body patch.}
+\label{tab:body-geometry}
+\begin{tabular}{lc}
+\hline
+\textbf{Parameter} & \textbf{Value} \\
+\hline
+Body patch length in \(x\)-direction & \(150~\mathrm{mm}\) \\
+Body patch width in \(y\)-direction & \(60~\mathrm{mm}\) \\
+Skin thickness & \(1.5~\mathrm{mm}\) \\
+Fat thickness & \(20.0~\mathrm{mm}\) \\
+Muscle thickness & \(30.0~\mathrm{mm}\) \\
+Total tissue thickness & \(51.5~\mathrm{mm}\) \\
+\hline
+\end{tabular}
+\end{table}
+
+The antenna was simulated in four main configurations: free space, \(10~\mathrm{mm}\) above the body, \(5~\mathrm{mm}\) above the body, and \(0.1~\mathrm{mm}\) above the body. The separation distance was defined as the air gap between the lower surface of the dipole wire and the top surface of the skin layer.
+
+\begin{table}[htbp]
+\centering
+\caption{Simulation cases considered in this project.}
+\label{tab:simulation-cases}
+\begin{tabular}{lc}
+\hline
+\textbf{Simulation Case} & \textbf{Antenna-Body Separation} \\
+\hline
+Free-space dipole & No body model \\
+Body case 1 & \(10~\mathrm{mm}\) \\
+Body case 2 & \(5~\mathrm{mm}\) \\
+Body case 3 & \(0.1~\mathrm{mm}\) \\
+Retuned body case & \(5~\mathrm{mm}\) \\
+\hline
+\end{tabular}
+\end{table}
+
+For all simulations, the frequency range was set from \(0.7~\mathrm{GHz}\) to \(1.5~\mathrm{GHz}\). The full-wave simulations were performed in CST Studio Suite using the time-domain solver, with a far-field monitor defined at \(1.120~\mathrm{GHz}\)~\cite{cst2026}. The main extracted results were the return loss \(S_{11}\), resonant or dominant matching-minimum frequency, radiation efficiency, total efficiency, gain, and two-dimensional and three-dimensional radiation patterns.

@@ -1,0 +1,119 @@
+\section{Conclusion}
+
+The simulations completed in this project show that the performance of a wearable dipole antenna is strongly dependent on the electromagnetic environment around the antenna. In particular, the simplified multilayer body model significantly changed the impedance matching, efficiency, gain, and radiation behavior compared with the free-space baseline.
+
+The tuned free-space dipole achieved a minimum return loss of
+
+\[
+S_{11,\min} = -15.52702~\mathrm{dB}
+\]
+
+at
+
+\[
+f_{\min} = 1.1168~\mathrm{GHz}.
+\]
+
+At the design operating frequency,
+
+\[
+f_0 = 1.120~\mathrm{GHz},
+\]
+
+the return loss was
+
+\[
+S_{11}(1.120~\mathrm{GHz}) = -15.48433~\mathrm{dB}.
+\]
+
+This result confirmed that the tuned free-space dipole provided a valid baseline for studying body-loading effects.
+
+After the multilayer body model was introduced, the antenna performance changed significantly. For the \(10~\mathrm{mm}\) separation case, the matching minimum shifted to
+
+\[
+1.0312~\mathrm{GHz},
+\]
+
+and the return loss at \(1.120~\mathrm{GHz}\) degraded to
+
+\[
+-7.839072~\mathrm{dB}.
+\]
+
+For the \(5~\mathrm{mm}\) separation case, the matching minimum shifted further downward to
+
+\[
+0.9792~\mathrm{GHz},
+\]
+
+and the target-frequency return loss degraded to
+
+\[
+-5.903831~\mathrm{dB}.
+\]
+
+These results show that reducing the antenna-body separation increases the effective dielectric loading of the dipole and causes stronger impedance detuning.
+
+The \(0.1~\mathrm{mm}\) case produced the strongest antenna-body interaction. In this case, the dominant matching minimum appeared at
+
+\[
+1.3976~\mathrm{GHz},
+\]
+
+with
+
+\[
+S_{11,\min} = -13.8654~\mathrm{dB}.
+\]
+
+However, the return loss at the target frequency remained poor:
+
+\[
+S_{11}(1.120~\mathrm{GHz}) = -6.951098~\mathrm{dB}.
+\]
+
+This result was interpreted as a fixed-model response of a strongly coupled lossy antenna-body system rather than a simple monotonic resonance shift of an isolated half-wave dipole. It was not independently verified through mesh or boundary convergence and therefore is not presented as a convergence-validated physical trend.
+
+The efficiency and gain results also confirmed the strong effect of the body model. At \(1.120~\mathrm{GHz}\), the gain decreased from \(0.7515~\mathrm{dBi}\) for the \(10~\mathrm{mm}\) case to \(0.3534~\mathrm{dBi}\) for the \(5~\mathrm{mm}\) case. For the \(0.1~\mathrm{mm}\) case, the gain dropped severely to
+
+\[
+-5.261~\mathrm{dBi}.
+\]
+
+The radiation efficiency also decreased significantly, especially for the \(0.1~\mathrm{mm}\) case, where CST reported
+
+\[
+\eta_{\mathrm{rad}} = -10.52~\mathrm{dB}.
+\]
+
+This confirms that lossy body tissues absorb a significant portion of the accepted electromagnetic power when the antenna is placed very close to the body.
+
+A retuning study was performed for the \(5~\mathrm{mm}\) body-separation case. Since the original \(122.0~\mathrm{mm}\) dipole became electrically too long near the body, the dipole was shortened using a first-order frequency-length scaling estimate. The best tested retuned configuration used
+
+\[
+L = 106.6~\mathrm{mm}
+\]
+
+with a
+
+\[
+2.0~\mathrm{mm}
+\]
+
+feed gap. This improved the return loss at \(1.120~\mathrm{GHz}\) from
+
+\[
+-5.903831~\mathrm{dB}
+\]
+
+to
+
+\[
+-8.000936~\mathrm{dB}.
+\]
+
+Although this was a clear improvement, the retuned antenna still did not satisfy the common \(-10~\mathrm{dB}\) matching criterion. This indicates that length-only retuning is not sufficient for complete impedance recovery near the lossy body model.
+
+Overall, the simulation results demonstrate that the human body has a major effect on wearable antenna performance. The body changes the antenna input impedance, shifts the matching frequency, reduces radiation efficiency, lowers gain, and modifies the radiation pattern. The results also show that antenna-body spacing is a critical design parameter. A wearable antenna cannot be designed only in free space and then expected to perform correctly near the body without additional tuning or redesign.
+
+The main engineering conclusion is that practical wearable antenna design requires simultaneous consideration of impedance matching, radiation efficiency, gain, antenna-body separation, and body-induced detuning. For improved performance, future designs may require an impedance-matching network, increased antenna-body spacing, an insulating spacer, feed optimization, or a different antenna topology such as a planar dipole, patch antenna, PIFA-type antenna, or backed wearable antenna structure.

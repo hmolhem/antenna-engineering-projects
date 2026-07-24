@@ -1,0 +1,216 @@
+\section{Theoretical Background}
+
+The CST results in this project are interpreted using several fundamental antenna concepts, including half-wave dipole behavior, impedance matching, radiation efficiency, gain, lossy dielectric loading, and near-field coupling~\cite{stutzman2012antenna,balanis2016antenna}. These concepts provide the analytical basis for understanding why the antenna response changes when the dipole is moved from free space to the vicinity of the multilayer body model.
+
+\subsection{Free-Space Half-Wave Dipole}
+
+A center-fed half-wave dipole is a resonant wire antenna whose total length is approximately one half of the operating wavelength. For a free-space operating frequency of
+
+\[
+f_0 = 1.120~\mathrm{GHz},
+\]
+
+the free-space wavelength is
+
+\[
+\lambda_0 = \frac{c}{f_0}
+=
+267.86~\mathrm{mm}.
+\]
+
+The corresponding theoretical half-wavelength is
+
+\[
+L_{\lambda/2} = \frac{\lambda_0}{2}
+=
+133.93~\mathrm{mm}.
+\]
+
+This value provides the initial design estimate. In practice, the resonant length of a finite-radius dipole with a finite feed gap is usually different from exactly \(\lambda_0/2\). Therefore, CST tuning is required to place the minimum return loss close to the desired operating frequency.
+
+The ideal radiation behavior of a half-wave dipole is broadside to the wire axis. For a dipole oriented along the \(x\)-axis, the strongest radiation is expected in directions perpendicular to the dipole axis. In free space, a thin half-wave dipole has a directivity of approximately
+
+\[
+D \approx 1.64,
+\]
+
+or
+
+\[
+D_{\mathrm{dBi}} \approx 2.15~\mathrm{dBi}.
+\]
+
+This value provides a useful reference for evaluating the CST radiation-pattern results.
+
+\subsection{Return Loss and Impedance Matching}
+
+The return loss behavior of the antenna is described by the reflection coefficient \(S_{11}\). For a one-port antenna connected to a transmission line with reference impedance \(Z_0\), the reflection coefficient is related to the antenna input impedance \(Z_{\mathrm{in}}\) by
+
+\[
+\Gamma =
+\frac{Z_{\mathrm{in}} - Z_0}
+     {Z_{\mathrm{in}} + Z_0}.
+\]
+
+The magnitude of \(S_{11}\) in decibels is
+
+\[
+S_{11,\mathrm{dB}} = 20\log_{10}|\Gamma|.
+\]
+
+A more negative value of \(S_{11}\) indicates better impedance matching and less reflected power. A commonly used practical design criterion is
+
+\[
+S_{11} < -10~\mathrm{dB},
+\]
+
+which corresponds to less than about \(10\%\) of the incident power being reflected. In this project, the target is to obtain good matching near
+
+\[
+1.120~\mathrm{GHz}.
+\]
+
+When the antenna is placed near the body model, the input impedance changes because the body modifies the near electric and magnetic fields around the dipole. Therefore, the return loss curve may shift, broaden, weaken, or develop a different dominant matching minimum.
+
+\subsection{Radiation Efficiency, Total Efficiency, and Gain}
+
+Directivity describes only how strongly the antenna concentrates radiation in a particular direction. Gain includes the effect of radiation efficiency. If \(D\) is the directivity and \(e_r\) is the radiation efficiency, then
+
+\[
+G = e_r D.
+\]
+
+In decibel form,
+
+\[
+G_{\mathrm{dBi}} =
+D_{\mathrm{dBi}} + e_{r,\mathrm{dB}}.
+\]
+
+Radiation efficiency accounts for power lost in the antenna structure and nearby lossy materials. For a wearable antenna, the nearby human body can absorb part of the accepted power because biological tissues have nonzero conductivity. This reduces the radiated power and therefore lowers the antenna gain.
+
+CST also reports total efficiency. Total efficiency includes both radiation loss and mismatch loss. Therefore, total efficiency is generally lower than radiation efficiency when the antenna is not well matched at the operating frequency.
+
+\subsection{Lossy Dielectric Loading by the Human Body}
+
+The human body model in this project is represented by three lossy dielectric layers: skin, fat, and muscle. Each tissue is characterized by a relative permittivity \(\varepsilon_r\) and conductivity \(\sigma\). For a time-harmonic field with angular frequency
+
+\[
+\omega = 2\pi f,
+\]
+
+a lossy dielectric can be represented using the complex permittivity
+
+\[
+\varepsilon_c =
+\varepsilon_0 \varepsilon_r
+-
+j\frac{\sigma}{\omega},
+\]
+
+or equivalently,
+
+\[
+\varepsilon_{r,c}
+=
+\varepsilon_r
+-
+j\frac{\sigma}{\omega\varepsilon_0}.
+\]
+
+The real part of the permittivity stores electric energy, while the conductivity term represents dissipative loss. Since skin and muscle have high relative permittivity and significant conductivity, they strongly affect the electromagnetic fields when placed near the dipole.
+
+When the body is close to the antenna, the effective electromagnetic environment around the dipole is no longer free space. The high-permittivity tissue increases the effective electrical loading of the antenna. This can change the effective electrical length of the dipole and shift the input-matching behavior. In addition, tissue conductivity absorbs electromagnetic power, reducing radiation efficiency and gain.
+
+\subsection{Near-Field Coupling and Far-Field Radiation Pattern}
+
+A key point in this project is the distinction between antenna-body separation and far-field radiation-pattern observation. The body model is located very close to the antenna. At
+
+\[
+f_0 = 1.120~\mathrm{GHz},
+\]
+
+the free-space wavelength is
+
+\[
+\lambda_0 = 267.86~\mathrm{mm}.
+\]
+
+Therefore, the three antenna-body separation distances correspond to
+
+\[
+10~\mathrm{mm} \approx 0.037\lambda_0,
+\]
+
+\[
+5~\mathrm{mm} \approx 0.019\lambda_0,
+\]
+
+and
+
+\[
+0.1~\mathrm{mm} \approx 0.00037\lambda_0.
+\]
+
+Thus, the body is located in the near-field region of the antenna for all three cases. This is especially true for the \(0.1~\mathrm{mm}\) case, where the body is almost touching the dipole and strongly interacts with the reactive near fields.
+
+For a finite antenna with largest dimension \(D\), one common far-field distance criterion is
+
+\[
+R_{\mathrm{ff}} \approx \frac{2D^2}{\lambda_0}.
+\]
+
+Using the tuned free-space dipole length of approximately
+
+\[
+D \approx 122~\mathrm{mm},
+\]
+
+this gives
+
+\[
+R_{\mathrm{ff}}
+\approx
+\frac{2(122~\mathrm{mm})^2}{267.86~\mathrm{mm}}
+\approx
+111~\mathrm{mm}.
+\]
+
+Other conservative criteria, such as \(5D\) or \(1.6\lambda_0\), give even larger far-field distances. Therefore, the body distances of \(10~\mathrm{mm}\), \(5~\mathrm{mm}\), and \(0.1~\mathrm{mm}\) are not far-field distances. They are near-field coupling distances.
+
+This does not contradict the use of a CST far-field monitor. The CST solver first computes the electromagnetic fields around the complete antenna-body structure. The far-field monitor then calculates the far-zone radiation pattern of the combined antenna-body system using a near-to-far-field transformation. Therefore, the body can be in the near field of the antenna while the reported radiation pattern still represents the far-field radiation behavior of the complete structure.
+
+\subsection{Expected Effect of Body Proximity}
+
+As the dipole is moved closer to the body model, several effects are expected:
+
+\begin{itemize}
+    \item the antenna input impedance changes because of near-field coupling,
+    \item the return-loss minimum shifts away from the free-space tuned value,
+    \item the \(S_{11}\) value at the target frequency may degrade,
+    \item part of the accepted power is absorbed in the lossy tissues,
+    \item radiation efficiency decreases,
+    \item gain decreases,
+    \item the radiation pattern can become distorted by the nearby body.
+\end{itemize}
+
+For moderate separation distances, the high-permittivity body loading often increases the effective electrical length of the antenna and can shift the matching minimum downward in frequency. However, for extremely small separation distances, such as \(0.1~\mathrm{mm}\), the interaction becomes a strong coupled antenna-body problem. In that case, the \(S_{11}\) response does not necessarily follow a simple monotonic resonance shift. Instead, the dominant matching minimum may move to a different frequency branch because the input impedance is strongly perturbed by reactive near-field coupling and tissue loss.
+
+\subsection{Retuning Strategy}
+
+After the body is introduced, the original free-space-tuned dipole no longer remains optimally matched at the target frequency. A first-order retuning estimate can be obtained by assuming that the resonant frequency is approximately inversely proportional to the dipole length:
+
+\[
+f_r \propto \frac{1}{L}.
+\]
+
+Therefore, if the original dipole length is \(L_{\mathrm{old}}\), the observed matching-minimum frequency is \(f_r\), and the desired target frequency is \(f_0\), then the estimated retuned length is
+
+\[
+L_{\mathrm{new}}
+=
+L_{\mathrm{old}}
+\frac{f_r}{f_0}.
+\]
+
+This relation provides only an initial estimate. Near the lossy body, the antenna input impedance is affected by tissue loading, finite geometry, conductor radius, feed gap, and boundary conditions. Therefore, length-only retuning may improve the response but may not fully recover the desired \(S_{11}<-10~\mathrm{dB}\) matching condition. A complete wearable antenna redesign may require additional tuning of feed gap, conductor radius, antenna height, or an impedance-matching network.

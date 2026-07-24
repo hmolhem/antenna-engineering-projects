@@ -7,10 +7,10 @@ This directory contains project-level antenna engineering work. Each project doc
 | Project | Status | Primary topics |
 |---|---|---|
 | [5G Microstrip Patch Array](5g-patch-array/) | Public package available | Inset-fed patch, conductor-loss sensitivity, 2 x 1 array, S-parameters, coupling, beam steering |
+| [Wearable Half-Wave Dipole](wearable-half-wave-dipole/) | Public package available | Free-space tuning, multilayer body loading, detuning, efficiency, gain, retuning, numerical reliability |
 
 ## Planned Projects
 
-- Wearable half-wave dipole near a multilayer body model
 - Resonant wire dipole design and radiation-pattern validation
 - Hollow rectangular waveguide for antenna-feed analysis
 - Single microstrip patch design and full-wave tuning

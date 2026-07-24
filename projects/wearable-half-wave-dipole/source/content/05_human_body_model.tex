@@ -1,0 +1,210 @@
+\section{Multilayer Human Body Model}
+
+To evaluate wearable antenna behavior, the free-space environment was replaced by a simplified lossy body-loading environment. The model uses three planar tissue layers to represent skin, fat, and muscle, allowing the main electromagnetic effects of high permittivity and tissue conductivity to be included while keeping the simulation feasible in the CST Learning Edition.
+
+\subsection{Modeling Approach}
+
+The human body was approximated as a finite rectangular multilayer dielectric block. This simplified geometry was selected because it captures the main electromagnetic effect of the body near a wearable antenna while remaining computationally feasible in the CST Studio Suite Learning Edition.
+
+The body model was placed below the dipole antenna. The dipole remained centered at
+
+\[
+z=0,
+\]
+
+and the tissue layers were stacked in the negative \(z\)-direction. The antenna-body separation distance was defined as the air gap between the lower surface of the cylindrical dipole wire and the top surface of the skin layer.
+
+Since the dipole wire radius was
+
+\[
+a = 0.905~\mathrm{mm},
+\]
+
+the lower surface of the dipole wire was located at
+
+\[
+z = -0.905~\mathrm{mm}.
+\]
+
+Therefore, for a specified air gap \(d\), the top surface of the skin layer was placed at
+
+\[
+z_{\mathrm{skin,top}} = -(d+a).
+\]
+
+This definition was used consistently for the \(10~\mathrm{mm}\), \(5~\mathrm{mm}\), and \(0.1~\mathrm{mm}\) body-separation cases.
+
+\subsection{Tissue Material Properties}
+
+The body model consisted of skin, fat, and muscle layers. Each layer was modeled as a lossy dielectric material with the relative permittivity and conductivity specified in the design specification. The material parameters used in CST are summarized in Table~\ref{tab:body-model-materials}.
+
+\begin{table}[htbp]
+\centering
+\caption{Tissue material properties used in the multilayer body model.}
+\label{tab:body-model-materials}
+\begin{tabular}{lccc}
+\hline
+\textbf{Tissue Layer} & \(\boldsymbol{\varepsilon_r}\) & \(\boldsymbol{\sigma}\) \textbf{(S/m)} & \textbf{Thickness (mm)} \\
+\hline
+Skin & 41.32 & 0.855 & 1.5 \\
+Fat & 5.46 & 0.050 & 20.0 \\
+Muscle & 54.97 & 0.934 & 30.0 \\
+\hline
+\end{tabular}
+\end{table}
+The use of frequency-dependent permittivity and conductivity is essential because biological tissues behave as lossy dielectric media at microwave frequencies~\cite{gabriel1996tissue}.
+
+The high relative permittivity of skin and muscle increases the electromagnetic loading near the dipole, while the nonzero conductivity of the tissues introduces dissipative loss. Therefore, when the antenna is placed near the body, the tissue layers can detune the antenna and reduce its radiation efficiency and gain.
+
+\subsection{Finite Body Patch Dimensions}
+
+Due to the 100,000-cell mesh limitation of the CST Studio Suite Learning Edition, the body was modeled as a finite rectangular patch instead of a full-size anatomical body. The final body patch dimensions used in the simulations were
+
+\[
+150~\mathrm{mm} \times 60~\mathrm{mm},
+\]
+
+with the length along the \(x\)-direction and the width along the \(y\)-direction. The three tissue layers were stacked along the \(z\)-direction.
+
+The coordinate limits of the body patch were
+
+\[
+-75~\mathrm{mm} \leq x \leq 75~\mathrm{mm},
+\]
+
+and
+
+\[
+-30~\mathrm{mm} \leq y \leq 30~\mathrm{mm}.
+\]
+
+The tissue-layer thicknesses were kept unchanged from the model specification.
+
+\begin{table}[htbp]
+\centering
+\caption{Finite body patch geometry used in CST.}
+\label{tab:finite-body-patch-geometry}
+\begin{tabular}{lc}
+\hline
+\textbf{Parameter} & \textbf{Value} \\
+\hline
+Body patch length in \(x\)-direction & \(150~\mathrm{mm}\) \\
+Body patch width in \(y\)-direction & \(60~\mathrm{mm}\) \\
+Skin thickness & \(1.5~\mathrm{mm}\) \\
+Fat thickness & \(20.0~\mathrm{mm}\) \\
+Muscle thickness & \(30.0~\mathrm{mm}\) \\
+Total tissue thickness & \(51.5~\mathrm{mm}\) \\
+\hline
+\end{tabular}
+\end{table}
+
+This finite body patch is large enough to represent the local lossy loading environment directly beneath the dipole while keeping the total mesh size within the CST Learning Edition limit.
+
+\subsection{Layer Coordinates for the 10 mm Case}
+
+For the \(10~\mathrm{mm}\) separation case, the top of the skin layer was located at
+
+\[
+z_{\mathrm{skin,top}} = -(10+0.905)
+=
+-10.905~\mathrm{mm}.
+\]
+
+The skin, fat, and muscle layers were then stacked downward. The resulting \(z\)-coordinates are summarized in Table~\ref{tab:body-10mm-coordinates}.
+
+\begin{table}[htbp]
+\centering
+\caption{Body-layer \(z\)-coordinates for the \(10~\mathrm{mm}\) antenna-body separation case.}
+\label{tab:body-10mm-coordinates}
+\begin{tabular}{lcc}
+\hline
+\textbf{Layer} & \(\boldsymbol{z_{\min}}\) \textbf{(mm)} & \(\boldsymbol{z_{\max}}\) \textbf{(mm)} \\
+\hline
+Skin & -12.405 & -10.905 \\
+Fat & -32.405 & -12.405 \\
+Muscle & -62.405 & -32.405 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Layer Coordinates for the 5 mm Case}
+
+For the \(5~\mathrm{mm}\) separation case, the top of the skin layer was located at
+
+\[
+z_{\mathrm{skin,top}} = -(5+0.905)
+=
+-5.905~\mathrm{mm}.
+\]
+
+The corresponding tissue-layer coordinates are listed in Table~\ref{tab:body-5mm-coordinates}.
+
+\begin{table}[htbp]
+\centering
+\caption{Body-layer \(z\)-coordinates for the \(5~\mathrm{mm}\) antenna-body separation case.}
+\label{tab:body-5mm-coordinates}
+\begin{tabular}{lcc}
+\hline
+\textbf{Layer} & \(\boldsymbol{z_{\min}}\) \textbf{(mm)} & \(\boldsymbol{z_{\max}}\) \textbf{(mm)} \\
+\hline
+Skin & -7.405 & -5.905 \\
+Fat & -27.405 & -7.405 \\
+Muscle & -57.405 & -27.405 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Layer Coordinates for the 0.1 mm Case}
+
+For the \(0.1~\mathrm{mm}\) separation case, the top of the skin layer was placed very close to the lower surface of the dipole wire. The skin top coordinate was
+
+\[
+z_{\mathrm{skin,top}} = -(0.1+0.905)
+=
+-1.005~\mathrm{mm}.
+\]
+
+The corresponding tissue-layer coordinates are shown in Table~\ref{tab:body-0p1mm-coordinates}.
+
+\begin{table}[htbp]
+\centering
+\caption{Body-layer \(z\)-coordinates for the \(0.1~\mathrm{mm}\) antenna-body separation case.}
+\label{tab:body-0p1mm-coordinates}
+\begin{tabular}{lcc}
+\hline
+\textbf{Layer} & \(\boldsymbol{z_{\min}}\) \textbf{(mm)} & \(\boldsymbol{z_{\max}}\) \textbf{(mm)} \\
+\hline
+Skin & -2.505 & -1.005 \\
+Fat & -22.505 & -2.505 \\
+Muscle & -52.505 & -22.505 \\
+\hline
+\end{tabular}
+\end{table}
+
+This case represents the strongest near-field coupling condition because the lossy tissue model is almost in contact with the dipole wire.
+
+\subsection{CST Learning Edition Mesh-Limit Consideration}
+
+The simulations were performed using the CST Studio Suite Learning Edition. This version limits the maximum number of mesh cells to 100,000. The initial full computational domain exceeded this mesh-cell limit after the multilayer body model was added.
+
+To make the simulations feasible while preserving the essential model parameters, the open boundary spacing was reduced. The boundary type was kept as open add space, but the automatic minimum distance to the structure was changed to an absolute distance of
+
+\[
+10~\mathrm{mm}.
+\]
+
+The estimated reflection level was set to
+
+\[
+10^{-3}.
+\]
+
+The tissue material properties, tissue thicknesses, antenna geometry, target frequency, and antenna-body separation distances were not changed.
+
+CST reported a reduced-PML-layer warning because the computational domain was intentionally reduced to satisfy the Learning Edition mesh limit. However, the time-domain solver completed successfully and reached the steady-state energy criterion. Therefore, the results were accepted for comparative engineering analysis among the free-space, \(10~\mathrm{mm}\), \(5~\mathrm{mm}\), and \(0.1~\mathrm{mm}\) separation cases.
+
+\subsection{Purpose of the Body Model}
+
+The body model was used to study the effect of a nearby lossy dielectric structure on wearable antenna performance. The quantities evaluated in the following sections include \(S_{11}\), resonant-frequency shift, radiation efficiency, total efficiency, gain, and radiation patterns.
+
+The simplified multilayer model is appropriate for this project because the main engineering objective is to observe how the antenna response changes when the free-space environment is replaced by a high-permittivity and lossy body-loading environment. A full anatomical body simulation or SAR assessment would require a more detailed model and is outside the scope of this project.

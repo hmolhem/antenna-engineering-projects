@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper,oneside,openany]{report}
+\newcommand{\reporttitle}{Wearable Half-Wave Dipole Antenna}
+\newcommand{\projectshorttitle}{Wearable Half-Wave Dipole}
+\newcommand{\authorname}{Hossein Molhem}
+\input{setup/01_packages}
+\input{setup/02_layout}
+\input{setup/03_code_styles}
+\input{setup/04_theme}
+\addbibresource{references.bib}
+\hypersetup{pdftitle={Wearable Half-Wave Dipole Antenna},pdfauthor={Hossein Molhem},pdfsubject={Wearable antenna body-loading, detuning, efficiency, gain, and retuning study},pdfkeywords={wearable antenna, dipole, CST, body loading, detuning, efficiency, gain}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\input{frontmatter/titlepage_public}
+\clearpage
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{frontmatter/portfolio_context}
+\clearpage
+\input{frontmatter/objective}
+\clearpage
+\input{frontmatter/abstract}
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\chapter{Wearable Half-Wave Dipole Study}
+\input{content/00_report_body}
+\appendix
+\input{appendices/appendix_python_verification}
+\clearpage
+\printbibliography[heading=bibintoc,title={References}]
+\end{document}
