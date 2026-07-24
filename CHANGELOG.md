@@ -24,6 +24,8 @@ The format is based on **Keep a Changelog** principles and the repository uses p
 - Updated the project portfolio index and public-project status
 - Replaced intermediate 5G single-patch values with the final selected design results
 - Explicitly classified the wearable 0.1 mm non-monotonic result as not convergence-verified
+- Closed out H001 through H003 with pull-request links, merged status, and merge-commit SHA traceability
+- Expanded the handoff index to record pull-request and merge-commit identifiers
 
 ## [Portfolio Foundation] - 2026-07-23
 
