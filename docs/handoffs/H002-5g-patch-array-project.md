@@ -3,8 +3,10 @@
 - **Handoff ID:** H002
 - **Date:** 2026-07-23
 - **Branch:** `feature/5g-patch-array-project`
-- **Pull request:** Pending
-- **Status:** Ready for review
+- **Pull request:** [#2](https://github.com/hmolhem/antenna-engineering-projects/pull/2)
+- **Status:** Merged
+- **Head commit:** `5d564ffa91eb80357dc70f94f3b7a240a3bd8074`
+- **Merge commit:** `332675692321df14eab4de47adb2d1be6476eb65`
 
 ## Purpose
 
@@ -65,6 +67,7 @@ Publish the first complete engineering project package in the antenna portfolio:
 - Final PDF compiled from the sanitized source package.
 - Selected figure paths and Markdown links checked within the package.
 - Project result values synchronized across the root README, project README, result summaries, and handoff.
+- PR #2 was merged and the remote feature branch was deleted.
 
 ## Limitations and Follow-Up
 
@@ -75,4 +78,4 @@ Publish the first complete engineering project package in the antenna portfolio:
 
 ## Rollback
 
-Revert the merged H002 pull-request commit. This removes the project package and restores the foundation-only project record without rewriting repository history.
+Revert merge commit `332675692321df14eab4de47adb2d1be6476eb65` to remove the H002 package without rewriting repository history.
