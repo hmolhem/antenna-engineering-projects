@@ -1,0 +1,25 @@
+Wearable Half-Wave Dipole Verification
+======================================
+Design frequency                 : 1.120 GHz
+Free-space wavelength            : 267.86 mm
+Theoretical half-wave length     : 133.93 mm
+Specified wire radius            : 0.905 mm
+Free-space scaling estimate      : 121.97 mm
+Selected free-space tuned length : 122.0 mm
+5 mm body scaling estimate       : 106.66 mm
+Selected body-retuned length     : 106.6 mm
+
+Normalized separations
+  10.0 mm = 0.037333 lambda0
+   5.0 mm = 0.018667 lambda0
+   0.1 mm = 0.000373 lambda0
+Reactive near-field estimate     : 51.05 mm
+2D^2/lambda far-field estimate   : 111.13 mm
+
+Efficiency conversion from CST dB values
+  10 mm radiation   :  -3.410 dB =  45.60 %
+  10 mm total       :  -4.190 dB =  38.11 %
+  5 mm radiation    :  -3.837 dB =  41.33 %
+  5 mm total        :  -5.126 dB =  30.72 %
+  0.1 mm radiation  : -10.520 dB =   8.87 %
+  0.1 mm total      : -11.500 dB =   7.08 %

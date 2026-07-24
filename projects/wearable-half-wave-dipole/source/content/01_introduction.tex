@@ -1,0 +1,17 @@
+\section{Introduction}
+
+Wearable antennas are widely used in wireless body-area networks, biomedical monitoring systems, portable communication devices, and personal wireless systems. Unlike an isolated antenna in free space, a wearable antenna operates in the immediate vicinity of the human body. Since biological tissues are lossy and have relatively high dielectric constants, the nearby body can significantly affect the antenna input impedance, resonant frequency, radiation efficiency, gain, and radiation pattern.
+
+The purpose of this project is to design and analyze a wearable half-wave dipole antenna using CST Studio Suite. The antenna is first designed and tuned in free space at the design operating frequency of
+
+\[
+f_0 = 1.120~\mathrm{GHz}.
+\]
+
+This free-space model provides a baseline response for the antenna before introducing the human body model. After the free-space design is verified, the dipole antenna is placed above an approximate multilayer human body model consisting of skin, fat, and muscle layers. The antenna performance is then evaluated for three separation distances between the antenna and the body: \(10~\mathrm{mm}\), \(5~\mathrm{mm}\), and \(0.1~\mathrm{mm}\).
+
+The main objective is to investigate how the presence and proximity of the lossy body model affect the wearable antenna. The quantities of interest include the return loss \(S_{11}\), resonant frequency shift, radiation efficiency, total efficiency, gain, and radiation patterns. The project also includes a retuning step to examine whether the degraded impedance matching can be improved after the antenna is placed near the body.
+
+It is important to clarify the scope of this project. This work is not intended to be a biological safety study, a specific absorption rate (SAR) analysis, or a complete RF-exposure assessment. Instead, the objective is to study the effect of the human body on antenna performance. The body is treated as a lossy electromagnetic loading environment that perturbs the antenna input impedance and modifies the radiated field behavior.
+
+The simulation results demonstrate that the nearby body significantly detunes the antenna and reduces its radiating performance. As the antenna is moved closer to the body, the interaction becomes stronger because the body is located in the antenna near-field region. This near-field coupling changes the stored electromagnetic energy around the antenna, increases power absorption in the lossy tissue layers, and reduces the effective radiated power. The far-field radiation patterns reported in this project are obtained from CST far-field monitors, which compute the far-zone radiation behavior of the combined antenna-body system after solving the near-field electromagnetic interaction.

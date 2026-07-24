@@ -1,0 +1,215 @@
+\section{Engineering Discussion}
+
+The numerical results are most useful when they are interpreted together rather than as isolated CST outputs. The following discussion connects the observed \(S_{11}\) shifts, efficiency reduction, gain degradation, radiation-pattern changes, and retuning results to the underlying electromagnetic behavior of a wearable antenna near a lossy body model.
+
+\subsection{Overall Return-Loss Comparison}
+
+The return-loss results show that the multilayer body model significantly changes the antenna input behavior. The tuned free-space dipole was well matched near the design target frequency of
+
+\[
+f_0 = 1.120~\mathrm{GHz}.
+\]
+
+However, after the body model was introduced, the matching condition at the target frequency degraded for all separation distances.
+
+\begin{table}[htbp]
+\centering
+\caption{Overall return-loss comparison for the free-space and body-loaded cases.}
+\label{tab:engineering-s11-comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\hline
+\textbf{Case} &
+\(\boldsymbol{L}\) \textbf{(mm)} &
+\(\boldsymbol{f_{\min}}\) \textbf{(GHz)} &
+\(\boldsymbol{S_{11,\min}}\) \textbf{(dB)} &
+\(\boldsymbol{S_{11}(1.120~GHz)}\) \textbf{(dB)} \\
+\hline
+Free-space tuned & 122.0 & 1.1168 & -15.52702 & -15.48433 \\
+Body 10 mm & 122.0 & 1.0312 & -10.49934 & -7.839072 \\
+Body 5 mm & 122.0 & 0.9792 & -11.9744 & -5.903831 \\
+Body 0.1 mm & 122.0 & 1.3976 & -13.8654 & -6.951098 \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+For the \(10~\mathrm{mm}\) and \(5~\mathrm{mm}\) cases, the matching minimum shifted downward in frequency. This is consistent with the expected effect of high-permittivity body loading. The nearby tissue layers increase the effective electrical loading of the dipole, causing the fixed physical length to behave electrically longer than it did in free space.
+
+The \(0.1~\mathrm{mm}\) case showed a different behavior. The dominant matching minimum appeared at \(1.3976~\mathrm{GHz}\), which is higher than the target frequency. This result should not be interpreted as a simple resonance shift of an isolated dipole. At this extremely small separation, the dipole and the lossy body model form a strongly coupled electromagnetic system. The input impedance is strongly affected by reactive near-field loading, dielectric loss, finite body geometry, and local field perturbation.
+
+\subsection{Effect of Body Proximity}
+
+The body-separation study demonstrates that antenna performance depends strongly on the distance between the wearable antenna and the body. At \(10~\mathrm{mm}\), the antenna already shows noticeable detuning and mismatch. At \(5~\mathrm{mm}\), the body loading becomes stronger, and the matching minimum shifts further downward to \(0.9792~\mathrm{GHz}\).
+
+The degradation at the target frequency can be summarized as follows:
+
+\[
+S_{11,\mathrm{free}}(1.120~\mathrm{GHz}) = -15.48433~\mathrm{dB},
+\]
+
+\[
+S_{11,\mathrm{10mm}}(1.120~\mathrm{GHz}) = -7.839072~\mathrm{dB},
+\]
+
+\[
+S_{11,\mathrm{5mm}}(1.120~\mathrm{GHz}) = -5.903831~\mathrm{dB},
+\]
+
+and
+
+\[
+S_{11,\mathrm{0.1mm}}(1.120~\mathrm{GHz}) = -6.951098~\mathrm{dB}.
+\]
+
+These values show that the free-space antenna design cannot be directly used as a wearable antenna without retuning or redesign. The nearby body changes the input impedance sufficiently that the original matching condition is no longer valid.
+
+\subsection{Efficiency and Gain Degradation}
+
+The efficiency and gain results confirm that the lossy body model absorbs part of the accepted electromagnetic power. This is one of the most important effects in wearable antenna design. Even if the antenna has an acceptable \(S_{11}\) value at some frequency, a significant portion of the accepted power may be dissipated in the nearby tissue layers instead of being radiated.
+
+\begin{table}[htbp]
+\centering
+\caption{Efficiency and gain comparison at \(1.120~\mathrm{GHz}\).}
+\label{tab:engineering-efficiency-gain-comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccc}
+\hline
+\textbf{Case} &
+\textbf{Radiation Efficiency (dB)} &
+\textbf{Total Efficiency (dB)} &
+\textbf{Gain (dBi)} \\
+\hline
+Body 10 mm & -3.410 & -4.190 & 0.7515 \\
+Body 5 mm & -3.837 & -5.126 & 0.3534 \\
+Body 0.1 mm & -10.52 & -11.50 & -5.261 \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+The radiation efficiency decreased from \(-3.410~\mathrm{dB}\) for the \(10~\mathrm{mm}\) case to \(-3.837~\mathrm{dB}\) for the \(5~\mathrm{mm}\) case. This reduction is consistent with stronger tissue absorption as the antenna moves closer to the body.
+
+The \(0.1~\mathrm{mm}\) case produced a much larger efficiency degradation, with radiation efficiency equal to
+
+\[
+-10.52~\mathrm{dB}.
+\]
+
+This corresponds to severe radiating-performance loss. The gain also dropped to
+
+\[
+-5.261~\mathrm{dBi}.
+\]
+
+This result confirms that extremely small antenna-body spacing is not suitable for efficient radiation unless additional isolation, shielding, matching, or antenna redesign is used.
+
+\subsection{Near-Field Coupling Versus Far-Field Pattern Evaluation}
+
+The body model is located in the near-field region of the dipole for all separation distances used in this project. At \(1.120~\mathrm{GHz}\), the free-space wavelength is
+
+\[
+\lambda_0 = 267.86~\mathrm{mm}.
+\]
+
+Thus,
+
+\[
+10~\mathrm{mm} \approx 0.037\lambda_0,
+\]
+
+\[
+5~\mathrm{mm} \approx 0.019\lambda_0,
+\]
+
+and
+
+\[
+0.1~\mathrm{mm} \approx 0.00037\lambda_0.
+\]
+
+A Python-based wavelength-normalized distance check and selected field-region scale estimates are provided in Appendix~\ref{app:python-utility-calculations}, Listing~\ref{lst:wearable-verification}.
+
+These distances are much smaller than the wavelength, so the body is not a far-field object. It is a nearby loading structure located in the antenna near field.
+
+This does not contradict the use of CST far-field monitors. The CST solver first calculates the electromagnetic fields around the complete antenna-body structure. The far-field monitor then computes the far-zone radiation pattern of that complete structure using a near-to-far-field transformation. Therefore, the body can be in the near field of the antenna, while the reported radiation pattern still represents the far-field radiation behavior of the combined antenna-body system.
+
+\subsection{Interpretation of the Radiation Patterns}
+
+The radiation-pattern results show the combined effect of the dipole antenna and the multilayer body model. In free space, a half-wave dipole is expected to radiate primarily broadside to the wire axis. When the body is introduced, the radiation behavior is modified by two mechanisms.
+
+First, the body changes the current distribution and input impedance of the dipole through near-field coupling. Second, the lossy tissue layers absorb part of the electromagnetic power that would otherwise contribute to radiation. As a result, the gain decreases and the radiation pattern becomes less similar to the ideal free-space dipole pattern.
+
+The \(10~\mathrm{mm}\) case retains the most dipole-like radiation behavior among the body-loaded cases because it has the weakest coupling. The \(5~\mathrm{mm}\) case shows stronger degradation. The \(0.1~\mathrm{mm}\) case shows the most severe effect because the antenna is almost in contact with the tissue model.
+
+\subsection{Retuning Assessment}
+
+The retuning study showed that shortening the dipole can partially compensate for the downward detuning observed in the \(5~\mathrm{mm}\) body-separation case. The original \(5~\mathrm{mm}\) case had
+
+\[
+S_{11}(1.120~\mathrm{GHz}) = -5.903831~\mathrm{dB}.
+\]
+
+After shortening the dipole from
+
+\[
+122.0~\mathrm{mm}
+\]
+
+to
+
+\[
+106.6~\mathrm{mm},
+\]
+
+the target-frequency return loss improved to
+
+\[
+S_{11}(1.120~\mathrm{GHz}) = -8.000936~\mathrm{dB}.
+\]
+
+This improvement confirms that the original body-loaded antenna was electrically too long. However, the retuned antenna still did not satisfy the common \(-10~\mathrm{dB}\) matching criterion.
+
+The feed-gap variation also did not provide further improvement. The \(L=106.6~\mathrm{mm}\), \(1~\mathrm{mm}\) gap case produced
+
+\[
+S_{11}(1.120~\mathrm{GHz}) = -7.821004~\mathrm{dB},
+\]
+
+which was slightly worse than the \(2~\mathrm{mm}\) gap result.
+
+Therefore, the best tested retuned configuration was the \(L=106.6~\mathrm{mm}\), \(2~\mathrm{mm}\) gap design. This case improved the matching but did not fully restore the free-space performance.
+
+\subsection{Engineering Implications}
+
+The results of this project lead to several important engineering conclusions for wearable antenna design.
+
+First, a dipole antenna tuned in free space cannot be assumed to remain matched when placed near the body. The high-permittivity tissue layers change the effective electrical length and input impedance of the antenna.
+
+Second, impedance matching alone is not sufficient to evaluate wearable antenna performance. Radiation efficiency and gain must also be considered because the body is lossy and can absorb a significant portion of the accepted power.
+
+Third, antenna-body spacing is a critical design parameter. Increasing the separation between the antenna and the body generally reduces near-field coupling and tissue absorption. In practical wearable systems, this can be achieved using a spacer, clothing layer, substrate thickness, ground plane, or antenna structure designed to reduce fields directed into the body.
+
+Fourth, simple length retuning may improve the match but may not be enough for complete performance recovery. A more complete design would likely require additional impedance matching, feed optimization, or a different wearable antenna topology. Examples include planar dipoles, microstrip patch antennas, PIFA-type antennas, backed antennas, or antennas with an artificial magnetic conductor or reflector layer.
+
+\subsection{Limitations of the Simulation Model}
+
+The CST simulations were performed using a simplified multilayer body model and the CST Studio Suite Learning Edition. The model captures the main electromagnetic effect of lossy tissue loading, but it does not represent the full anatomical complexity of the human body.
+
+The finite body patch was used because of the 100,000-cell mesh limitation of the Learning Edition. In addition, the open-boundary spacing was reduced to keep the mesh size within the allowed limit. This introduced a reduced-PML-layer warning in CST. However, the simulations completed successfully and reached the steady-state energy criterion.
+
+Therefore, the results should be interpreted as comparative engineering results rather than as a final medical-grade or regulatory-grade body-interaction study. The conclusions are valid for observing the trends caused by body proximity, dielectric loading, tissue loss, impedance mismatch, and first-order antenna retuning.
+
+
+
+\subsection{Numerical Reliability of the Extreme-Clearance Case}
+
+The 0.1~mm separation produced a non-monotonic shift of the dominant matching minimum to 1.3976~GHz. This behavior may reflect strong reactive coupling and a changed impedance branch, but it was not verified through independent mesh refinement or boundary-distance convergence. The Learning Edition cell limit and the intentionally reduced open-boundary spacing prevented a formal convergence campaign. Accordingly, this result is classified as a fixed-model simulation observation. It should not be generalized as a validated monotonic law for near-contact wearable dipoles.
+
+The comparative conclusions that remain directly supported are that the target-frequency match is poor, radiation and total efficiency are strongly reduced, and gain degrades substantially as the antenna approaches the lossy body model. These claims are based on the documented model and are presented without fabrication or measurement validation.
+
+\subsection{Recommended Future Improvements}
+
+A more advanced continuation of this project could include several improvements. The first improvement would be to perform a more systematic optimization of dipole length, feed gap, antenna height, and wire radius. The second improvement would be to add an impedance-matching network to improve \(S_{11}\) at \(1.120~\mathrm{GHz}\). The third improvement would be to compare the simple wire dipole with a more realistic wearable antenna geometry, such as a planar dipole or microstrip patch antenna.
+
+A further extension would be to use a higher-resolution body model and evaluate absorbed power or SAR. However, that would require a more detailed anatomical model, a finer mesh, and a simulation setup specifically designed for RF safety assessment. Those tasks are outside the scope of the present project.

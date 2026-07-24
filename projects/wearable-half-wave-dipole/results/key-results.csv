@@ -1,0 +1,6 @@
+case,parameter_1,value_1,parameter_2,value_2,parameter_3,value_3,parameter_4,value_4,parameter_5,value_5,parameter_6,value_6,parameter_7,value_7,parameter_8,value_8
+free_space,separation_mm,,dipole_length_mm,122.0,matching_min_ghz,1.1168,s11_min_db,-15.52702,s11_target_db,-15.48433,radiation_efficiency_db,,total_efficiency_db,,gain_dbi,
+body_10mm,separation_mm,10.0,dipole_length_mm,122.0,matching_min_ghz,1.0312,s11_min_db,-10.49934,s11_target_db,-7.839072,radiation_efficiency_db,-3.41,total_efficiency_db,-4.19,gain_dbi,0.7515
+body_5mm,separation_mm,5.0,dipole_length_mm,122.0,matching_min_ghz,0.9792,s11_min_db,-11.9744,s11_target_db,-5.903831,radiation_efficiency_db,-3.837,total_efficiency_db,-5.126,gain_dbi,0.3534
+body_0p1mm,separation_mm,0.1,dipole_length_mm,122.0,matching_min_ghz,1.3976,s11_min_db,-13.8654,s11_target_db,-6.951098,radiation_efficiency_db,-10.52,total_efficiency_db,-11.5,gain_dbi,-5.261
+retuned_5mm,separation_mm,5.0,dipole_length_mm,106.6,matching_min_ghz,1.0928,s11_min_db,-8.152857,s11_target_db,-8.000936,radiation_efficiency_db,,total_efficiency_db,,gain_dbi,
