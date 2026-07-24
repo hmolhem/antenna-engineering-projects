@@ -1,18 +1,16 @@
 # H001 — Portfolio Foundation
 
+- **Handoff ID:** H001
+- **Date:** 2026-07-23
+- **Branch:** `feature/portfolio-foundation`
+- **Pull request:** [#1](https://github.com/hmolhem/antenna-engineering-projects/pull/1)
+- **Status:** Merged
+- **Head commit:** `65fd3b354bb6a53595275777d033e9640ce696d4`
+- **Merge commit:** `65fd3b354bb6a53595275777d033e9640ce696d4`
+
 ## Scope
 
 Establish the initial public architecture for `antenna-engineering-projects` without yet importing the complete CST project packages.
-
-## Branch
-
-```text
-feature/portfolio-foundation
-```
-
-## Pull Request
-
-Pending at handoff creation.
 
 ## Files Added or Updated
 
@@ -44,18 +42,19 @@ Pending at handoff creation.
 - Created all changes on `feature/portfolio-foundation`.
 - Checked internal Markdown paths and planned project locations for consistency.
 - Used only previously verified project results in the landing-page summary.
+- PR #1 was merged and the branch was removed after integration.
 
 ## Known Limitations
 
-- The full report, figures, code, and CST model are not yet included.
-- The featured-project page is an initial project record, not the final public package.
-- No measured antenna data are claimed.
-- Repository automation and CI are not yet configured.
+- The full report, figures, code, and CST model were not included in this foundation milestone.
+- The featured-project page was an initial project record rather than the final public package.
+- No measured antenna data were claimed.
+- Repository automation and CI were not configured.
 
 ## Follow-On Work
 
-The next feature should build the complete public package for the 5G microstrip patch array, including selected figures, the final report, result tables, simulation limitations, and model-access guidance.
+The next feature was the complete public package for the 5G microstrip patch array, including selected figures, the final report, result tables, simulation limitations, and model-access guidance.
 
 ## Rollback
 
-Because the foundation is isolated on a feature branch, rollback before merge consists of closing the pull request and deleting `feature/portfolio-foundation`. After merge, revert the squash commit associated with the foundation PR.
+Revert merge commit `65fd3b354bb6a53595275777d033e9640ce696d4` to remove the foundation milestone without rewriting repository history.
