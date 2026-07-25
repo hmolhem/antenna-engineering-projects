@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+An ideal \(20~\mathrm{mm}\times20~\mathrm{mm}\times90~\mathrm{mm}\) hollow square waveguide was analyzed at \(10~\mathrm{GHz}\) using closed-form theory, Python verification, and CST Studio Suite.
+
+Theory predicts two degenerate lowest-order cutoff frequencies of \(7.494811~\mathrm{GHz}\) and a \((1,1)\)-family cutoff of \(10.599264~\mathrm{GHz}\). CST reports nearly identical values at both ports, with all relative differences below \(0.061\%\). The first two modes therefore propagate at \(10~\mathrm{GHz}\), while the third solved mode remains slightly below cutoff.
+
+The multimode S-parameter response illustrates a central consequence of square-guide degeneracy: most transmitted amplitude appears in the alternate output mode index. This is best understood as a rotation of the numerical eigenbasis within the degenerate subspace rather than physical conversion caused by a discontinuity. Electric-field, magnetic-field, and wall-current plots are consistent with propagating behavior for the first two modes and localized near-cutoff behavior for the third.
+
+The project provides a strong modal-analysis and simulation-interpretation case study. It does not establish a practical horn-feed design because the public record lacks finite conductivity, port-basis sensitivity, mesh convergence, transitions, a horn flare, fabrication tolerances, and measured validation. Future work should intentionally break or control the degeneracy, compare a conventional \(a>b\) guide, include copper loss, model a horn transition, and validate the design with exported data and measurement.

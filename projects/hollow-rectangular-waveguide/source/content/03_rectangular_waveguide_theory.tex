@@ -1,0 +1,141 @@
+\section{Rectangular Waveguide Theory}
+\label{sec:rectangular-waveguide-theory}
+
+For a vacuum-filled rectangular waveguide, the cutoff frequency of a TE or TM mode is \cite{pozar2011microwave}
+
+\[
+f_{c,mn}=
+\frac{c}{2}
+\sqrt{
+\left(\frac{m}{a}\right)^2+
+\left(\frac{n}{b}\right)^2
+}.
+\]
+
+The transverse cutoff wavenumber and longitudinal propagation constant are
+
+\[
+k_c=
+\sqrt{
+\left(\frac{m\pi}{a}\right)^2+
+\left(\frac{n\pi}{b}\right)^2
+},
+\qquad
+\beta_{mn}=\sqrt{k_0^2-k_c^2},
+\]
+
+where \(k_0=2\pi f/c\). A mode is propagating when \(f>f_c\) and evanescent when \(f<f_c\).
+
+\subsection{Lowest-Order Cutoff Frequencies}
+
+For \(a=b=20~\mathrm{mm}\),
+
+\[
+f_{c,10}=f_{c,01}=\frac{c}{2a}=7.49481145~\mathrm{GHz}.
+\]
+
+The next cutoff family is
+
+\[
+f_{c,11}
+=
+\frac{c}{2}
+\sqrt{\frac{1}{a^2}+\frac{1}{b^2}}
+=
+10.599264~\mathrm{GHz}.
+\]
+
+The \(\mathrm{TE}_{20}\) and \(\mathrm{TE}_{02}\) modes begin near
+
+\[
+f_{c,20}=f_{c,02}=\frac{c}{a}=14.989623~\mathrm{GHz}.
+\]
+
+\begin{table}[H]
+\centering
+\caption{Analytical low-order modal behavior at \(10~\mathrm{GHz}\).}
+\label{tab:analytical-modes}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Mode family} & \textbf{Cutoff} & \textbf{Status at 10 GHz} & \textbf{Comment} \\
+\midrule
+\(\mathrm{TE}_{10}\) & \(7.4948~\mathrm{GHz}\) & Propagating & Degenerate lowest-order pair \\
+\(\mathrm{TE}_{01}\) & \(7.4948~\mathrm{GHz}\) & Propagating & Orthogonal polarization partner \\
+\((1,1)\) TE/TM family & \(10.5993~\mathrm{GHz}\) & Evanescent & Slightly below cutoff \\
+\(\mathrm{TE}_{20}/\mathrm{TE}_{02}\) & \(14.9896~\mathrm{GHz}\) & Evanescent & Near upper sweep boundary \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Guide Wavelength and Electrical Length}
+
+For a propagating mode,
+
+\[
+\lambda_g
+=
+\frac{\lambda_0}{
+\sqrt{1-\left(f_c/f\right)^2}
+},
+\qquad
+\lambda_0=\frac{c}{f}.
+\]
+
+At \(10~\mathrm{GHz}\),
+
+\[
+\lambda_0=29.979~\mathrm{mm},
+\]
+
+and for either member of the lowest-order pair,
+
+\[
+\lambda_g=45.284~\mathrm{mm}.
+\]
+
+The \(90~\mathrm{mm}\) physical section is therefore
+
+\[
+\frac{l}{\lambda_g}=1.987
+\]
+
+guide wavelengths long.
+
+\subsection{TE Wave Impedance}
+
+The TE-mode wave impedance is
+
+\[
+Z_{\mathrm{TE}}
+=
+\frac{\eta_0}{
+\sqrt{1-\left(f_c/f\right)^2}
+}.
+\]
+
+Using \(\eta_0=376.730~\Omega\), the lowest-order TE impedance at \(10~\mathrm{GHz}\) is
+
+\[
+Z_{\mathrm{TE}}\approx569.06~\Omega.
+\]
+
+This modal impedance is not a fixed \(50~\Omega\) normalization. A waveguide port solves the transverse eigenfield and computes its frequency-dependent propagation and impedance characteristics \cite{simulia_learning_tutorials,simulia_rf_components}.
+
+\subsection{Degenerate Modal Subspaces}
+
+When two modes have the same eigenvalue, any orthogonal linear combination of those modes is also a valid eigenbasis \cite{pozar2011microwave}. For the square guide, a solver may return one pair of orthogonal transverse field patterns at the input and a rotated pair at the output. If \(\mathbf{u}_1,\mathbf{u}_2\) span the input degenerate subspace and \(\mathbf{v}_1,\mathbf{v}_2\) span the output subspace, then
+
+\[
+\begin{bmatrix}
+\mathbf{v}_1\\
+\mathbf{v}_2
+\end{bmatrix}
+=
+\mathbf{R}
+\begin{bmatrix}
+\mathbf{u}_1\\
+\mathbf{u}_2
+\end{bmatrix},
+\]
+
+where \(\mathbf{R}\) is an orthogonal basis rotation. Consequently, a near-zero \(S_{2(1),1(1)}\) and near-unity \(S_{2(2),1(1)}\) can represent the same physical polarization transported through a uniform guide, merely expressed in a different numerical basis.

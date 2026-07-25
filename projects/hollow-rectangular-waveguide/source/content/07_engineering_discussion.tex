@@ -1,0 +1,39 @@
+\section{Engineering Discussion}
+\label{sec:engineering-discussion}
+
+\subsection{What the Degenerate Transmission Result Means}
+
+The most important result is the apparent transfer from Port 1 Mode 1 primarily into Port 2 Mode 2. A superficial reading could suggest strong physical conversion between orthogonal modes. That interpretation would be misleading because the guide is uniform and the first two modes are exactly degenerate in the ideal geometry.
+
+The correct interpretation is basis rotation. The input and output port eigensolvers can assign different orthogonal vectors to the same two-dimensional degenerate subspace. The coefficient \(S_{2(2),1(1)}\) then becomes large while \(S_{2(1),1(1)}\) becomes small. Total transmitted power across the two-mode subspace remains the relevant quantity.
+
+\subsection{Consequences for Horn-Feed Design}
+
+A square guide is useful for dual-polarization systems when polarization is intentionally controlled by transitions, probes, irises, or orthomode transducers. It is less suitable as an uncontrolled single-polarization horn feed because small asymmetries, manufacturing tolerances, bends, and transitions can select or mix the degenerate pair.
+
+A conventional single-polarization rectangular horn normally uses \(a>b\) and operates in a band satisfying
+
+\[
+f_{c,10}<f<\min(f_{c,20},f_{c,01}),
+\]
+
+so that only \(\mathrm{TE}_{10}\) propagates \cite{pozar2011microwave,stutzman2013antenna}. The present \(a=b\) model does not provide that single-mode separation. Therefore, the phrase ``horn-feed application'' should be understood as a guided-wave modal foundation, not as a finalized practical feed specification.
+
+\subsection{Near-Cutoff Field Interpretation}
+
+The third solved mode has a cutoff approximately \(5.9\%\) above \(10~\mathrm{GHz}\). Its longitudinal propagation constant is imaginary at the observation frequency, so the mode is evanescent. The localized electric, magnetic, and current patterns are consistent with this behavior.
+
+Changing the displayed phasor phase can make near-cutoff field components more visible, but it does not transform an evanescent mode into a propagating one. Absolute magnitude plots and phase-referenced snapshots are visualization choices; propagation status is determined by the eigenvalue and cutoff relation.
+
+\subsection{Industry-Relevant Lessons}
+
+The project demonstrates several practices that extend beyond a classroom waveguide model:
+
+\begin{itemize}
+  \item verify port-mode labels with field orientation rather than relying only on mode index;
+  \item sum power across a degenerate modal subspace when interpreting multimode transmission;
+  \item use cutoff calculations before selecting simulation frequency and port modes;
+  \item separate ideal PEC modal validation from finite-conductivity insertion-loss prediction;
+  \item document solver warnings when symmetry or degeneracy makes the numerical basis non-unique;
+  \item avoid claiming a production horn-feed design without transition, tolerance, thermal, and measurement evidence.
+\end{itemize}

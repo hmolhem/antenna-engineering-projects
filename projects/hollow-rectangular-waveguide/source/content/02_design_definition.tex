@@ -1,0 +1,65 @@
+\section{Design Definition and Analytical Baseline}
+\label{sec:design-definition}
+
+\subsection{Geometry and Operating Conditions}
+
+The modeled vacuum region has the dimensions
+
+\[
+a = 20~\mathrm{mm},\qquad
+b = 20~\mathrm{mm},\qquad
+l = 90~\mathrm{mm}.
+\]
+
+The transverse dimensions are equal, so the structure is a square waveguide within the broader rectangular-waveguide family. The frequency-domain simulation covers
+
+\[
+8~\mathrm{GHz}\le f \le 15~\mathrm{GHz},
+\]
+
+and the principal field-evaluation frequency is
+
+\[
+f_0 = 10~\mathrm{GHz}.
+\]
+
+\begin{table}[H]
+\centering
+\caption{Public model definition.}
+\label{tab:model-definition}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Model interpretation} \\
+\midrule
+Width \(a\) & \(20~\mathrm{mm}\) & First transverse dimension \\
+Height \(b\) & \(20~\mathrm{mm}\) & Second transverse dimension \\
+Length \(l\) & \(90~\mathrm{mm}\) & Uniform propagation section \\
+Interior & Vacuum & Lossless filling medium \\
+Walls & PEC & Ideal conductor, zero conductor loss \\
+Frequency sweep & \(8\)--\(15~\mathrm{GHz}\) & Frequency-domain solution \\
+Field reference & \(10~\mathrm{GHz}\) & Modal field comparison \\
+Port modes & 3 per port & Lowest three solved eigenmodes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Why the Square Cross Section Matters}
+
+For a conventional rectangular horn feed, one normally selects \(a>b\) so that the \(\mathrm{TE}_{10}\) mode has a lower cutoff frequency than \(\mathrm{TE}_{01}\) \cite{pozar2011microwave,stutzman2013antenna}. Here, \(a=b\), which forces
+
+\[
+f_{c,10}=f_{c,01}.
+\]
+
+The model therefore supports two orthogonally polarized lowest-order modes at the same cutoff frequency. A numerical port solver may choose any orthogonal basis spanning that degenerate subspace. The selected basis can differ between Port 1 and Port 2, so mode index alone is not a reliable physical polarization label \cite{pozar2011microwave}.
+
+\subsection{Expected Behavior at 10 GHz}
+
+Using the exact vacuum speed of light, the first two cutoff frequencies are expected near \(7.4948~\mathrm{GHz}\). The \((1,1)\)-family cutoff is expected near \(10.5993~\mathrm{GHz}\). Therefore:
+
+\begin{itemize}
+  \item the first two solved modes should propagate at \(10~\mathrm{GHz}\);
+  \item the third solved mode should be slightly below cutoff at \(10~\mathrm{GHz}\);
+  \item the first two port modes should exhibit nearly identical propagation constants and wave impedances;
+  \item the output modal amplitudes may be rotated between the two degenerate basis functions.
+\end{itemize}

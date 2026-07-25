@@ -1,0 +1,34 @@
+\section{Validation and Numerical Reliability}
+\label{sec:validation-reliability}
+
+\subsection{Analytical-to-CST Agreement}
+
+The strongest quantitative validation is the cutoff-frequency comparison in Table~\ref{tab:cutoff-comparison}. Every CST value differs from the corresponding closed-form result by less than \(0.061\%\). The two ports also agree closely with one another, as expected for a uniform symmetric structure.
+
+\subsection{Internal Physical Consistency}
+
+The available evidence is mutually consistent:
+
+\begin{itemize}
+  \item two nearly equal port cutoffs occur near \(7.49~\mathrm{GHz}\);
+  \item both corresponding fields propagate at \(10~\mathrm{GHz}\);
+  \item the third cutoff is near \(10.59~\mathrm{GHz}\);
+  \item the third field is localized at \(10~\mathrm{GHz}\);
+  \item same-index transmission is not dominant, while the alternate degenerate-basis coefficient is near unity;
+  \item weak projection into the third solved mode is consistent with a uniform guide and orthogonality.
+\end{itemize}
+
+\subsection{Numerical and Evidence Limitations}
+
+The following limitations constrain the conclusions:
+
+\begin{enumerate}
+  \item \textbf{No formal mesh convergence.} The public record does not include a mesh-density sweep or adaptive-convergence history.
+  \item \textbf{No port-basis convergence study.} Polarization lines, basis orientation, and the number of solved modes were not varied systematically.
+  \item \textbf{Ideal materials.} Vacuum filling and PEC walls eliminate conductor and dielectric loss.
+  \item \textbf{No raw data exports.} S-parameter magnitudes quoted away from cutoff markers are approximate visual readings from figures.
+  \item \textbf{No native CST model.} Geometry and settings are documented, but the binary model is not distributed through ordinary Git history.
+  \item \textbf{Only three solved modes shown.} The square guide has additional degenerate mode structure near the \((1,1)\) cutoff; the third displayed mode should therefore be described as a \((1,1)\)-family solution rather than assigned an unverified unique TE/TM identity.
+  \item \textbf{No horn flare or transition.} The study analyzes a uniform guide, not a complete radiating horn or feed transition.
+  \item \textbf{No measurement.} No prototype, VNA calibration, field probe, or chamber result is included.
+\end{enumerate}

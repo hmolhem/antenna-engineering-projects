@@ -1,0 +1,7 @@
+metric,theory,cst_port1,cst_port2,unit,evidence_note
+mode1_cutoff,7.49481145,7.490707,7.49031,GHz,CST marked cutoff values
+mode2_cutoff,7.49481145,7.491242,7.49064,GHz,CST marked cutoff values
+mode3_cutoff,10.599264,10.5935,10.5931,GHz,CST marked cutoff values
+lowest_order_guide_wavelength_at_10ghz,45.2841125,,,mm,analytical
+lowest_order_te_impedance_at_10ghz,569.056941,,,ohm,analytical
+electrical_length_at_10ghz,1.987452,,,lambda_g,analytical

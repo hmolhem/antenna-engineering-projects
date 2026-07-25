@@ -1,0 +1,49 @@
+\section{CST Model and Simulation Method}
+\label{sec:cst-model}
+
+\subsection{Geometry, Materials, and Boundaries}
+
+The CST model represents the hollow interior as a vacuum brick. The surrounding background is PEC, so the brick boundary acts as an ideal conducting wall. Tangential electric field therefore satisfies
+
+\[
+\mathbf{E}_t=0
+\quad\text{on the PEC boundary}.
+\]
+
+No finite wall thickness or conductivity is modeled. The simulation therefore isolates modal geometry from conductor loss.
+
+\subsection{Ports and Frequency-Domain Solution}
+
+Waveguide ports are assigned at the two longitudinal end faces. Port 1 is located at \(z=0\) and points in the \(+z\) direction. Port 2 is located at \(z=90~\mathrm{mm}\) and points in the \(-z\) direction. Each port solves three eigenmodes. This workflow follows the official CST Learning Edition hollow-waveguide example and the documented use of waveguide ports for modal excitation \cite{simulia_learning_tutorials,simulia_rf_components}.
+
+The frequency-domain solver is used over \(8\)--\(15~\mathrm{GHz}\). The public source contains figures at \(10~\mathrm{GHz}\) for electric field, magnetic field, and wall surface current associated with the first three Port 1 modal excitations.
+
+\subsection{Multimode S-Parameter Notation}
+
+Because there are two ports and three solved modes per port, the result is a multimode scattering matrix. The notation
+
+\[
+S_{q(j),p(i)}
+\]
+
+denotes the complex wave amplitude observed at Port \(q\), Mode \(j\), when Port \(p\), Mode \(i\) is excited. Relevant examples are:
+
+\begin{itemize}
+  \item \(S_{1(1),1(1)}\): same-mode input reflection;
+  \item \(S_{2(1),1(1)}\): projection onto output Mode 1;
+  \item \(S_{2(2),1(1)}\): projection onto output Mode 2;
+  \item \(S_{2(3),1(1)}\): coupling into the third solved output mode.
+\end{itemize}
+
+For a degenerate pair, the physically meaningful transmitted power is associated with the total power in the degenerate subspace rather than one same-index coefficient.
+
+\subsection{Available Reproducibility Evidence}
+
+The native CST project is not part of the public Git history. Reproducibility is therefore limited to:
+
+\begin{itemize}
+  \item the documented geometry, materials, frequency range, and port configuration;
+  \item the analytical equations and Python verification;
+  \item the selected CST plots and numerical cutoff markers;
+  \item explicit notes on missing convergence and model artifacts.
+\end{itemize}

@@ -1,6 +1,6 @@
 # Antenna Engineering Projects
 
-A public engineering portfolio by **Hossein Molhem** focused on antenna design, applied electromagnetics, full-wave simulation, arrays, mutual coupling, body loading, and beam steering.
+A public engineering portfolio by **Hossein Molhem** focused on antenna design, applied electromagnetics, full-wave simulation, arrays, guided-wave structures, mutual coupling, body loading, and beam steering.
 
 This repository presents project-level engineering work rather than chapter-by-chapter study notes. Each project is organized to show the design objective, analytical baseline, simulation method, quantitative results, validation evidence, numerical limitations, and engineering conclusions.
 
@@ -45,14 +45,33 @@ Verified simulation highlights include:
 - Explicit classification of the 0.1 mm non-monotonic matching-minimum displacement as a fixed-model observation because mesh and boundary convergence were not completed
 - No fabrication, measurement, or SAR-compliance claim
 
+## Guided-Wave Project
+
+### [Hollow Rectangular Waveguide Modal Analysis](projects/hollow-rectangular-waveguide/)
+
+**Status:** Public project package available
+
+This project analyzes an ideal **20 mm x 20 mm x 90 mm** hollow square waveguide over **8-15 GHz** and explains the effect of modal degeneracy on CST port ordering and multimode transmission.
+
+Verified highlights include:
+
+- Analytical degenerate lowest-order cutoff at **7.494811 GHz**
+- CST Port 1 lowest cutoffs at **7.490707 GHz** and **7.491242 GHz**
+- CST Port 2 lowest cutoffs at **7.490310 GHz** and **7.490640 GHz**
+- Analytical third-mode-family cutoff at **10.599264 GHz**, compared with approximately **10.5935 GHz** in CST
+- Maximum cutoff-frequency difference below **0.061%**
+- Lowest-order guide wavelength of **45.284 mm** and TE wave impedance of **569.057 ohm** at 10 GHz
+- Multimode interpretation showing near-unity transmission into an alternate degenerate output basis
+- Explicit separation between ideal modal validation and practical horn-feed qualification
+
 ## Project Portfolio
 
 | Project | Engineering focus | Status |
 |---|---|---|
 | [5G Microstrip Patch Array](projects/5g-patch-array/) | Patch synthesis and tuning, two-port array modeling, coupling, conductor-loss sensitivity, beam steering | Public package available |
 | [Wearable Half-Wave Dipole](projects/wearable-half-wave-dipole/) | Multilayer body loading, detuning, efficiency, gain, numerical reliability, retuning | Public package available |
+| [Hollow Rectangular Waveguide](projects/hollow-rectangular-waveguide/) | Cutoff, TE/TM modal analysis, square-guide degeneracy, multimode ports, horn-feed interpretation | Public package available |
 | Wire Dipole | Analytical design, resonance tuning, radiation pattern, HPBW | Planned |
-| Hollow Rectangular Waveguide | Dominant-mode propagation and antenna-feed modeling | Planned |
 | Single Microstrip Patch | Analytical dimensions, inset-feed matching, full-wave tuning | Planned |
 
 ## Engineering Methods
@@ -63,6 +82,7 @@ Projects may include:
 - Parametric tuning and design-variable logs
 - CST Studio Suite full-wave simulation
 - Reflection coefficient, impedance, bandwidth, and port-coupling analysis
+- Waveguide cutoff, guide wavelength, modal impedance, and multimode scattering analysis
 - Radiation pattern, beamwidth, directivity, gain, and efficiency evaluation
 - Array excitation and phase-steering studies
 - Mesh, boundary, solver, and numerical-reliability discussion
@@ -88,14 +108,8 @@ antenna-engineering-projects/
 └── projects/
     ├── README.md
     ├── 5g-patch-array/
-    │   ├── README.md
-    │   ├── report/
-    │   ├── source/
-    │   ├── figures/
-    │   ├── code/
-    │   ├── results/
-    │   └── simulation-notes/
-    └── wearable-half-wave-dipole/
+    ├── wearable-half-wave-dipole/
+    └── hollow-rectangular-waveguide/
         ├── README.md
         ├── report/
         ├── source/
@@ -122,7 +136,7 @@ Each mature project includes a project README, selected figures, quantitative re
 
 ## Collaboration
 
-I am interested in research and engineering collaboration involving antenna design, antenna arrays, beamforming, wearable antennas, applied electromagnetics, full-wave simulation, RF systems, and technical validation.
+I am interested in research and engineering collaboration involving antenna design, antenna arrays, beamforming, wearable antennas, microwave waveguides, horn feeds, applied electromagnetics, full-wave simulation, RF systems, and technical validation.
 
 ## Attribution and Academic Integrity
 
