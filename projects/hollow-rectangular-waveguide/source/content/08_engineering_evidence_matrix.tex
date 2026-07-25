@@ -1,0 +1,122 @@
+\section{Engineering Evidence Matrix}
+\label{sec:engineering-evidence-matrix}
+
+The matrix in Table~\ref{tab:engineering-evidence-matrix} connects each principal engineering claim to its analytical basis, simulation record, quantitative outcome, evidence disposition, and remaining validation gap. This structure separates what is directly verified from what is only supported qualitatively, assumed by the ideal model, or not yet established.
+
+\begin{landscape}
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.24\linewidth}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.21\linewidth}@{}}
+\caption{Engineering evidence matrix for the hollow square-waveguide study.}
+\label{tab:engineering-evidence-matrix}\\
+\toprule
+\textbf{Engineering claim or decision} &
+\textbf{Evidence record and trace} &
+\textbf{Quantitative outcome} &
+\textbf{Disposition} &
+\textbf{Residual gap or next validation} \\
+\midrule
+\endfirsthead
+
+\multicolumn{5}{c}{\tablename\ \thetable{} -- continued from previous page}\\
+\toprule
+\textbf{Engineering claim or decision} &
+\textbf{Evidence record and trace} &
+\textbf{Quantitative outcome} &
+\textbf{Disposition} &
+\textbf{Residual gap or next validation} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{Continued on next page}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+The public model is a uniform ideal hollow square guide. &
+Design definition, CST geometry in Figure~\ref{fig:cst-geometry-with-ports}, and documented port locations. &
+Interior dimensions: \(20\times20\times90~\mathrm{mm}\); vacuum filling; PEC walls; \(8\)--\(15~\mathrm{GHz}\) sweep. &
+\textbf{Verified model definition} &
+Native CST binary is not distributed; dimensional tolerances, wall thickness, and finite conductivity are not represented. \\
+\addlinespace
+
+The two lowest-order TE solutions are degenerate. &
+Closed-form rectangular-waveguide theory \cite{pozar2011microwave}, Python verification, and both CST port-eigenmode solutions in Table~\ref{tab:cutoff-comparison}. &
+Theory: \(7.494811~\mathrm{GHz}\). CST: \(7.490310\)--\(7.491242~\mathrm{GHz}\). Maximum theory-to-CST difference: \(0.0601\%\). &
+\textbf{Strong within ideal model} &
+Repeat with controlled polarization lines and a small deliberate geometric perturbation to test basis sensitivity. \\
+\addlinespace
+
+The third solved mode is below cutoff at \(10~\mathrm{GHz}\). &
+Closed-form cutoff, CST cutoff markers, and localized electric-, magnetic-, and wall-current fields in Section~\ref{sec:simulation-results}. &
+Theory: \(10.599264~\mathrm{GHz}\). CST: approximately \(10.5931\)--\(10.5935~\mathrm{GHz}\). &
+\textbf{Strong within ideal model} &
+Solve and classify additional modes near the \((1,1)\)-family cutoff; export propagation constants for direct numerical confirmation. \\
+\addlinespace
+
+Lowest-order propagation quantities at \(10~\mathrm{GHz}\) are consistent with TE theory. &
+Closed-form calculation and Python output; CST modal-impedance traces in Figures~\ref{fig:cst-port1-impedance} and \ref{fig:cst-port2-impedance}. &
+\(\lambda_g=45.284~\mathrm{mm}\), \(Z_{\mathrm{TE}}=569.057~\Omega\), and guide length \(=1.987\lambda_g\). &
+\textbf{Quantitatively supported} &
+CST impedance values were not exported as numerical data; add marker exports or ASCII result files for point-by-point comparison. \\
+\addlinespace
+
+The uniform ideal guide has very small same-mode input reflection. &
+CST trace in Figure~\ref{fig:cst-s11-mode1}; values are read visually from the plotted response. &
+Below approximately \(-50~\mathrm{dB}\) over the plotted band and near \(-85~\mathrm{dB}\) around \(10~\mathrm{GHz}\). &
+\textbf{Qualitative plot evidence} &
+Export Touchstone or ASCII data and report exact values, reference impedance, solver accuracy, and energy balance. \\
+\addlinespace
+
+Dominant transmitted amplitude appears in an alternate output mode index because of degenerate-basis rotation. &
+Multimode traces in Figures~\ref{fig:cst-s21-mode1-projection} and \ref{fig:cst-s21-degenerate-transmission}, plus degenerate-subspace theory \cite{pozar2011microwave}. &
+\(S_{2(2),1(1)}\) is approximately \(-0.02~\mathrm{dB}\) near \(10~\mathrm{GHz}\), while the same-index projection is much smaller. &
+\textbf{Strong qualitative interpretation} &
+Compute total transmitted power summed over the degenerate subspace and repeat with varied port-basis orientation. \\
+\addlinespace
+
+Field behavior is consistent with modal propagation status. &
+Electric-field, magnetic-field, and surface-current figures for the first three Port 1 excitations. &
+Modes 1 and 2 extend through the guide; Mode 3 is spatially localized at \(10~\mathrm{GHz}\). &
+\textbf{Internally consistent} &
+Add axial field samples, decay-constant extraction, and normalized modal-overlap integrals. \\
+\addlinespace
+
+Negligible insertion loss is a model consequence, not a hardware result. &
+PEC walls and vacuum filling specified in the CST model; no finite-conductivity or dielectric-loss calculation. &
+Lossless idealization by construction. &
+\textbf{Assumption only} &
+Replace PEC with copper, document conductivity and surface roughness, and perform mesh-converged attenuation analysis. \\
+\addlinespace
+
+The present structure is not qualified as a practical horn feed. &
+Single-mode design criterion from waveguide and antenna theory \cite{pozar2011microwave,stutzman2013antenna}; no transition, flare, tolerance, thermal, or radiation model. &
+Square guide has no unique lowest-order polarization because \(a=b\); complete horn performance was not simulated. &
+\textbf{Not established} &
+Compare with an \(a>b\) guide, add a feed transition and horn flare, and evaluate match, polarization, gain, pattern, and tolerance sensitivity. \\
+\addlinespace
+
+The public package is reproducible at the documentation and analytical levels. &
+Modular LaTeX source, Python verification script, captured console output, curated CST figures, result tables, and SHA-256 manifests. &
+Report compiles with \texttt{latexmk} and Biber; analytical quantities regenerate from the included script. &
+\textbf{Reproducible public record} &
+Full electromagnetic reproducibility still requires the native CST model, solver version, mesh history, and exported numerical results. \\
+\addlinespace
+
+Experimental performance has not been validated. &
+No prototype, calibration record, VNA data, field probe, or chamber measurement is included. &
+No measured cutoff, insertion loss, phase delay, or radiation result. &
+\textbf{Not performed} &
+Fabricate a controlled guide section and validate with calibrated S-parameter and field measurements, including uncertainty reporting. \\
+
+\end{longtable}
+\endgroup
+\end{landscape}
+
+\begingroup\emergencystretch=2em
+The matrix supports three final engineering conclusions. First, the cutoff and propagation-state claims are strongly supported within the ideal PEC-vacuum model. Second, the unusual output mode ordering is a credible degenerate-basis interpretation but still benefits from a dedicated port-basis sensitivity study. Third, practical horn-feed suitability, insertion loss, and measured performance remain open validation items rather than demonstrated outcomes.
+\endgroup

@@ -1,0 +1,29 @@
+Hollow Square Waveguide Analytical Verification
+========================================================================================
+Geometry: a = 20.000 mm, b = 20.000 mm, length = 90.000 mm
+Observation frequency: 10.000 GHz
+
+Low-order analytical modes
+----------------------------------------------------------------------------------------
+Mode                  fc (GHz)        Status at 10 GHz     lambda_g (mm)      Z_TE (ohm)
+----------------------------------------------------------------------------------------
+TE10                  7.494811             propagating            45.284         569.057
+TE01                  7.494811             propagating            45.284         569.057
+(1,1) family         10.599264              evanescent               N/A             N/A
+TE20                 14.989623              evanescent               N/A             N/A
+TE02                 14.989623              evanescent               N/A             N/A
+
+Lowest-order detailed quantities
+----------------------------------------------------------------------------------------
+Free-space wavelength: 29.979246 mm
+Guide wavelength: 45.284113 mm
+TE wave impedance: 569.056941 ohm
+Electrical length: 1.987452 guide wavelengths
+
+CST cutoff comparison
+----------------------------------------------------------------------------------------
+Mode              Theory        Port 1      Error P1        Port 2      Error P2
+----------------------------------------------------------------------------------------
+1               7.494811      7.490707      -0.0548%      7.490310      -0.0601%
+2               7.494811      7.491242      -0.0476%      7.490640      -0.0557%
+3              10.599264     10.593500      -0.0544%     10.593100      -0.0582%

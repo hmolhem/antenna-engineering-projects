@@ -1,0 +1,8 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Hollow metallic waveguides are used when low-loss, high-power microwave transmission and controlled modal fields are required. A rectangular guide supports transverse-electric (TE) and transverse-magnetic (TM) modes above geometry-dependent cutoff frequencies, but it cannot support a true TEM mode \cite{pozar2011microwave}. A horn antenna can be interpreted as a waveguide whose cross section gradually expands into a radiating aperture, so the guided field delivered by the feed section strongly influences aperture polarization and phase distribution \cite{stutzman2013antenna}.
+
+This project uses a square special case of the rectangular waveguide. The equal transverse dimensions create a pair of degenerate lowest-order modes: \(\mathrm{TE}_{10}\) and \(\mathrm{TE}_{01}\). Their identical cutoff frequencies make the modal polarization basis non-unique \cite{pozar2011microwave}. That feature is useful for studying port-mode ordering and multimode S-parameter interpretation, but it is usually undesirable when a practical horn feed requires a unique, polarization-controlled dominant mode.
+
+The study combines closed-form theory, Python calculations, and a frequency-domain CST model. The main contribution is not merely reproduction of cutoff values; it is the interpretation of why nearly all transmitted power may appear in an alternate degenerate mode index at the output port even though the guide is uniform and contains no physical mode-converting discontinuity.

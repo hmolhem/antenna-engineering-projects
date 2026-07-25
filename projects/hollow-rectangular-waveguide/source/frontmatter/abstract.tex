@@ -1,0 +1,18 @@
+% =========================================================
+% frontmatter/abstract.tex
+% =========================================================
+
+\chapter*{Abstract}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Abstract}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+This report presents an analytical and CST Studio Suite study of a hollow square waveguide intended as a modal feed-section case study for horn-antenna applications. The modeled interior is \(20~\mathrm{mm}\times20~\mathrm{mm}\) with a length of \(90~\mathrm{mm}\), vacuum filling, and ideal PEC walls. Two waveguide ports were solved with three modes over \(8\)--\(15~\mathrm{GHz}\), with field evaluation centered at \(10~\mathrm{GHz}\).
+
+Closed-form theory predicts degenerate \(\mathrm{TE}_{10}\) and \(\mathrm{TE}_{01}\) cutoff frequencies of \(7.4948~\mathrm{GHz}\), followed by a \((1,1)\)-family cutoff near \(10.5993~\mathrm{GHz}\). At \(10~\mathrm{GHz}\), the first two modes propagate while the third solved mode is slightly below cutoff. The analytical dominant-mode guide wavelength is \(45.284~\mathrm{mm}\), the TE wave impedance is \(569.06~\Omega\), and the \(90~\mathrm{mm}\) section is approximately \(1.987\) guide wavelengths long.
+
+CST reports Port 1 cutoff frequencies of \(7.490707\), \(7.491242\), and \(10.5935~\mathrm{GHz}\), and nearly identical values at Port 2. The relative differences from theory remain below \(0.061\%\). Multimode S-parameter plots show very small same-mode reflection and near-unity transmission into the alternate member of the degenerate output basis. This is not physical mode conversion in a discontinuity; it reflects the non-unique polarization basis of a perfectly square guide. Field and surface-current plots support propagating behavior for the first two modes and localized near-cutoff behavior for the third.
+
+The model is intentionally idealized. No mesh-convergence campaign, finite-conductivity sensitivity study, transition model, horn flare, prototype, or measurement is included. Accordingly, the project demonstrates modal reasoning and simulation interpretation rather than a production-ready horn-feed design.
+\par\endgroup
