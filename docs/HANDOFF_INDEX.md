@@ -5,7 +5,7 @@
 | [H001](handoffs/H001-portfolio-foundation.md) | Portfolio foundation | `feature/portfolio-foundation` | [#1](https://github.com/hmolhem/antenna-engineering-projects/pull/1) | `65fd3b3` | Merged |
 | [H002](handoffs/H002-5g-patch-array-project.md) | 5G patch-array public package | `feature/5g-patch-array-project` | [#2](https://github.com/hmolhem/antenna-engineering-projects/pull/2) | `3326756` | Merged |
 | [H003](handoffs/H003-wearable-dipole-project.md) | Wearable half-wave dipole public package | `feature/wearable-dipole-project` | [#4](https://github.com/hmolhem/antenna-engineering-projects/pull/4) | `5ca32e1` | Merged |
-| [H004](handoffs/H004-hollow-rectangular-waveguide-project.md) | Hollow rectangular waveguide public package | `feature/hollow-rectangular-waveguide-project` | Pending | - | Ready for review |
+| [H004](handoffs/H004-hollow-rectangular-waveguide-project.md) | Hollow rectangular waveguide public package | `feature/hollow-rectangular-waveguide-project` | [#6](https://github.com/hmolhem/antenna-engineering-projects/pull/6) | `818c6a4` | Merged |
 
 ## Lifecycle
 

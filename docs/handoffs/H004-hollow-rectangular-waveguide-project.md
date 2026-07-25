@@ -87,4 +87,4 @@ Publish the third complete engineering project package in the antenna portfolio:
 
 ## Rollback
 
-Revert the merged H004 pull-request commit to remove the waveguide package and restore the previous project index without rewriting repository history.
+Revert merge commit `818c6a4860d9367ba70a400f06d93b43e8afac44` to remove the waveguide project package without rewriting repository history.
