@@ -18,20 +18,25 @@ The format is based on **Keep a Changelog** principles and the repository uses p
 - Reproducible waveguide LaTeX source and analytical verification script
 - Curated geometry, cutoff, multimode S-parameter, field, and wall-current figures
 - Engineering Evidence Matrix connecting major waveguide claims to traceable evidence, quantitative outcomes, dispositions, and follow-up validation
+- Public resonant wire-dipole engineering report
+- Reproducible wire-dipole LaTeX source and analytical verification script
+- Curated CST geometry, S-parameter, and radiation-pattern figures for the 150 mm, 125 mm, and 135.6 mm cases
+- Engineering Verification Matrix and explicit exact-marker versus plot-derived evidence classification for the wire-dipole study
 - Machine-readable and human-readable key-result summaries for all public projects
 - Numerical-reliability and native-model-access documentation
-- H002, H003, and H004 implementation handoffs
+- H002, H003, H004, and H005 implementation handoffs
 
 ### Changed
 
-- Updated the repository landing page with final verified 5G array, wearable dipole, and waveguide results
+- Updated the repository landing page with final verified 5G array, wearable dipole, waveguide, and resonant wire-dipole results
 - Updated the project portfolio index and public-project status
 - Replaced intermediate 5G single-patch values with the final selected design results
 - Explicitly classified the wearable 0.1 mm non-monotonic result as not convergence-verified
 - Added square-waveguide degeneracy and multimode port-basis interpretation
-- Aligned the waveguide report cover and front matter with the 5G public-portfolio report structure
+- Aligned the waveguide and wire-dipole report covers and front matter with the 5G public-portfolio report structure
 - Audited waveguide references and standardized red in-text citation hyperlinks
-- Closed out H001 through H003 with pull-request links, merged status, and merge-commit SHA traceability
+- Corrected wire-dipole reflection-coefficient versus return-loss terminology and documented the 73-ohm port reference
+- Closed out H001 through H004 with pull-request links, merged status, and merge-commit SHA traceability
 - Expanded the handoff index to record pull-request and merge-commit identifiers
 
 ## [Portfolio Foundation] - 2026-07-23

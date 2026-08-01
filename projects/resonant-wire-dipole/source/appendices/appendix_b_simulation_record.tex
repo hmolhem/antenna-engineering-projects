@@ -1,0 +1,26 @@
+\chapter{Simulation and Model Record}
+\label{app:simulation-record}
+
+\begin{table}[H]
+\centering
+\caption{Public simulation-model record.}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.27\textwidth}X}
+\toprule
+Field & Preserved record \\
+\midrule
+Software & CST Studio Suite Learning Edition \\
+Geometry & PEC cylindrical center-fed dipole, \SI{5}{mm} diameter, \SI{20}{mm} gap \\
+Port & Discrete face port, \SI{73}{\ohm} reference \\
+Boundary & Open-add-space in all directions, as documented in supplied source \\
+Sweep & \SIrange{0.5}{2.0}{GHz} \\
+Far-field monitors & \SI{0.9}{GHz} and \SI{1.0}{GHz} \\
+Length cases & \SI{150.0}{mm}, \SI{125.0}{mm}, \SI{135.6}{mm} \\
+Exact marker & \SI{0.99648}{GHz}, $S_{11}=-\SI{47.01186}{dB}$ \\
+Unavailable & Native model, solver build/type, mesh statistics, convergence history, raw CSV exports \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The machine-readable run manifest is stored at
+\path{simulation_records/run_manifest.csv}. The screenshot file names in that
+manifest are retained unchanged from the supplied project archive to preserve traceability.

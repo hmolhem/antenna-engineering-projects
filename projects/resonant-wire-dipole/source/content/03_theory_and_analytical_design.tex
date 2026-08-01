@@ -1,0 +1,55 @@
+\section{Theory and Analytical Design}
+
+\subsection{Wavelength and first-order length}
+Using the design value $c\approx\SI{3e8}{m/s}$,
+\begin{equation}
+\lambda_0=\frac{c}{f_0}
+=\frac{\SI{3e8}{m/s}}{\SI{1e9}{Hz}}
+=\SI{0.300}{m}=\SI{300}{mm}.
+\label{eq:wavelength}
+\end{equation}
+The first-order half-wave length is therefore
+\begin{equation}
+L_0=\frac{\lambda_0}{2}=\SI{150}{mm}.
+\label{eq:halfwave-length}
+\end{equation}
+This is an analytical starting point rather than a guarantee of resonance for a
+finite-diameter, gapped, port-excited model.
+
+\subsection{Canonical resonant-dipole pattern}
+For a thin, center-fed resonant half-wave dipole aligned with the $z$-axis, the normalized
+far-field magnitude pattern is approximated by~\cite{stutzman2012}
+\begin{equation}
+F(\theta)=\left|
+\frac{\cos\!\left(\frac{\pi}{2}\cos\theta\right)}{\sin\theta}
+\right|.
+\label{eq:half-wave-pattern}
+\end{equation}
+The maximum occurs at $\theta=90^\circ$ and the axial nulls occur at
+$\theta=0^\circ$ and $180^\circ$. Numerical integration of the power pattern gives
+\begin{equation}
+D=1.6409=\SI{2.15}{dBi},
+\end{equation}
+and the $-\SI{3}{dB}$ points give an HPBW of $78.08^\circ$.
+
+\subsection{Reflection coefficient and return loss}
+For an antenna impedance $Z_A$ referenced to the CST port impedance $Z_0$,
+\begin{equation}
+\Gamma=\frac{Z_A-Z_0}{Z_A+Z_0},
+\qquad
+S_{11,\mathrm{dB}}=20\log_{10}|\Gamma|.
+\label{eq:s11}
+\end{equation}
+Return loss is conventionally positive:
+\begin{equation}
+\mathrm{RL}=-20\log_{10}|\Gamma|=-S_{11,\mathrm{dB}}.
+\label{eq:return-loss}
+\end{equation}
+Thus the final plotted value $S_{11}=-\SI{47.01186}{dB}$ corresponds to a return
+loss of \SI{47.01186}{dB}, specifically under the \SI{73}{\ohm} reference used in the
+CST port.
+
+\subsection{Independent analytical calculation}
+The script in Appendix~\ref{app:analytical-verification} evaluates
+Eq.~\eqref{eq:half-wave-pattern}, finds the half-power crossings, integrates beam solid
+angle, and records the comparison values independently of CST.

@@ -1,0 +1,51 @@
+\section{Model and Simulation Method}
+
+\subsection{CST geometry}
+The model is a center-fed PEC cylindrical dipole on the $z$-axis. A centered vacuum
+cylinder creates a \SI{20}{mm} gap. A discrete face port spans the inner circular faces
+and uses $Z_0=\SI{73}{\ohm}$. Open-add-space boundaries are documented in the
+supplied report source. The construction follows the wire-dipole tutorial workflow
+identified in the original project record~\cite{csttutorial}.
+
+For the final total length $L=\SI{135.6}{mm}$, each metal arm is
+\begin{equation}
+L_{\mathrm{arm}}=\frac{L-\mathrm{gap}}{2}
+=\frac{135.6-20}{2}=\SI{57.8}{mm}.
+\end{equation}
+The documented arm coordinates are $z=-\SI{67.8}{mm}$ to $-\SI{10}{mm}$ and
+$z=+\SI{10}{mm}$ to $+\SI{67.8}{mm}$.
+
+\begin{figure}[H]
+\centering
+\maybeincludegraphics[width=0.78\linewidth]{figures/cst_results/fig_geometry_L135p6_tuned_final.png}
+\caption{Final CST geometry for the \SI{135.6}{mm} tuned model (simulated evidence).}
+\label{fig:final-geometry}
+\end{figure}
+
+\subsection{Length-tuning sequence}
+\begin{table}[H]
+\centering
+\caption{Documented length-tuning sequence.}
+\label{tab:tuning-runs}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.16\textwidth}p{0.18\textwidth}XX}
+\toprule
+Run ID & Total length & Purpose & Evidence status \\
+\midrule
+SIM-150 & \SI{150.0}{mm} & Analytical half-wave starting point & Plot-derived resonance estimate; 2D and 3D patterns at \SI{0.9}{GHz} and \SI{1.0}{GHz} \\
+SIM-125 & \SI{125.0}{mm} & Confirm upward resonance shift after shortening & Plot-derived resonance estimate \\
+SIM-136 & \SI{135.6}{mm} & Final tuned model near \SI{1}{GHz} & Exact $S_{11}$ marker; 2D and 3D directivity plots \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Available and unavailable solver records}
+The supplied archive preserves the sweep band, geometry, materials, port reference,
+boundary description, monitor frequencies, and result figures. It does not preserve the
+native CST model, software build number, solver type, mesh statistics, convergence
+history, or raw exported curves.
+
+\subsection{Numerical qualification}
+The model can be interpreted and partially reconstructed from the documented geometry,
+but the exact numerical run cannot be reproduced bit-for-bit without the native model
+and solver records. Consequently, this report verifies the preserved evidence package;
+it does not claim a completed mesh- or boundary-convergence campaign.

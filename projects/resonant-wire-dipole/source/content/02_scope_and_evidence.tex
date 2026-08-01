@@ -1,0 +1,34 @@
+\section{Scope and Evidence}
+
+\subsection{Evidence classes}
+\noindent
+\textbf{Analytical evidence.}
+The analytical record includes wavelength, ideal half-wave length, the thin resonant
+half-wave dipole pattern, numerical directivity integration, and analytical HPBW.
+
+\noindent
+\textbf{Simulated evidence.}
+The simulation record includes CST geometry screenshots, three length-tuning
+$S_{11}$ plots, and two-dimensional and three-dimensional far-field figures. The final
+$S_{11}$ figure contains an exact marker at \SI{0.99648}{GHz}.
+
+\noindent
+\textbf{Measured evidence.}
+No prototype, VNA calibration, balun, feed cable, chamber range, gain-transfer test,
+or uncertainty budget is included. No measured claim is made.
+
+\subsection{Public-edition boundaries}
+Administrative course information and student identifiers were removed. Native CST
+binary models were not present in the supplied archive and are therefore not included.
+The public package preserves the supplied figures, an independent calculation script,
+a run manifest, and explicit numerical limitations.
+
+\subsection{Claim discipline}
+The report distinguishes among three levels of numerical confidence:
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Exact exported marker:} final resonance and final minimum $S_{11}$.
+\item \textbf{Displayed figure value:} far-field directivity and angular-width annotations.
+\item \textbf{Plot-derived estimate:} resonance and minimum depth for the two preliminary lengths.
+\end{enumerate}
+This distinction prevents screenshot estimates from being presented with unsupported
+precision.

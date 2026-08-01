@@ -1,0 +1,15 @@
+quantity,value,unit,evidence_status,qualification
+design_frequency,1.000,GHz,analytical,project target
+free_space_wavelength,300.0,mm,analytical,uses c=3e8 m/s
+initial_half_wave_length,150.0,mm,analytical,first-order idealization
+preliminary_L150_resonance,0.83,GHz,plot-derived,approximate from screenshot
+preliminary_L125_resonance,1.08,GHz,plot-derived,approximate from screenshot
+final_tuned_length,135.6,mm,simulated,documented geometry
+final_resonance,0.99648,GHz,simulated,exact displayed CST marker
+final_S11,-47.01186,dB,simulated,73-ohm reference
+return_loss,47.01186,dB,derived,negative of displayed S11 dB
+frequency_error,0.352,percent,derived,relative to 1 GHz
+final_directivity,2.149,dBi,simulated,displayed CST value
+analytical_directivity,2.15,dBi,analytical,thin half-wave model
+analytical_HPBW,78.08,deg,analytical,thin half-wave model
+final_displayed_angular_width,78.4,deg,simulated,approximately read from 2D figure

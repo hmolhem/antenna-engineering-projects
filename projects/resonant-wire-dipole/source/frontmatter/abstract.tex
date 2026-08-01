@@ -1,0 +1,36 @@
+% =========================================================
+% frontmatter/abstract.tex
+% =========================================================
+
+\chapter*{Abstract}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Abstract}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+This report presents the analytical design and CST full-wave simulation of a
+finite-radius, center-fed wire dipole operating near 1~GHz. A first-order free-space
+calculation gives a wavelength of 300~mm and an initial half-wave length of 150~mm.
+The CST model uses a 5~mm-diameter PEC conductor, a 20~mm center gap, a 73~$\Omega$
+discrete port, and open-add-space boundaries. Three documented lengths---150~mm,
+125~mm, and 135.6~mm---establish the tuning path.
+
+The initial 150~mm model resonated below the 1~GHz target, while shortening the
+dipole to 125~mm shifted the resonance above the target. The final 135.6~mm model
+produced a CST marker at 0.99648~GHz with
+$S_{11,\min}=-47.01186$~dB, corresponding to a positive return loss of
+47.01186~dB relative to the 73~$\Omega$ port reference. The frequency deviation from
+1~GHz is 3.52~MHz, or 0.352\%.
+
+The final CST far-field result displays the expected broadside toroidal pattern with
+axial nulls and a peak directivity of 2.149~dBi. Independent evaluation of the canonical
+thin half-wave dipole pattern gives 2.15~dBi directivity and a 78.08$^\circ$ half-power
+beamwidth, in close agreement with the displayed CST pattern. The study therefore
+connects closed-form antenna theory, parameterized full-wave modeling, resonance
+control through length tuning, and analytical-to-simulation verification.
+
+All performance results are analytical or simulated. No fabricated prototype or
+measured antenna data are claimed. The absence of the native CST model, raw exports,
+and formal mesh- and boundary-convergence records limits the conclusions to the
+preserved evidence package.
+\par\endgroup

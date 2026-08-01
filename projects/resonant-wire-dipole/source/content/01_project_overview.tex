@@ -1,0 +1,44 @@
+\section{Project Overview}
+
+\subsection{Engineering objective}
+The engineering problem is to tune a practical finite-radius wire dipole so that its
+input match occurs near \SI{1}{GHz}, while retaining the expected broadside radiation
+pattern of a resonant half-wave dipole. The project is intentionally framed as a compact
+verification case: analytical theory supplies a canonical baseline, CST provides the
+full-wave response, and the comparison identifies both agreement and missing evidence.
+
+\subsection{Design requirements and configuration}
+\begin{table}[H]
+\centering
+\caption{Design requirements and documented model parameters.}
+\label{tab:requirements}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.31\textwidth}X}
+\toprule
+Item & Documented value or requirement \\
+\midrule
+Target frequency & \SI{1.000}{GHz} \\
+Free-space wavelength used for design & \SI{300}{mm} \\
+Initial theoretical length & \SI{150}{mm} \\
+Final tuned total length & \SI{135.6}{mm} \\
+Conductor model & PEC cylinder, \SI{5}{mm} diameter \\
+Center feed gap & \SI{20}{mm} \\
+Port reference impedance & \SI{73}{\ohm} \\
+Frequency sweep & \SIrange{0.5}{2.0}{GHz} \\
+Far-field monitors & \SI{0.9}{GHz} and \SI{1.0}{GHz} \\
+Primary outputs & $S_{11}$, 2D pattern, 3D directivity pattern \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Key engineering outcome}
+The final \SI{135.6}{mm} model produced the exact CST marker result
+$f_{\mathrm{res}}=\SI{0.99648}{GHz}$ and
+$S_{11,\min}=-\SI{47.01186}{dB}$. Its displayed directivity at \SI{1}{GHz} was
+\SI{2.149}{dBi}, essentially equal to the analytical half-wave value. These results
+support a tuned resonant dipole interpretation under the documented \SI{73}{\ohm}
+reference condition.
+
+\subsection{Reporting decision}
+The marker-based final run is used as the quantitative design result. The earlier
+\SI{150}{mm} and \SI{125}{mm} cases are treated as directional tuning evidence because
+their numerical minima are available only from plotted curves, not raw exported data.
