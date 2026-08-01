@@ -3,8 +3,10 @@
 - **Handoff ID:** H005
 - **Date:** 2026-08-01
 - **Branch:** `feature/resonant-wire-dipole-project`
-- **Pull request:** Pending
-- **Status:** Ready for review
+- **Pull request:** [#8](https://github.com/hmolhem/antenna-engineering-projects/pull/8)
+- **Head commit:** `0339ab921c1505369250016a2298b9beda8fdb89`
+- **Merge commit:** `00dd215785afc8a68ea4f9d4bb01f4d4edea3200`
+- **Status:** Merged
 
 ## Purpose
 
@@ -83,4 +85,4 @@ Future validation should export raw S-parameter and far-field data, record solve
 
 ## Rollback
 
-Before merge, close the pull request and delete `feature/resonant-wire-dipole-project`. After merge, revert the H005 merge commit to remove the project package and restore the previous indexes without rewriting repository history.
+Revert merge commit `00dd215785afc8a68ea4f9d4bb01f4d4edea3200` to remove the resonant wire-dipole project package without rewriting repository history.
