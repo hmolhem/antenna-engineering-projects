@@ -84,6 +84,27 @@ Verified highlights include:
 - Explicit distinction between exact marker values, plot-derived estimates, and unverified mesh/boundary convergence
 - No fabrication or measured validation claim
 
+## Single Microstrip Patch Project
+
+### [Inset-Fed Microstrip Patch Antenna Design and CST Validation](projects/single-microstrip-patch/)
+
+**Status:** Public project package available
+
+This project develops a **915 MHz** inset-fed rectangular microstrip patch on Rogers RT/duroid 5880, connects transmission-line synthesis to CST full-wave simulation, and evaluates impedance matching, field distributions, directivity, and principal-plane beamwidths.
+
+Verified highlights include:
+
+- Analytical patch width and length of **129.51 mm** and **109.79 mm**
+- Final CST patch width and length of **129.5 mm** and **108.2 mm**
+- Final inset depth of **38.2 mm**
+- Matching minimum at **0.9186 GHz** with displayed **S11 = -22.14379 dB**
+- Positive return loss of **22.14379 dB** and derived VSWR of approximately **1.170**
+- Frequency error of **0.393%** relative to the 0.915 GHz design target
+- Displayed peak directivity of **7.01 dBi** at 0.915 GHz
+- Displayed principal-plane HPBW values of approximately **82.3 degrees** and **90.8 degrees**
+- Explicit documentation of PEC metallization, absent raw exports and convergence studies, and a slightly positive displayed radiation-efficiency anomaly
+- No fabrication or measured validation claim
+
 ## Project Portfolio
 
 | Project | Engineering focus | Status |
@@ -92,7 +113,8 @@ Verified highlights include:
 | [Wearable Half-Wave Dipole](projects/wearable-half-wave-dipole/) | Multilayer body loading, detuning, efficiency, gain, numerical reliability, retuning | Public package available |
 | [Hollow Rectangular Waveguide](projects/hollow-rectangular-waveguide/) | Cutoff, TE/TM modal analysis, square-guide degeneracy, multimode ports, horn-feed interpretation | Public package available |
 | [Resonant Wire Dipole](projects/resonant-wire-dipole/) | Analytical sizing, resonance tuning, S-parameter interpretation, radiation pattern, directivity, HPBW | Public package available |
-| Single Microstrip Patch | Analytical dimensions, inset-feed matching, full-wave tuning | Planned |
+| [Inset-Fed Single Microstrip Patch](projects/single-microstrip-patch/) | Transmission-line synthesis, inset-feed matching, CST tuning, fields, directivity, principal-plane HPBW | Public package available |
+| Plane-Wave Dielectric Slab | Normal incidence, reflection, transmission, standing waves, analytical and CST comparison | Planned |
 
 ## Engineering Methods
 
@@ -130,7 +152,8 @@ antenna-engineering-projects/
     ├── 5g-patch-array/
     ├── wearable-half-wave-dipole/
     ├── hollow-rectangular-waveguide/
-    └── resonant-wire-dipole/
+    ├── resonant-wire-dipole/
+    └── single-microstrip-patch/
         ├── README.md
         ├── report/
         ├── source/

@@ -1,0 +1,29 @@
+Inset-Fed Microstrip Patch Analytical Verification
+========================================================================
+Design frequency: 0.915 GHz
+Relative permittivity: 2.20
+Substrate thickness: 1.575 mm
+
+Analytical starting dimensions
+Free-space wavelength: 327.64 mm
+Patch width: 129.51 mm
+Effective dielectric constant: 2.1605
+Fringing extension: 0.834 mm
+Effective patch length: 111.45 mm
+Physical patch length: 109.79 mm
+
+Final documented geometry
+Patch width: 129.5 mm
+Patch length: 108.2 mm
+Documented feed width: 4.89 mm
+Inset-notch width: 6.89 mm
+Analytical inset-depth estimate: 38.13 mm
+Length adjustment from analytical value: -1.59 mm (-1.44%)
+
+Final CST marker and derived quantities
+Matching-minimum frequency: 0.9186 GHz
+Minimum S11: -22.14379 dB
+Positive return loss: 22.14379 dB
+Reflection magnitude: 0.0781
+VSWR: 1.170
+Frequency error: 3.6 MHz (0.393%)

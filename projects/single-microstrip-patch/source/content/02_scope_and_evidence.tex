@@ -1,0 +1,50 @@
+\section{Engineering Scope and Evidence}
+\label{sec:scope-and-evidence}
+
+The public project is defined by the engineering specification in
+Table~\ref{tab:design-specification}. The original administrative mechanism used to
+select the frequency and feed type is intentionally omitted; the resulting 915~MHz
+inset-fed configuration is retained as the fixed design input.
+
+\begin{table}[H]
+\centering
+\caption{Public design specification.}
+\label{tab:design-specification}
+\begin{tabularx}{\textwidth}{@{}p{0.17\textwidth}p{0.33\textwidth}X@{}}
+\toprule
+\textbf{Category} & \textbf{Parameter} & \textbf{Specified value} \\
+\midrule
+Electrical & Design frequency & 915~MHz \\
+Electrical & Feed topology & Inset-fed microstrip line \\
+Material & Substrate & Rogers RT/duroid 5880 \\
+Material & Relative permittivity & 2.20 \\
+Material & Loss tangent & 0.0009 \\
+Geometry & Substrate thickness & 1.575~mm \\
+Geometry & Metal thickness used geometrically & 0.035~mm \\
+Simulation & Frequency range & 0.6--1.2~GHz \\
+Simulation & Boundaries & Open (add space), all sides \\
+Simulation & Monitors & E field, H field, and far field at 0.915~GHz \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Evidence Classes}
+
+\textbf{Analytical evidence} consists of the equations and independently executable
+script used to regenerate the initial patch dimensions and inset-depth estimate.
+
+\textbf{Simulated evidence} consists of CST screenshots. The exact $S_{11}$ minimum is
+supported by a marker in the preserved plot. Directivity, main-beam direction,
+beamwidth, and displayed efficiency values are read from the CST far-field information
+panels.
+
+\textbf{Measured evidence} is absent. No fabricated antenna, VNA sweep, calibrated
+gain measurement, radiation-pattern measurement, or material characterization is
+included.
+
+\subsection{Public Claim Boundary}
+
+The report claims only that the documented analytical model and preserved CST evidence
+support the stated simulated behavior. It does not claim manufacturing readiness,
+broadband performance, tolerance robustness, regulatory compliance, or measured
+hardware performance.

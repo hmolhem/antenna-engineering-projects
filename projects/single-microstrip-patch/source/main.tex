@@ -1,0 +1,55 @@
+\documentclass[12pt, a4paper, oneside, openany]{report}
+
+\input{setup/00_metadata}
+\input{setup/01_packages}
+\input{setup/02_layout}
+\input{setup/03_math_macros}
+\input{setup/04_code_styles}
+\input{setup/05_environments}
+\input{setup/06_theme}
+
+\hypersetup{
+    pdftitle={\reporttitleplain},
+    pdfauthor={\authorname},
+    pdfsubject={\pdfsubject},
+    pdfkeywords={\pdfkeywordstext}
+}
+
+\addbibresource{references.bib}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\input{frontmatter/titlepage}
+\clearpage
+\hypersetup{pageanchor=true}
+
+\pagenumbering{roman}
+\pagestyle{fancy}
+\input{frontmatter/portfolio_context}
+\clearpage
+\input{frontmatter/abstract}
+\clearpage
+\input{frontmatter/objective}
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\include{content/00_report_body}
+
+\appendix
+\input{appendices/00_appendices}
+
+\clearpage
+\begingroup
+\sloppy
+\printbibliography[heading=bibintoc, title={References}]
+\endgroup
+
+\end{document}

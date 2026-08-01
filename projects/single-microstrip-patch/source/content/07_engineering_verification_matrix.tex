@@ -1,0 +1,58 @@
+\section{Engineering Verification Matrix}
+\label{sec:verification-matrix}
+
+The matrix in Table~\ref{tab:verification-matrix} links each principal public claim to
+its evidence source and qualification.
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.20}
+\setlength{\tabcolsep}{3.5pt}
+
+\begin{longtable}{
+    @{}
+    >{\centering\arraybackslash}p{0.055\textwidth}
+    >{\raggedright\arraybackslash}p{0.28\textwidth}
+    >{\raggedright\arraybackslash}p{0.14\textwidth}
+    >{\raggedright\arraybackslash}p{0.23\textwidth}
+    >{\raggedright\arraybackslash}p{0.20\textwidth}
+    @{}
+}
+\caption{Engineering verification matrix.}
+\label{tab:verification-matrix}\\
+\toprule
+\textbf{ID} & \textbf{Public claim} & \textbf{Evidence class} & \textbf{Evidence location} & \textbf{Qualification} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Public claim} & \textbf{Evidence class} & \textbf{Evidence location} & \textbf{Qualification} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\small Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\VerificationRow{V1}{The 915~MHz analytical patch width is 129.51~mm and physical length is 109.79~mm.}{Analytical}{Eqs.~\eqref{eq:patch-width}--\eqref{eq:physical-length}; Appendix~\ref{app:analytical-verification}}{First-order transmission-line approximation.}
+
+\VerificationRow{V2}{The final documented CST geometry uses $W=129.5$~mm, $L=108.2$~mm, and a 38.2~mm inset.}{Simulated model record}{Table~\ref{tab:object-coordinates}; Fig.~\ref{fig:patch-geometry}}{Native CST model is not in the public archive.}
+
+\VerificationRow{V3}{The final matching minimum is 0.9186~GHz with $S_{11}=-22.14379$~dB.}{Exact simulated marker}{Fig.~\ref{fig:s11-result}; Eq.~\eqref{eq:final-s11}}{Relative to the configured CST port; raw export unavailable.}
+
+\VerificationRow{V4}{The frequency deviation from 915~MHz is 0.393\%.}{Derived analytical result}{Eq.~\eqref{eq:frequency-error}; verification script}{Uses the exact displayed frequency marker.}
+
+\VerificationRow{V5}{The far-field plot displays a 7.01~dBi broadside peak at 0.915~GHz.}{Displayed simulation result}{Fig.~\ref{fig:farfield-3d}; Table~\ref{tab:principal-plane-results}}{Directivity, not realized gain; no raw far-field export.}
+
+\VerificationRow{V6}{The displayed 3-dB widths are 82.3$^\circ$ and 90.8$^\circ$ in the two principal planes.}{Displayed simulation result}{Figs.~\ref{fig:phi0-pattern} and \ref{fig:phi90-pattern}}{Values read from CST information panels.}
+
+\VerificationRow{V7}{The E- and H-field images support resonant excitation around the patch and feed.}{Qualitative simulation evidence}{Figs.~\ref{fig:efield-result} and \ref{fig:hfield-result}}{No raw field data for independent quantitative analysis.}
+
+\VerificationRow{V8}{The conductor model does not include copper loss.}{Model qualification}{Section~\ref{sec:model-and-method}}{Patch and ground are PEC despite finite geometric thickness.}
+
+\VerificationRow{V9}{Efficiency is not promoted as a verified KPI.}{Numerical qualification}{Section~\ref{sec:engineering-discussion}; Fig.~\ref{fig:farfield-3d}}{Displayed radiation efficiency is slightly above 0~dB.}
+
+\VerificationRow{V10}{No measured hardware performance is claimed.}{No measurement}{Portfolio Context and Evidence}{Requires fabrication, VNA, and radiation-pattern testing.}
+
+\end{longtable}
+\endgroup

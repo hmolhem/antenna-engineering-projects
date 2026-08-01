@@ -1,0 +1,36 @@
+\section{Project Overview}
+\label{sec:project-overview}
+
+Microstrip patch antennas provide a low-profile and mechanically simple radiating
+structure for systems that require planar integration. A rectangular patch consists of
+a conducting plate above a ground plane, separated by a dielectric substrate. The
+patch behaves approximately as a resonant cavity, while the fringing fields at the open
+edges produce radiation \cite{stutzman2013antenna}.
+
+This study develops an inset-fed rectangular patch near 915~MHz using Rogers
+RT/duroid 5880. Analytical transmission-line relations establish the starting geometry,
+and CST Studio Suite is used to refine the physical length and feed position. The final
+evidence set includes geometry, $S_{11}$, electric-field, magnetic-field, and far-field
+plots.
+
+\begin{table}[H]
+\centering
+\caption{Principal design and simulation results.}
+\label{tab:principal-results}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}X@{}}
+\toprule
+\textbf{Quantity} & \textbf{Result} \\
+\midrule
+Design frequency & 0.915~GHz \\
+Substrate & Rogers RT/duroid 5880, $\varepsilon_r=2.20$, $h=1.575$~mm \\
+Analytical patch dimensions & $W=129.51$~mm, $L=109.79$~mm \\
+Final CST patch dimensions & $W=129.5$~mm, $L=108.2$~mm \\
+Final inset depth & 38.2~mm \\
+CST matching minimum & 0.9186~GHz, $S_{11}=-22.14379$~dB \\
+Frequency error & 3.6~MHz, or 0.393\% \\
+Displayed peak directivity at 0.915~GHz & 7.01~dBi \\
+Displayed 3-dB beamwidths & 82.3$^\circ$ ($\phi=0^\circ$), 90.8$^\circ$ ($\phi=90^\circ$) \\
+Evidence status & Analytical and simulated; no measured validation \\
+\bottomrule
+\end{tabularx}
+\end{table}

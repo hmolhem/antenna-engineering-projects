@@ -1,0 +1,47 @@
+% =========================================================
+% setup/04_code_styles.tex
+% Central code and console styles
+% =========================================================
+\definecolor{CodeBackground}{RGB}{244,248,252}
+\definecolor{CodeFrame}{RGB}{116,145,170}
+\definecolor{CodeKeyword}{RGB}{0,65,155}
+\definecolor{CodeComment}{RGB}{0,120,65}
+\definecolor{CodeString}{RGB}{160,30,30}
+\definecolor{CodeNumber}{RGB}{105,105,105}
+
+\lstdefinestyle{PortfolioPython}{
+    language=Python,
+    backgroundcolor=\color{CodeBackground},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{CodeKeyword}\bfseries,
+    commentstyle=\color{CodeComment}\itshape,
+    stringstyle=\color{CodeString},
+    numbers=left,
+    numberstyle=\tiny\color{CodeNumber},
+    numbersep=8pt,
+    frame=single,
+    rulecolor=\color{CodeFrame},
+    framerule=0.5pt,
+    framesep=6pt,
+    showstringspaces=false,
+    keepspaces=true,
+    columns=fullflexible,
+    upquote=true,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+\lstdefinestyle{PortfolioConsole}{
+    backgroundcolor=\color{black!4},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=none,
+    frame=single,
+    rulecolor=\color{black!35},
+    showstringspaces=false,
+    keepspaces=true,
+    columns=fullflexible,
+    breaklines=true,
+    captionpos=b
+}

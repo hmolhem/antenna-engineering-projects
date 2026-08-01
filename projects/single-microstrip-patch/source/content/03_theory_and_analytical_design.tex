@@ -1,0 +1,94 @@
+\section{Theory and Analytical Design}
+\label{sec:theory-and-design}
+
+The initial geometry follows the conventional transmission-line approximation for the
+dominant rectangular-patch resonance \cite{stutzman2013antenna}. The free-space
+wavelength at the design frequency is
+\begin{equation}
+\lambda_0=\frac{c}{f_0}=327.64~\text{mm}.
+\label{eq:lambda0}
+\end{equation}
+
+\subsection{Patch Width}
+
+The initial width is
+\begin{equation}
+W=\frac{c}{2f_0}\sqrt{\frac{2}{\varepsilon_r+1}},
+\label{eq:patch-width}
+\end{equation}
+which gives
+\begin{equation}
+W=129.51~\text{mm}.
+\end{equation}
+
+\subsection{Effective Permittivity and Fringing Extension}
+
+The effective dielectric constant is estimated as
+\begin{equation}
+\varepsilon_{\mathrm{eff}}
+=\frac{\varepsilon_r+1}{2}
++\frac{\varepsilon_r-1}{2}
+\left(1+12\frac{h}{W}\right)^{-1/2},
+\label{eq:effective-permittivity}
+\end{equation}
+which yields $\varepsilon_{\mathrm{eff}}=2.1605$.
+
+The fringing-field extension is
+\begin{equation}
+\Delta L
+=0.412h\frac{(\varepsilon_{\mathrm{eff}}+0.3)(W/h+0.264)}
+{(\varepsilon_{\mathrm{eff}}-0.258)(W/h+0.8)},
+\label{eq:length-extension}
+\end{equation}
+producing $\Delta L=0.834$~mm.
+
+\subsection{Effective and Physical Length}
+
+The effective resonant length is
+\begin{equation}
+L_{\mathrm{eff}}=\frac{c}{2f_0\sqrt{\varepsilon_{\mathrm{eff}}}}
+=111.45~\text{mm},
+\label{eq:effective-length}
+\end{equation}
+and the physical starting length is
+\begin{equation}
+L=L_{\mathrm{eff}}-2\Delta L=109.79~\text{mm}.
+\label{eq:physical-length}
+\end{equation}
+
+\subsection{Feed Width and Inset Depth}
+
+The documented design uses a 4.89~mm microstrip feed width as the nominal
+50-$\Omega$ value for the selected substrate. The inset depth is estimated from
+\begin{equation}
+R_{\mathrm{in}}(y_0)=R_{\mathrm{edge}}
+\cos^2\left(\frac{\pi y_0}{L}\right).
+\label{eq:inset-resistance}
+\end{equation}
+Using $R_{\mathrm{edge}}=250~\Omega$, a target resistance of 50~$\Omega$, and the
+final patch length $L=108.2$~mm gives
+\begin{equation}
+y_0=\frac{L}{\pi}\cos^{-1}\sqrt{\frac{50}{250}}
+=38.13~\text{mm}.
+\label{eq:inset-depth}
+\end{equation}
+The final CST inset depth is 38.2~mm.
+
+\begin{table}[H]
+\centering
+\caption{Analytical starting values and final CST dimensions.}
+\label{tab:analytical-final-dimensions}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Quantity} & \textbf{Symbol} & \textbf{Analytical value} & \textbf{Final CST value} \\
+\midrule
+Patch width & $W$ & 129.51~mm & 129.5~mm \\
+Patch length & $L$ & 109.79~mm & 108.2~mm \\
+Effective dielectric constant & $\varepsilon_{\mathrm{eff}}$ & 2.1605 & -- \\
+Fringing extension & $\Delta L$ & 0.834~mm & -- \\
+Feed width & $W_f$ & Documented 4.89~mm & 4.89~mm \\
+Inset depth & $d_{\mathrm{inset}}$ & 38.13~mm & 38.2~mm \\
+Inset-notch width & $W_{\mathrm{notch}}$ & 6.89~mm & 6.89~mm \\
+\bottomrule
+\end{tabular}
+\end{table}
