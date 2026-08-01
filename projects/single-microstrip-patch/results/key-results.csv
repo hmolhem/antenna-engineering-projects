@@ -1,0 +1,15 @@
+metric,value,unit,evidence_class,qualification
+design_frequency,0.915,GHz,specification,
+analytical_patch_width,129.51,mm,analytical,transmission-line approximation
+analytical_patch_length,109.79,mm,analytical,transmission-line approximation
+final_patch_width,129.5,mm,simulated model record,native CST model not included
+final_patch_length,108.2,mm,simulated model record,native CST model not included
+final_inset_depth,38.2,mm,simulated model record,native CST model not included
+matching_minimum_frequency,0.9186,GHz,exact displayed marker,raw curve export not included
+minimum_s11,-22.14379,dB,exact displayed marker,relative to configured CST port
+positive_return_loss,22.14379,dB,derived,negative of S11 dB marker
+frequency_error,0.393,percent,derived,relative to 0.915 GHz
+peak_directivity,7.01,dBi,displayed simulation result,at 0.915 GHz
+phi0_hpbw,82.3,degree,displayed simulation result,read from information panel
+phi90_hpbw,90.8,degree,displayed simulation result,read from information panel
+measured_validation,not performed,,measurement status,no fabricated prototype

@@ -1,0 +1,30 @@
+\chapter{Simulation Evidence Record}
+\label{app:simulation-record}
+
+\section{Run Manifest}
+
+\begin{table}[H]
+\centering
+\caption{Preserved final CST evidence record.}
+\label{tab:run-manifest}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}p{0.30\textwidth}X@{}}
+\toprule
+\textbf{Record} & \textbf{Frequency or value} & \textbf{Evidence} \\
+\midrule
+Final geometry & $W=129.5$~mm, $L=108.2$~mm & Geometry screenshot and source tables \\
+Input match & 0.9186~GHz, -22.14379~dB & Exact $S_{11}$ marker \\
+E-field monitor & 0.915~GHz & CST screenshot \\
+H-field monitor & 0.915~GHz & CST screenshot \\
+3D far field & 0.915~GHz, 7.01~dBi & CST information panel \\
+$\phi=0^\circ$ cut & 82.3$^\circ$ 3-dB width & CST information panel \\
+$\phi=90^\circ$ cut & 90.8$^\circ$ 3-dB width & CST information panel \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Evidence Availability}
+
+The public package includes all screenshots used in the report, the LaTeX source,
+analytical verification code, and machine-readable key-result summaries. The native
+CST project, raw curve exports, and solver/mesh logs are not included in the supplied
+source archive and are therefore not claimed as reproducibility assets.

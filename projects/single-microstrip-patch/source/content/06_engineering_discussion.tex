@@ -1,0 +1,57 @@
+\section{Engineering Discussion and Numerical Reliability}
+\label{sec:engineering-discussion}
+
+\subsection{Analytical-to-Full-Wave Adjustment}
+
+The final patch width is effectively unchanged from the analytical starting value,
+while the final patch length is 1.59~mm shorter than the analytical estimate. This is a
+1.45\% reduction. Such adjustment is consistent with the role of the analytical model
+as a first-order starting point: the full-wave solution incorporates the actual inset,
+feed transition, finite substrate and ground, port geometry, and numerical boundary
+configuration.
+
+\subsection{Impedance Matching}
+
+The inset location controls the resistance sampled along the patch. The analytical
+38.13~mm estimate and the final 38.2~mm CST value agree closely, indicating that the
+cosine-squared resistance model provided a useful initial feed location. The final
+$S_{11}$ marker demonstrates a well-defined simulated match near the design frequency.
+It does not establish tolerance robustness or measured matching after fabrication.
+
+\subsection{Radiation Behavior}
+
+The 3D and principal-plane plots show a broadside pattern consistent with the expected
+radiation from the fringing fields at the patch edges. The two principal planes have
+different 3-dB widths, which is expected because the rectangular aperture dimensions
+and field distributions are not identical in the two planes.
+
+\subsection{Numerical Qualifications}
+
+The following limitations materially affect interpretation:
+
+\begin{enumerate}
+    \item The public archive does not contain the native CST model, raw $S$-parameter
+    export, raw far-field data, mesh statistics, or solver log.
+
+    \item No mesh-convergence or boundary-distance convergence study is preserved.
+    The final resonance and far-field values therefore represent the documented model,
+    not a formally convergence-qualified solution.
+
+    \item The field and far-field monitors are at 0.915~GHz, whereas the matching
+    minimum occurs at 0.9186~GHz. The two frequencies differ by only 0.393\%, but the
+    distinction is retained explicitly.
+
+    \item PEC metallization omits conductor loss. The reported directivity is not gain,
+    and no finite-conductivity sensitivity study is available.
+
+    \item The slightly positive displayed radiation efficiency in dB is not physically
+    admissible as an exact efficiency result and is treated as a small numerical-display
+    artifact. Efficiency values are therefore not promoted as verified KPIs.
+
+    \item No fabrication, connector transition, manufacturing tolerance, material
+    tolerance, VNA calibration, or antenna-range validation is included.
+\end{enumerate}
+
+These limitations do not invalidate the documented design workflow, resonance result,
+or qualitative broadside pattern. They define the boundary between a successful
+simulation study and a measurement-qualified antenna design.

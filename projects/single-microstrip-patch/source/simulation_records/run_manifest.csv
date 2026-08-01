@@ -1,0 +1,6 @@
+record_id,evidence_type,frequency_ghz,principal_value,source_file,qualification
+PATCH-FINAL-GEOMETRY,simulated model record,,W=129.5 mm; L=108.2 mm,fig_patch_geometry_final.png,Native CST model not included
+PATCH-S11,exact displayed marker,0.9186,S11=-22.14379 dB,fig_s11_final_915MHz_patch.png,Raw curve export not included
+PATCH-FARFIELD-3D,displayed simulation result,0.915,Directivity=7.01 dBi,fig_3d_radiation_pattern_915MHz.png,No convergence record
+PATCH-PHI0,displayed simulation result,0.915,HPBW=82.3 deg; SLL=-19.2 dB,fig_2d_polar_pattern_phi0_915MHz.png,Read from CST information panel
+PATCH-PHI90,displayed simulation result,0.915,HPBW=90.8 deg,fig_2d_polar_pattern_phi90_915MHz.png,Read from CST information panel

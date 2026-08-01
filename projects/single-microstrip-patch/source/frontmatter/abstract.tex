@@ -1,0 +1,36 @@
+\chapter*{Abstract}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Abstract}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+This report presents the analytical design and CST full-wave simulation of an
+inset-fed rectangular microstrip patch antenna operating near 915~MHz. The antenna
+uses a Rogers RT/duroid 5880 substrate with relative permittivity
+$\varepsilon_r=2.20$, loss tangent $\tan\delta=0.0009$, and thickness
+$h=1.575$~mm. Standard transmission-line-model relations give an initial patch width
+of 129.51~mm, effective dielectric constant of 2.1605, fringing extension of
+0.834~mm, and physical patch length of 109.79~mm. The documented 50-$\Omega$
+feed-line width is 4.89~mm, and the cosine-squared input-resistance estimate gives an
+inset depth of 38.13~mm for the final patch length.
+
+The final CST geometry uses $W=129.5$~mm, $L=108.2$~mm, a 4.89~mm feed line,
+a 6.89~mm inset-notch width, and a 38.2~mm inset depth. The preserved CST marker
+places the matching minimum at 0.9186~GHz with
+$S_{11,\min}=-22.14379$~dB. This corresponds to a positive return loss of
+22.14379~dB and a frequency deviation of 3.6~MHz, or 0.393\%, from the 915~MHz
+target.
+
+At 0.915~GHz, the CST far-field plots display a peak directivity of 7.01~dBi and a
+broadside main beam. The $\phi=0^\circ$ cut shows a main-beam direction of
+1$^\circ$, a 3-dB angular width of 82.3$^\circ$, and a displayed sidelobe level of
+$-19.2$~dB. The $\phi=90^\circ$ cut shows a main-beam direction of 0$^\circ$ and
+a 3-dB angular width of 90.8$^\circ$. The study connects closed-form synthesis,
+parameterized model construction, resonance adjustment, impedance matching, field
+visualization, and radiation verification.
+
+All performance results are analytical or simulated. No fabricated prototype or
+measured antenna data are claimed. The absence of raw CST exports, native model files,
+and formal mesh- and boundary-convergence records limits the conclusions to the
+preserved evidence package.
+\par\endgroup
