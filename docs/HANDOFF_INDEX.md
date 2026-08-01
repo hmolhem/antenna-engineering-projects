@@ -6,7 +6,7 @@
 | [H002](handoffs/H002-5g-patch-array-project.md) | 5G patch-array public package | `feature/5g-patch-array-project` | [#2](https://github.com/hmolhem/antenna-engineering-projects/pull/2) | `3326756` | Merged |
 | [H003](handoffs/H003-wearable-dipole-project.md) | Wearable half-wave dipole public package | `feature/wearable-dipole-project` | [#4](https://github.com/hmolhem/antenna-engineering-projects/pull/4) | `5ca32e1` | Merged |
 | [H004](handoffs/H004-hollow-rectangular-waveguide-project.md) | Hollow rectangular waveguide public package | `feature/hollow-rectangular-waveguide-project` | [#6](https://github.com/hmolhem/antenna-engineering-projects/pull/6) | `818c6a4` | Merged |
-| [H005](handoffs/H005-resonant-wire-dipole-project.md) | Resonant wire dipole public package | `feature/resonant-wire-dipole-project` | Pending | - | Ready for review |
+| [H005](handoffs/H005-resonant-wire-dipole-project.md) | Resonant wire dipole public package | `feature/resonant-wire-dipole-project` | [#8](https://github.com/hmolhem/antenna-engineering-projects/pull/8) | `00dd215` | Merged |
 
 ## Lifecycle
 
