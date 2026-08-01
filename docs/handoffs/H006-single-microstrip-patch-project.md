@@ -3,8 +3,10 @@
 - **Handoff ID:** H006
 - **Date:** 2026-08-01
 - **Branch:** `feature/single-microstrip-patch-project`
-- **Pull request:** Pending
-- **Status:** Ready for review
+- **Pull request:** [#10](https://github.com/hmolhem/antenna-engineering-projects/pull/10)
+- **Status:** Merged
+- **Head commit:** `55f82bcfe7b163c66c0c295152b0263b859231a9`
+- **Merge commit:** `ac5664ee5b2174ec24ba84dcf891e78531da8154`
 
 ## Purpose
 
@@ -93,4 +95,4 @@ Future validation should export raw S-parameter and far-field data, preserve sol
 
 ## Rollback
 
-Before merge, close the pull request and delete `feature/single-microstrip-patch-project`. After merge, revert the H006 merge commit to remove the single-patch project package and restore the previous indexes without rewriting repository history.
+Revert merge commit `ac5664ee5b2174ec24ba84dcf891e78531da8154` to remove the single-patch project package without rewriting repository history.

@@ -7,7 +7,7 @@
 | [H003](handoffs/H003-wearable-dipole-project.md) | Wearable half-wave dipole public package | `feature/wearable-dipole-project` | [#4](https://github.com/hmolhem/antenna-engineering-projects/pull/4) | `5ca32e1` | Merged |
 | [H004](handoffs/H004-hollow-rectangular-waveguide-project.md) | Hollow rectangular waveguide public package | `feature/hollow-rectangular-waveguide-project` | [#6](https://github.com/hmolhem/antenna-engineering-projects/pull/6) | `818c6a4` | Merged |
 | [H005](handoffs/H005-resonant-wire-dipole-project.md) | Resonant wire dipole public package | `feature/resonant-wire-dipole-project` | [#8](https://github.com/hmolhem/antenna-engineering-projects/pull/8) | `00dd215` | Merged |
-| [H006](handoffs/H006-single-microstrip-patch-project.md) | Inset-fed single microstrip patch public package | `feature/single-microstrip-patch-project` | Pending | - | Ready for review |
+| [H006](handoffs/H006-single-microstrip-patch-project.md) | Inset-fed single microstrip patch public package | `feature/single-microstrip-patch-project` | [#10](https://github.com/hmolhem/antenna-engineering-projects/pull/10) | `ac5664e` | Merged |
 
 ## Lifecycle
 
