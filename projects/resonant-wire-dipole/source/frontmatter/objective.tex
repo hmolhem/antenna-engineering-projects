@@ -1,0 +1,41 @@
+% =========================================================
+% frontmatter/objective.tex
+% =========================================================
+
+\chapter*{Project Objective}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Project Objective}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+The objective of this project is to establish a traceable antenna-engineering workflow
+for a center-fed resonant wire dipole operating near 1~GHz. The work connects a
+closed-form half-wave baseline to a parameterized CST model, demonstrates resonance
+control through physical-length tuning, and verifies the final radiation pattern against
+canonical dipole theory.
+
+The project has four principal technical objectives:
+
+\begin{enumerate}
+    \item Calculate the free-space wavelength and first-order half-wave dipole length at
+    the 1~GHz design frequency.
+
+    \item Construct the finite-radius, center-fed dipole model in CST Studio Suite and
+    document the conductor geometry, center gap, discrete-port reference, boundary
+    condition, frequency sweep, and far-field monitors.
+
+    \item Tune the total dipole length through documented 150~mm, 125~mm, and
+    135.6~mm cases, and quantify the final resonant frequency and reflection coefficient.
+
+    \item Compare the final CST far-field behavior with an independent analytical
+    calculation of the thin half-wave dipole directivity and half-power beamwidth.
+\end{enumerate}
+
+A secondary objective is to distinguish exact marker values, displayed figure values,
+and plot-derived estimates, while documenting the numerical and experimental evidence
+still required before a hardware-performance claim would be justified.
+
+The final outcome is intended to provide a concise, university-style engineering report
+that remains suitable for a public technical portfolio. All reported performance results
+are analytical or simulated; no fabricated prototype or measured data are claimed.
+\endgroup

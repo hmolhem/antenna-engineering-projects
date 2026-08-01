@@ -64,6 +64,26 @@ Verified highlights include:
 - Multimode interpretation showing near-unity transmission into an alternate degenerate output basis
 - Explicit separation between ideal modal validation and practical horn-feed qualification
 
+## Resonant Wire-Dipole Project
+
+### [Resonant Wire Dipole Design and CST Validation](projects/resonant-wire-dipole/)
+
+**Status:** Public project package available
+
+This project develops a finite-radius center-fed dipole near **1.000 GHz**, documents analytical sizing and three CST length cases, and validates the final radiation behavior against the canonical thin half-wave dipole pattern.
+
+Verified highlights include:
+
+- Initial analytical half-wave length of **150.0 mm**
+- Final tuned length of **135.6 mm**
+- Final CST resonance at **0.99648 GHz**
+- Minimum displayed reflection coefficient of **-47.01186 dB** with a **73-ohm** port reference
+- Frequency error of **0.352%** relative to the 1.000 GHz target
+- Displayed CST directivity of **2.149 dBi**, consistent with the **2.15 dBi** analytical value
+- Analytical HPBW of **78.08 degrees**, compared with approximately **78.4 degrees** in the displayed CST pattern
+- Explicit distinction between exact marker values, plot-derived estimates, and unverified mesh/boundary convergence
+- No fabrication or measured validation claim
+
 ## Project Portfolio
 
 | Project | Engineering focus | Status |
@@ -71,7 +91,7 @@ Verified highlights include:
 | [5G Microstrip Patch Array](projects/5g-patch-array/) | Patch synthesis and tuning, two-port array modeling, coupling, conductor-loss sensitivity, beam steering | Public package available |
 | [Wearable Half-Wave Dipole](projects/wearable-half-wave-dipole/) | Multilayer body loading, detuning, efficiency, gain, numerical reliability, retuning | Public package available |
 | [Hollow Rectangular Waveguide](projects/hollow-rectangular-waveguide/) | Cutoff, TE/TM modal analysis, square-guide degeneracy, multimode ports, horn-feed interpretation | Public package available |
-| Wire Dipole | Analytical design, resonance tuning, radiation pattern, HPBW | Planned |
+| [Resonant Wire Dipole](projects/resonant-wire-dipole/) | Analytical sizing, resonance tuning, S-parameter interpretation, radiation pattern, directivity, HPBW | Public package available |
 | Single Microstrip Patch | Analytical dimensions, inset-feed matching, full-wave tuning | Planned |
 
 ## Engineering Methods
@@ -109,7 +129,8 @@ antenna-engineering-projects/
     ├── README.md
     ├── 5g-patch-array/
     ├── wearable-half-wave-dipole/
-    └── hollow-rectangular-waveguide/
+    ├── hollow-rectangular-waveguide/
+    └── resonant-wire-dipole/
         ├── README.md
         ├── report/
         ├── source/

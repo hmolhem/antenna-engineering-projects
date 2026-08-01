@@ -1,0 +1,4 @@
+run_id,model_revision,purpose,total_length_mm,software,port_ohm,boundary,sweep_GHz,status,primary_artifact,evidence_precision,limitation
+SIM-150,rev-A,Initial analytical half-wave baseline,150.0,CST Studio Suite Learning Edition,73,open-add-space,0.5-2.0,completed,fig_s11_L150_initial_halfwave.png,plot-derived estimate,raw export and convergence record unavailable
+SIM-125,rev-B,Bracket resonance above 1 GHz,125.0,CST Studio Suite Learning Edition,73,open-add-space,0.5-2.0,completed,fig_s11_L125_tuning_run.png,plot-derived estimate,raw export and convergence record unavailable
+SIM-136,rev-C,Final tuned model near 1 GHz,135.6,CST Studio Suite Learning Edition,73,open-add-space,0.5-2.0,completed,fig_s11_L135p6_tuned_final_with_marker.png,exact displayed marker,native model and convergence record unavailable

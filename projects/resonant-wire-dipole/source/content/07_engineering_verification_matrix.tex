@@ -1,0 +1,46 @@
+\section{Engineering Verification Matrix}
+
+The matrix links each public claim to its evidence class, source, and qualification.
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{
+    @{}
+    >{\centering\arraybackslash}p{0.055\textwidth}
+    >{\raggedright\arraybackslash}p{0.27\textwidth}
+    >{\raggedright\arraybackslash}p{0.13\textwidth}
+    >{\raggedright\arraybackslash}p{0.24\textwidth}
+    >{\raggedright\arraybackslash}p{0.20\textwidth}
+    @{}
+}
+\caption{Engineering verification matrix.}
+\label{tab:verification-matrix}\\
+\toprule
+\textbf{ID} & \textbf{Public claim} & \textbf{Evidence class} & \textbf{Evidence location} & \textbf{Limitation or qualification} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Public claim} & \textbf{Evidence class} & \textbf{Evidence location} & \textbf{Limitation or qualification} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\small Continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\VerificationRow{V1}{The first-order half-wave length at \SI{1}{GHz} is \SI{150}{mm}.}{Analytical}{Eqs.~\eqref{eq:wavelength} and~\eqref{eq:halfwave-length}; Appendix~\ref{app:analytical-verification}}{Uses $c\approx\SI{3e8}{m/s}$ and an idealized first-order model.}
+\VerificationRow{V2}{Shortening the dipole shifts the resonance upward.}{Simulated}{Fig.~\ref{fig:preliminary-s11}; run manifest SIM-150 and SIM-125}{Preliminary values are plot-derived estimates, not raw-data extractions.}
+\VerificationRow{V3}{The final resonance is \SI{0.99648}{GHz}.}{Simulated}{Fig.~\ref{fig:final-s11}; run SIM-136}{Exact value comes from the displayed CST marker.}
+\VerificationRow{V4}{The final minimum is $S_{11}=-\SI{47.01186}{dB}$ relative to \SI{73}{\ohm}.}{Simulated}{Fig.~\ref{fig:final-s11}; run SIM-136}{A narrowband match to \SI{73}{\ohm}; not a \SI{50}{\ohm} qualification.}
+\VerificationRow{V5}{The final frequency error is \SI{0.352}{\percent}.}{Analytical + Simulated}{Results chapter; verification record}{Calculated from the exact displayed marker and the \SI{1}{GHz} target.}
+\VerificationRow{V6}{The final pattern is broadside with axial nulls.}{Simulated}{Fig.~\ref{fig:final-patterns}}{Based on exported far-field figures; no raw angular export.}
+\VerificationRow{V7}{The final displayed directivity is \SI{2.149}{dBi}.}{Simulated}{3D figure in Fig.~\ref{fig:final-patterns}}{Displayed precision exceeds what can be independently validated without raw data.}
+\VerificationRow{V8}{The analytical directivity and HPBW are \SI{2.15}{dBi} and $78.08^\circ$.}{Analytical}{Fig.~\ref{fig:analytical-patterns}; Appendix~\ref{app:analytical-verification}}{Thin resonant half-wave dipole approximation.}
+\VerificationRow{V9}{Analytical and simulated pattern metrics agree closely.}{Analytical + Simulated}{Table~\ref{tab:analytical-simulation-comparison}}{Supports canonical pattern behavior, not experimental validation.}
+\VerificationRow{V10}{No measured hardware performance is claimed.}{Measured status}{Portfolio Context and Evidence; validation-status section}{Fabrication and calibrated testing are future work.}
+\VerificationRow{V11}{Formal numerical convergence was not demonstrated.}{Qualified status}{Numerical-reliability discussion; model record}{Mesh, boundary, solver, and port sensitivity records were absent from the supplied archive.}
+\end{longtable}
+\endgroup

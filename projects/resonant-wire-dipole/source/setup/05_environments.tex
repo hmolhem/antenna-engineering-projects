@@ -1,0 +1,27 @@
+% =========================================================
+% setup/05_environments.tex
+% Minimal university-style environments
+% =========================================================
+
+\newenvironment{objective}
+  {\small\begin{quote}\textbf{Objective:}\newline}
+  {\end{quote}}
+
+% Safe figure inclusion helper.
+\newcommand{\maybeincludegraphics}[2][]{%
+  \IfFileExists{#2}{%
+    \includegraphics[#1]{#2}%
+  }{%
+    \fbox{%
+      \begin{minipage}[c][0.22\textheight][c]{0.90\textwidth}
+        \centering\small Missing figure file:\par\scriptsize\nolinkurl{#2}
+      \end{minipage}%
+    }%
+  }%
+}
+
+% Consistent verification-matrix row command.
+\newcommand{\VerificationRow}[5]{%
+    #1 & #2 & #3 & #4 & #5\\
+    \addlinespace[2pt]
+}

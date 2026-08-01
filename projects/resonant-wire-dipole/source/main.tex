@@ -1,0 +1,76 @@
+\documentclass[12pt, a4paper, oneside, openany]{report}
+
+% =========================================================
+% 1. Public Portfolio Metadata
+% =========================================================
+\input{setup/00_metadata}
+
+% =========================================================
+% 2. Modular Setup Files
+% =========================================================
+\input{setup/01_packages}
+\input{setup/02_layout}
+\input{setup/03_math_macros}
+\input{setup/04_code_styles}
+\input{setup/05_environments}
+\input{setup/06_theme}
+
+% =========================================================
+% 3. PDF Metadata
+% =========================================================
+\hypersetup{
+    pdftitle={\reporttitleplain},
+    pdfauthor={\authorname},
+    pdfsubject={\pdfsubject},
+    pdfkeywords={\pdfkeywordstext}
+}
+
+% =========================================================
+% 4. Bibliography Database
+% =========================================================
+\addbibresource{references.bib}
+
+% =========================================================
+% 5. Document Begins
+% =========================================================
+\begin{document}
+
+% Cover Page
+\hypersetup{pageanchor=false}
+\input{frontmatter/titlepage}
+\clearpage
+\hypersetup{pageanchor=true}
+
+% Front Matter
+\pagenumbering{roman}
+\pagestyle{fancy}
+
+\input{frontmatter/portfolio_context}
+\clearpage
+\input{frontmatter/abstract}
+\clearpage
+\input{frontmatter/objective}
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+% Main Matter
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\include{content/00_report_body}
+
+% Appendices
+\appendix
+\input{appendices/00_appendices}
+
+\clearpage
+\begingroup
+\sloppy
+\printbibliography[heading=bibintoc, title={References}]
+\endgroup
+
+\end{document}

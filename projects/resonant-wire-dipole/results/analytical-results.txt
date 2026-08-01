@@ -1,0 +1,13 @@
+Resonant Wire Dipole Analytical Verification
+Design frequency: 1.000 GHz
+Wavelength: 300.000 mm
+First-order half-wave length: 150.000 mm
+Final CST length: 135.6 mm
+Analytical half-power angles: 50.96 deg, 129.04 deg
+Analytical HPBW: 78.08 deg
+Analytical directivity: 1.6409 = 2.15 dBi
+Final CST resonance: 0.99648 GHz
+Final CST S11: -47.01186 dB
+Equivalent return loss: 47.01186 dB
+Final CST directivity: 2.149 dBi
+Frequency error: 3.52 MHz = 0.352 percent

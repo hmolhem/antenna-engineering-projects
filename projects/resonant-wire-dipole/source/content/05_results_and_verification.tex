@@ -1,0 +1,109 @@
+\section{Results and Verification}
+
+\subsection{Length tuning and resonance control}
+The \SI{150}{mm} analytical starting length resonated below \SI{1}{GHz}; the plotted
+minimum is approximately \SI{0.83}{GHz} with $S_{11}\approx-\SI{18}{dB}$.
+Shortening the model to \SI{125}{mm} moved the plotted minimum above the target to
+approximately \SI{1.08}{GHz} with $S_{11}\approx-\SI{40}{dB}$. These two results
+establish the expected inverse relationship between physical length and resonant
+frequency.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\maybeincludegraphics[width=\linewidth]{figures/cst_results/fig_s11_L150_initial_halfwave.png}
+\caption{SIM-150, plot-derived minimum near \SI{0.83}{GHz}.}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\maybeincludegraphics[width=\linewidth]{figures/cst_results/fig_s11_L125_tuning_run.png}
+\caption{SIM-125, plot-derived minimum near \SI{1.08}{GHz}.}
+\end{subfigure}
+\caption{Preliminary length-tuning evidence from CST. Numerical values are approximate because raw curve exports were not supplied.}
+\label{fig:preliminary-s11}
+\end{figure}
+
+\subsection{Final tuned match}
+For SIM-136, the CST marker gives
+\begin{equation}
+f_{\mathrm{res}}=\SI{0.99648}{GHz},
+\qquad
+S_{11,\min}=-\SI{47.01186}{dB}.
+\end{equation}
+The absolute frequency error is
+\begin{equation}
+\Delta f=|1.00000-0.99648|=\SI{0.00352}{GHz}=\SI{3.52}{MHz},
+\end{equation}
+and the relative error is
+\begin{equation}
+\frac{\Delta f}{f_0}\times100=\SI{0.352}{\percent}.
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\maybeincludegraphics[width=0.95\linewidth]{figures/cst_results/fig_s11_L135p6_tuned_final_with_marker.png}
+\caption[Final tuned reflection coefficient with exact CST marker.]{Exact CST marker for SIM-136: $S_{11}=-\SI{47.01186}{dB}$ at \SI{0.99648}{GHz}. The equivalent positive return loss is \SI{47.01186}{dB} relative to \SI{73}{\ohm}.}
+\label{fig:final-s11}
+\end{figure}
+
+\subsection{Far-field behavior}
+At \SI{1}{GHz}, the final 3D plot displays a broadside toroidal pattern with axial nulls
+and a peak directivity of \SI{2.149}{dBi}. The associated $\phi=90^\circ$ cut displays
+a main-lobe magnitude of approximately \SI{2.15}{dBi} and a $-\SI{3}{dB}$ angular width
+of approximately $78.4^\circ$.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.58\textwidth}
+\centering
+\maybeincludegraphics[width=\linewidth]{figures/cst_results/fig_3d_radiation_L135p6_tuned_final.png}
+\caption{3D directivity at \SI{1}{GHz}.}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.39\textwidth}
+\centering
+\maybeincludegraphics[width=\linewidth]{figures/cst_results/fig_2d_radiation_L135p6_tuned_final.png}
+\caption{$\phi=90^\circ$ principal-plane cut.}
+\end{subfigure}
+\caption{Final CST far-field evidence for SIM-136.}
+\label{fig:final-patterns}
+\end{figure}
+
+\subsection{Analytical verification}
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.46\textwidth}
+\centering
+\maybeincludegraphics[width=\linewidth]{figures/analytical/analytical_half_wave_dipole_polar.png}
+\caption{Normalized polar field pattern.}
+\end{subfigure}\hfill
+\begin{subfigure}[t]{0.50\textwidth}
+\centering
+\maybeincludegraphics[width=\linewidth]{figures/analytical/analytical_half_wave_dipole_pattern_db.png}
+\caption{Normalized pattern in decibels and HPBW.}
+\end{subfigure}
+\caption{Independent analytical Python evaluation of the canonical thin half-wave dipole pattern.}
+\label{fig:analytical-patterns}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of analytical and final simulated radiation evidence.}
+\label{tab:analytical-simulation-comparison}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.27\textwidth}XXX}
+\toprule
+Metric & Analytical & Final CST display & Interpretation \\
+\midrule
+Reference frequency & \SI{1.000}{GHz} & Pattern at \SI{1.000}{GHz} & Same comparison frequency \\
+Peak directivity & \SI{2.15}{dBi} & \SI{2.149}{dBi} & Agreement within displayed precision \\
+HPBW & $78.08^\circ$ & approximately $78.4^\circ$ & Difference about $0.32^\circ$ \\
+Pattern topology & Broadside, axial nulls & Broadside, axial nulls & Canonical dipole behavior \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Verification and validation status}
+The analytical script independently verifies the canonical pattern metrics. The CST
+figures verify the qualitative tuning trend and final simulated response. Experimental
+validation is absent; therefore, the package demonstrates analytical-to-simulation
+agreement rather than hardware performance.

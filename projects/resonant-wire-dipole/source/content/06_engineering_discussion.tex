@@ -1,0 +1,48 @@
+\section{Engineering Discussion}
+
+\subsection{Tuned Length Versus the Half-Wave Estimate}
+The first-order value \SI{150}{mm} assumes an idealized thin resonant dipole. The CST
+model includes a finite \SI{5}{mm} conductor diameter, a large \SI{20}{mm} center gap,
+and a discrete-port field region. These features change the current distribution and
+terminal reactance, so the resonant physical length need not equal exactly
+$\lambda_0/2$. The documented tuning sequence found \SI{135.6}{mm}, or
+approximately $0.452\lambda_0$, for the selected model and port definition.
+
+\subsection{Meaning of the Deep Reflection-Coefficient Minimum}
+The \SI{-47.01}{dB} marker is evidence of a very close match to the chosen
+\SI{73}{\ohm} reference at one frequency. It is not evidence of broadband behavior,
+and it does not establish the match that would be obtained in a \SI{50}{\ohm} system.
+No impedance curve or raw data were provided to quantify resistance and reactance
+separately.
+
+\subsection{Interpretation of the matching result}
+The final result is reported as a narrowband tuned match under a \SI{73}{\ohm}
+reference. It should not be generalized to a \SI{50}{\ohm} feed system without
+rerunning or renormalizing the model and documenting the resulting impedance match.
+
+\subsection{Numerical reliability}
+The tuning trend is physically plausible and monotonic across the three documented
+lengths. The final marker and canonical pattern agreement increase confidence in the
+model interpretation. However, the following checks are not available:
+\begin{itemize}[leftmargin=2em]
+\item mesh refinement or cell-count convergence;
+\item open-boundary spacing sensitivity;
+\item port-gap and port-definition sensitivity;
+\item raw-data re-extraction of resonance, bandwidth, and HPBW;
+\item comparison with a finite-conductivity conductor;
+\item independent solver or measurement validation.
+\end{itemize}
+
+\subsection{Qualification of the directivity comparison}
+The difference between analytical and CST directivity is smaller than the displayed
+precision and should not be interpreted as a metrologically significant error measure.
+The comparison supports the expected pattern class, not sub-hundredth-decibel accuracy.
+
+\subsection{Industrial relevance and next step}
+This compact workflow mirrors a common antenna-development sequence: establish a
+closed-form starting geometry, parameterize the electromagnetic model, bracket the
+resonance through a coarse sweep, select a tuned configuration, and verify pattern
+behavior. For a production-oriented continuation, the next defensible steps are a
+\SI{50}{\ohm} feed design or balun, mesh and boundary convergence, raw-data export,
+finite-conductivity analysis, fabrication, calibrated VNA measurement, and controlled
+far-field testing.
