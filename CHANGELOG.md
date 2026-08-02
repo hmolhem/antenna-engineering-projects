@@ -26,22 +26,27 @@ The format is based on **Keep a Changelog** principles and the repository uses p
 - Reproducible single-patch LaTeX source and analytical verification script
 - Curated patch geometry, S-parameter, E-field, H-field, 3D-pattern, and principal-plane pattern figures
 - Engineering Verification Matrix and explicit analytical, exact-marker, derived, and display-only evidence classification for the single-patch study
+- Public plane-wave dielectric-slab engineering report
+- Reproducible dielectric-slab LaTeX source and analytical verification script
+- Curated CST geometry, sweep, S-parameter, boundary, port, and E/H-field figures
+- Analytical permittivity sweep, reflection-magnitude and phase plots, and machine-readable results
+- Engineering Verification Matrix and explicit exact-value versus plot-derived evidence classification for the dielectric-slab study
 - Machine-readable and human-readable key-result summaries for all public projects
 - Numerical-reliability and native-model-access documentation
-- H002, H003, H004, H005, and H006 implementation handoffs
+- H002, H003, H004, H005, H006, and H007 implementation handoffs
 
 ### Changed
 
-- Updated the repository landing page with final verified 5G array, wearable dipole, waveguide, resonant wire-dipole, and single-patch results
+- Updated the repository landing page with final verified results for all six classroom engineering projects
 - Updated the project portfolio index and public-project status
 - Replaced intermediate 5G single-patch values with the final selected design results
 - Explicitly classified the wearable 0.1 mm non-monotonic result as not convergence-verified
 - Added square-waveguide degeneracy and multimode port-basis interpretation
-- Aligned the waveguide, wire-dipole, and single-patch report covers and front matter with the 5G public-portfolio report structure
+- Aligned the waveguide, wire-dipole, single-patch, and dielectric-slab report covers and front matter with the 5G public-portfolio report structure
 - Audited waveguide references and standardized red in-text citation hyperlinks
 - Corrected wire-dipole reflection-coefficient versus return-loss terminology and documented the 73-ohm port reference
 - Corrected single-patch reflection-coefficient versus return-loss terminology and documented PEC metallization, missing convergence studies, and the displayed radiation-efficiency anomaly
-- Closed out H001 through H005 with pull-request links, merged status, and merge-commit SHA traceability
+- Closed out H001 through H006 with pull-request links, merged status, and merge-commit SHA traceability
 - Expanded the handoff index to record pull-request and merge-commit identifiers
 
 ## [Portfolio Foundation] - 2026-07-23

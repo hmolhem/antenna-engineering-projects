@@ -1,0 +1,9 @@
+record_id,category,parameter_or_frequency,evidence,status
+SIM-GEOM,Geometry,d=299.79 mm,Fig_geometry.png,Preserved
+SIM-BOUNDARY,Boundary,Electric x; magnetic y; open z,Fig_boundaries.png,Preserved
+SIM-PORTS,Ports,Two ports; three requested modes,Fig_port1.png and Fig_port2.png,Preserved
+SIM-SWEEP,Parameter sweep,eps_r 1 to 10 step 0.25,Fig_parameter_sweep.png,Preserved
+SIM-S11-MAG,S-parameter,1 GHz,Fig_S11_mag_vs_eps.png,Preserved
+SIM-S11-PHASE,S-parameter,1 GHz,Fig_S11_phase_vs_eps.png,Preserved
+SIM-FIELD-E,Electric field,eps_r=4 at 1 GHz,Fig_E_abs_eps4.png and Fig_E_x_eps4.png,Preserved
+SIM-FIELD-H,Magnetic field,eps_r=4 at 1 GHz,Fig_H_abs_eps4.png Fig_H_y_eps4.png Fig_H_normal_eps4.png,Preserved

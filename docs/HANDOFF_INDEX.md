@@ -8,6 +8,7 @@
 | [H004](handoffs/H004-hollow-rectangular-waveguide-project.md) | Hollow rectangular waveguide public package | `feature/hollow-rectangular-waveguide-project` | [#6](https://github.com/hmolhem/antenna-engineering-projects/pull/6) | `818c6a4` | Merged |
 | [H005](handoffs/H005-resonant-wire-dipole-project.md) | Resonant wire dipole public package | `feature/resonant-wire-dipole-project` | [#8](https://github.com/hmolhem/antenna-engineering-projects/pull/8) | `00dd215` | Merged |
 | [H006](handoffs/H006-single-microstrip-patch-project.md) | Inset-fed single microstrip patch public package | `feature/single-microstrip-patch-project` | [#10](https://github.com/hmolhem/antenna-engineering-projects/pull/10) | `ac5664e` | Merged |
+| [H007](handoffs/H007-plane-wave-dielectric-slab-project.md) | Plane-wave dielectric-slab public package | `feature/plane-wave-dielectric-slab-project` | Pending | - | Ready for review |
 
 ## Lifecycle
 
@@ -22,4 +23,5 @@ H003-wearable-dipole-project.md
 H004-hollow-rectangular-waveguide-project.md
 H005-resonant-wire-dipole-project.md
 H006-single-microstrip-patch-project.md
+H007-plane-wave-dielectric-slab-project.md
 ```

@@ -1,0 +1,31 @@
+\chapter{Simulation Evidence Record}
+\label{app:simulation-record}
+
+\section{Run Manifest}
+
+\begin{table}[H]
+\centering
+\caption{Preserved CST evidence record.}
+\label{tab:run-manifest}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}p{0.29\textwidth}X@{}}
+\toprule
+\textbf{Record} & \textbf{Frequency or value} & \textbf{Evidence} \\
+\midrule
+Geometry & $d=299.79$~mm & CST geometry screenshot \\
+Boundary setup & Electric $x$, magnetic $y$, open $z$ & CST boundary screenshot \\
+Ports & Two ports, three requested modes each & Port screenshots and source report \\
+Sweep & $\varepsilon_r=1$ to 10, step 0.25 & Parameter-sweep screenshot \\
+Reflection magnitude & 1~GHz & CST curve and result table \\
+Reflection phase & 1~GHz & CST phase curve \\
+Field case & $\varepsilon_r=4$, 1~GHz & E- and H-field screenshots \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Evidence Availability}
+
+The public package includes the screenshots used in the report, the LaTeX source,
+analytical verification code, regenerated analytical figures, and machine-readable
+result summaries. The native CST project, raw complex sweep data, mesh statistics,
+solver log, port-mode field exports, and formal convergence records are not contained
+in the supplied archive and are therefore not claimed as reproducibility assets.

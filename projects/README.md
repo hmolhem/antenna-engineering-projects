@@ -11,9 +11,10 @@ This directory contains project-level antenna engineering work. Each project doc
 | [Hollow Rectangular Waveguide](hollow-rectangular-waveguide/) | Public package available | Cutoff frequency, guide wavelength, modal impedance, square-guide degeneracy, multimode S-parameters, horn-feed interpretation |
 | [Resonant Wire Dipole](resonant-wire-dipole/) | Public package available | Half-wave sizing, CST length tuning, S-parameter interpretation, radiation pattern, directivity, HPBW, numerical reliability |
 | [Inset-Fed Single Microstrip Patch](single-microstrip-patch/) | Public package available | Transmission-line synthesis, inset-feed matching, CST tuning, E/H fields, directivity, principal-plane HPBW, numerical reliability |
+| [Plane-Wave Dielectric Slab](plane-wave-dielectric-slab/) | Public package available | Normal incidence, transmission-line model, impedance transformation, permittivity sweep, reflection minima, E/H fields, numerical reliability |
 
-## Planned Projects
+## Portfolio Completion
 
-- Plane-wave normal incidence on a dielectric slab
+All six classroom simulation and project packages are now represented in the public portfolio.
 
 Project material is added through dedicated branches and pull requests under the repository workflow defined in [`docs/WORKFLOW.md`](../docs/WORKFLOW.md).

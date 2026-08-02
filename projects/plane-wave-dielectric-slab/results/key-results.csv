@@ -1,0 +1,20 @@
+quantity,value,unit,evidence_class,note
+evaluation_frequency,1.000,GHz,design_input,
+analytical_wavelength,299.792458,mm,analytical,
+cst_slab_thickness,299.79,mm,simulated_geometry,approximately one free-space wavelength
+permittivity_start,1.00,,simulation_setup,
+permittivity_stop,10.00,,simulation_setup,
+permittivity_step,0.25,,simulation_setup,37 sweep points
+predicted_matching_eps,"1.00;2.25;4.00;6.25;9.00",,analytical,
+cst_minimum_locations,"1.00;2.25;4.00;6.25;9.00",,simulated,
+cst_s11_mag_eps1,0.000194892,,source_preserved,
+cst_s11_db_eps1,-74.20,dB,derived_from_source_value,
+cst_s11_mag_eps2_25,0.00321858,,source_preserved,
+cst_s11_db_eps2_25,-49.85,dB,derived_from_source_value,
+cst_s11_mag_eps4,0.0104206,,source_preserved,
+cst_s11_db_eps4,-39.64,dB,derived_from_source_value,
+cst_s11_mag_eps6_25,0.0128988,,source_preserved,
+cst_s11_db_eps6_25,-37.79,dB,derived_from_source_value,
+cst_s11_eps9,near_zero,,plot_derived,no exact raw value preserved
+field_case_eps,4.00,,simulated,
+field_frequency,1.000,GHz,simulated,
