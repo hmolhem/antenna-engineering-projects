@@ -3,8 +3,10 @@
 - **Handoff ID:** H007
 - **Date:** 2026-08-01
 - **Branch:** `feature/plane-wave-dielectric-slab-project`
-- **Pull request:** Pending
-- **Status:** Ready for review
+- **Pull request:** [#12](https://github.com/hmolhem/antenna-engineering-projects/pull/12)
+- **Head commit:** `4e28d855821a53d531300f46a8403884f244bd71`
+- **Merge commit:** `3a21aa59430ca85faa600e529bc6d4967808e3ba`
+- **Status:** Merged
 
 ## Purpose
 
@@ -67,4 +69,8 @@ Future work should preserve the native CST model, export raw complex S-parameter
 
 ## Rollback
 
-Before merge, close the pull request and delete `feature/plane-wave-dielectric-slab-project`. After merge, revert the H007 merge commit to remove the project package and restore the previous indexes without rewriting repository history.
+Revert merge commit `3a21aa59430ca85faa600e529bc6d4967808e3ba` without rewriting repository history:
+
+```bash
+git revert -m 1 3a21aa59430ca85faa600e529bc6d4967808e3ba
+```
