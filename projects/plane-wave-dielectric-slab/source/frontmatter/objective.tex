@@ -1,0 +1,38 @@
+\chapter*{Project Objective}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{Project Objective}
+\begingroup
+\setlength{\emergencystretch}{2em}
+
+The objective of this project is to establish a traceable analytical and numerical
+workflow for normal-incidence reflection from a finite dielectric slab. The study
+connects the intrinsic impedance and phase constant of a nonmagnetic dielectric to an
+equivalent transmission-line section and then tests the resulting matching condition
+using a CST parameter sweep.
+
+The project has five principal technical objectives:
+
+\begin{enumerate}
+    \item Derive the input impedance and reflection coefficient of an
+    air--dielectric--air slab under normal incidence.
+
+    \item Show that a slab with physical thickness $d=\lambda_0$ becomes matched
+    whenever its electrical thickness is an integer multiple of one-half wavelength,
+    yielding $\varepsilon_r=(m/2)^2$.
+
+    \item Construct a two-port CST frequency-domain model with electric and magnetic
+    side boundaries that approximates TEM-like propagation along the slab axis.
+
+    \item Sweep relative permittivity from 1 to 10 in 0.25 increments and compare the
+    locations of the simulated $|S_{11}|$ minima with the analytical prediction.
+
+    \item Examine electric- and magnetic-field evidence at $\varepsilon_r=4$, one of
+    the predicted matched cases, while identifying the numerical limitations that
+    constrain interpretation of the null depths and port-mode results.
+\end{enumerate}
+
+The final outcome is a public engineering report consistent with the other portfolio
+projects, together with analytical verification code, machine-readable results,
+simulation evidence, and explicit claim boundaries.
+
+\endgroup

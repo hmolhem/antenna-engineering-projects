@@ -1,0 +1,52 @@
+\section{Engineering Scope and Evidence}
+\label{sec:scope-and-evidence}
+
+The public project is defined by the fixed model specification in
+Table~\ref{tab:model-specification}. The study evaluates the fundamental-mode input
+reflection coefficient at one frequency while varying material permittivity.
+
+\begin{table}[H]
+\centering
+\caption{Public model specification.}
+\label{tab:model-specification}
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}p{0.31\textwidth}X@{}}
+\toprule
+\textbf{Category} & \textbf{Parameter} & \textbf{Specified value} \\
+\midrule
+Electrical & Evaluation frequency & 1.000~GHz \\
+Geometry & Slab thickness & 299.79~mm, approximately $\lambda_0$ \\
+Geometry & Transverse dimensions & $H_0=44.87$~mm, $W_0=299.79$~mm \\
+Material & Relative permittivity & 1 to 10 in 0.25 increments \\
+Material & Relative permeability & 1 \\
+Material & Loss model & Lossless dielectric \\
+Solver & Method & CST frequency-domain solver \\
+Ports & Configuration & Two waveguide ports, three modes requested per port \\
+Boundaries & Side faces & Electric on $x$ faces, magnetic on $y$ faces \\
+Boundaries & Longitudinal faces & Open on $z$ faces \\
+Monitors & Field case & E and H fields at 1~GHz for $\varepsilon_r=4$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Evidence Classes}
+
+\textbf{Analytical evidence} consists of the transmission-line equations, the
+half-wavelength matching derivation, regenerated reflection curves, and executable
+Python verification.
+
+\textbf{Simulated evidence} consists of the preserved CST screenshots. The parameter
+sweep, $|S_{11}|$, $S_{11}$ phase, model geometry, boundaries, port definitions, and
+field plots are directly visible. Selected numerical null values are preserved in the
+source report and result-table screenshot.
+
+\textbf{Measured evidence} is absent. The project contains no fabricated specimen,
+material measurement, field-probe scan, or calibrated microwave measurement.
+
+\subsection{Public Claim Boundary}
+
+The report claims that the observed locations of the simulated reflection minima agree
+with the analytical matching condition. It does not claim an exact infinite-plane-wave
+solution, convergence-qualified null depth, material-tolerance robustness, or measured
+performance. The fundamental-mode result is interpreted despite a reported port-mode
+accuracy warning because its trend follows the analytical prediction; this agreement
+does not replace a formal port- and mesh-convergence study.

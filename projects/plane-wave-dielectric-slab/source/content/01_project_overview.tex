@@ -1,0 +1,35 @@
+\section{Project Overview}
+\label{sec:project-overview}
+
+A finite dielectric slab introduces two impedance discontinuities and a propagation
+phase delay. At normal incidence, the total reflected wave is the coherent sum of the
+reflection at the first interface and the multiple reflections that return from the
+second interface. The result depends on both relative permittivity and electrical
+thickness \cite{balanis2012advanced,stutzman2013antenna}.
+
+This study uses a fixed physical slab thickness of approximately one free-space
+wavelength at 1~GHz and sweeps the dielectric relative permittivity. The analytical
+model predicts a repeated set of matched conditions because the wavelength inside the
+dielectric changes as $1/\sqrt{\varepsilon_r}$. A CST frequency-domain model is used
+to test the predicted locations of the reflection minima.
+
+\begin{table}[H]
+\centering
+\caption{Principal analytical and simulated results.}
+\label{tab:principal-results}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.36\textwidth}X@{}}
+\toprule
+\textbf{Quantity} & \textbf{Result} \\
+\midrule
+Operating frequency & 1.000~GHz \\
+Free-space wavelength & 299.792~mm analytically; 299.79~mm used in CST geometry \\
+Slab thickness & $d\approx\lambda_0=299.79$~mm \\
+Permittivity sweep & $\varepsilon_r=1$ to 10 in 0.25 increments, 37 points \\
+Predicted matched values & $\varepsilon_r=1$, 2.25, 4, 6.25, 9 \\
+CST minimum locations & Same five sweep values \\
+Representative CST minimum & $\varepsilon_r=4$: $|S_{11}|=0.0104206$ or $-39.64$~dB \\
+Field-validation case & $\varepsilon_r=4$ at 1~GHz \\
+Evidence status & Analytical and simulated; no measured validation \\
+\bottomrule
+\end{tabularx}
+\end{table}

@@ -1,4 +1,4 @@
-# Antenna Engineering Projects
+﻿# Antenna Engineering Projects
 
 A public engineering portfolio by **Hossein Molhem** focused on antenna design, applied electromagnetics, full-wave simulation, arrays, guided-wave structures, mutual coupling, body loading, and beam steering.
 
@@ -105,6 +105,24 @@ Verified highlights include:
 - Explicit documentation of PEC metallization, absent raw exports and convergence studies, and a slightly positive displayed radiation-efficiency anomaly
 - No fabrication or measured validation claim
 
+## Plane-Wave Dielectric-Slab Project
+
+### [Normal-Incidence Plane-Wave Reflection from a Dielectric Slab](projects/plane-wave-dielectric-slab/)
+
+**Status:** Public project package available
+
+This project studies a lossless air--dielectric--air slab at **1.000 GHz** using a transmission-line model and CST frequency-domain simulation. A relative-permittivity sweep from **1.00 to 10.00** validates the half-wavelength matching condition through the locations of reflection minima.
+
+Verified highlights include:
+
+- Analytical free-space wavelength of **299.792 mm** and CST slab thickness of **299.79 mm**
+- Permittivity sweep from **1.00 to 10.00** in **0.25** increments
+- Analytical matched values at **1.00, 2.25, 4.00, 6.25, and 9.00**
+- CST reflection minima at the same five sweep points
+- Preserved CST magnitude of **|S11| = 0.0104206** at eps_r = 4, equivalent to **-39.64 dB**
+- E- and H-field validation for eps_r = 4 at 1.000 GHz
+- Explicit documentation of the finite TEM-like model, port-mode warning, missing raw exports, and absent convergence records
+- No experimental or material-measurement claim
 ## Project Portfolio
 
 | Project | Engineering focus | Status |
@@ -114,7 +132,7 @@ Verified highlights include:
 | [Hollow Rectangular Waveguide](projects/hollow-rectangular-waveguide/) | Cutoff, TE/TM modal analysis, square-guide degeneracy, multimode ports, horn-feed interpretation | Public package available |
 | [Resonant Wire Dipole](projects/resonant-wire-dipole/) | Analytical sizing, resonance tuning, S-parameter interpretation, radiation pattern, directivity, HPBW | Public package available |
 | [Inset-Fed Single Microstrip Patch](projects/single-microstrip-patch/) | Transmission-line synthesis, inset-feed matching, CST tuning, fields, directivity, principal-plane HPBW | Public package available |
-| Plane-Wave Dielectric Slab | Normal incidence, reflection, transmission, standing waves, analytical and CST comparison | Planned |
+| [Plane-Wave Dielectric Slab](projects/plane-wave-dielectric-slab/) | Normal incidence, impedance transformation, permittivity sweep, reflection minima, E/H fields, analytical and CST comparison | Public package available |
 
 ## Engineering Methods
 
@@ -136,31 +154,32 @@ Projects may include:
 
 ```text
 antenna-engineering-projects/
-├── README.md
-├── LICENSE.md
-├── CHANGELOG.md
-├── .gitignore
-├── .github/
-├── assets/
-├── docs/
-│   ├── WORKFLOW.md
-│   ├── PROJECT_STANDARD.md
-│   ├── HANDOFF_INDEX.md
-│   └── handoffs/
-└── projects/
-    ├── README.md
-    ├── 5g-patch-array/
-    ├── wearable-half-wave-dipole/
-    ├── hollow-rectangular-waveguide/
-    ├── resonant-wire-dipole/
-    └── single-microstrip-patch/
-        ├── README.md
-        ├── report/
-        ├── source/
-        ├── figures/
-        ├── code/
-        ├── results/
-        └── simulation-notes/
+|-- README.md
+|-- LICENSE.md
+|-- CHANGELOG.md
+|-- .gitignore
+|-- .github/
+|-- assets/
+|-- docs/
+|   |-- WORKFLOW.md
+|   |-- PROJECT_STANDARD.md
+|   |-- HANDOFF_INDEX.md
+|   `-- handoffs/
+`-- projects/
+    |-- README.md
+    |-- 5g-patch-array/
+    |-- wearable-half-wave-dipole/
+    |-- hollow-rectangular-waveguide/
+    |-- resonant-wire-dipole/
+    |-- single-microstrip-patch/
+    `-- plane-wave-dielectric-slab/
+        |-- README.md
+        |-- report/
+        |-- source/
+        |-- figures/
+        |-- code/
+        |-- results/
+        `-- simulation-notes/
 ```
 
 Each mature project includes a project README, selected figures, quantitative results, a public report, reproducibility notes, and an explicit limitations section. Large proprietary or tool-specific binary models may be distributed separately rather than stored directly in Git history.

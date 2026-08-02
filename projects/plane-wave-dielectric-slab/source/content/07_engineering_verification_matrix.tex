@@ -1,0 +1,93 @@
+\section{Engineering Verification Matrix}
+\label{sec:verification-matrix}
+
+Table~\ref{tab:verification-matrix} maps the principal engineering claims to the
+evidence retained in the public package.
+
+\small
+\begin{longtable}{@{}p{0.16\textwidth}p{0.20\textwidth}p{0.16\textwidth}p{0.14\textwidth}p{0.16\textwidth}@{}}
+\caption{Engineering verification matrix.}
+\label{tab:verification-matrix}\\
+\toprule
+\textbf{Claim} & \textbf{Evidence} & \textbf{Outcome} & \textbf{Status} & \textbf{Next validation action} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Claim} & \textbf{Evidence} & \textbf{Outcome} & \textbf{Status} & \textbf{Next validation action} \\
+\midrule
+\endhead
+
+Half-wave slab matching occurs at $\varepsilon_r=(m/2)^2$
+&
+Transmission-line derivation and executable analytical script
+&
+1, 2.25, 4, 6.25, 9
+&
+Analytically verified
+&
+Extend to lossy and oblique-incidence cases
+\\
+\addlinespace[3pt]
+
+CST minimum locations follow the analytical sequence
+&
+Preserved $|S_{11}|$ sweep and source result table
+&
+All five minima occur at the predicted sweep points
+&
+Supported by preserved simulation evidence
+&
+Export raw complex S-parameter data
+\\
+\addlinespace[3pt]
+
+The $\varepsilon_r=4$ case satisfies an integer half-wave condition
+&
+Analytical wavelength relation and field screenshots
+&
+$d=2\lambda_d=4(\lambda_d/2)$
+&
+Analytically verified and qualitatively supported
+&
+Quantify phase progression from raw field data
+\\
+\addlinespace[3pt]
+
+The model supports TEM-like propagation
+&
+Side-boundary setup and dominant $E_x$, $H_y$ screenshots
+&
+Dominant transverse components visible
+&
+Supported qualitatively
+&
+Calculate modal purity and cross-component ratios
+\\
+\addlinespace[3pt]
+
+The exact CST null depths represent the ideal plane-wave solution
+&
+No convergence study; finite model and port warning
+&
+Nulls are small but nonzero
+&
+Not established
+&
+Complete mesh, boundary, port-mode, and length convergence
+\\
+\addlinespace[3pt]
+
+The project provides measured dielectric-slab validation
+&
+No fabricated sample or measurement record
+&
+No measured evidence
+&
+Not claimed
+&
+Fabricate a slab and measure free-space or guided reflection
+\\
+\bottomrule
+\end{longtable}
+\normalsize

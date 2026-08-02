@@ -1,0 +1,16 @@
+Normal-incidence dielectric-slab analytical verification
+f0 = 1.000000 GHz
+lambda0 = 299.792458 mm
+ideal slab thickness d = lambda0 = 299.792458 mm
+eta0 = 376.730314 ohm
+sweep: eps_r = 1.00 to 10.00 in 0.25 steps
+
+Predicted half-wave matching points:
+  m=2: eps_r=1.00, |Gamma|=7.544312e-17, phase=0.000 deg
+  m=3: eps_r=2.25, |Gamma|=1.530808e-16, phase=90.000 deg
+  m=4: eps_r=4.00, |Gamma|=3.750601e-16, phase=78.396 deg
+  m=5: eps_r=6.25, |Gamma|=2.508114e-15, phase=90.000 deg
+  m=6: eps_r=9.00, |Gamma|=9.797174e-16, phase=90.000 deg
+
+Wrote analytical sweep: /mnt/data/plane-wave-dielectric-slab-portfolio-package/results/analytical-sweep.csv
+Wrote figures: /mnt/data/plane-wave-dielectric-slab-portfolio-package/figures/analytical
