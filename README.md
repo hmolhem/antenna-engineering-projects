@@ -1,4 +1,4 @@
-﻿# Antenna Engineering Projects
+# Antenna Engineering Projects
 
 A public engineering portfolio by **Hossein Molhem** focused on antenna design, applied electromagnetics, full-wave simulation, arrays, guided-wave structures, mutual coupling, body loading, and beam steering.
 
@@ -123,6 +123,7 @@ Verified highlights include:
 - E- and H-field validation for eps_r = 4 at 1.000 GHz
 - Explicit documentation of the finite TEM-like model, port-mode warning, missing raw exports, and absent convergence records
 - No experimental or material-measurement claim
+
 ## Project Portfolio
 
 | Project | Engineering focus | Status |

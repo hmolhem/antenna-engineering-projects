@@ -1,4 +1,4 @@
-﻿# Project Portfolio
+# Project Portfolio
 
 This directory contains project-level antenna engineering work. Each project documents the objective, analytical baseline, modeling method, quantitative results, validation evidence, limitations, and reproducibility notes.
 

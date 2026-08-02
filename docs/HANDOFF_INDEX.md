@@ -1,4 +1,4 @@
-﻿# Handoff Index
+# Handoff Index
 
 | ID | Title | Branch | Pull request | Merge commit | Status |
 |---|---|---|---|---|---|
